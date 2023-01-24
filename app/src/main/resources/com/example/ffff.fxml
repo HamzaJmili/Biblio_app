@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #DDDDDD;" stylesheets="@../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.4000244140625" minWidth="0.0" prefWidth="209.9999267578125" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1092.400048828125" minWidth="10.0" prefWidth="1090.8000732421874" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="600.0" prefWidth="47.0" style="-fx-background-color: #222222;">
+         <children>
+            <AnchorPane prefHeight="163.0" prefWidth="210.0">
+               <children>
+                  <ImageView fitHeight="131.0" fitWidth="181.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../icons/estmlogo.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
+            <AnchorPane prefHeight="335.0" prefWidth="210.0">
+               <children>
+                  <Button graphicTextGap="0.0" layoutX="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Dashboard" textFill="WHITE" textOverrun="CLIP">
+                     <padding>
+                        <Insets right="60.0" top="2.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/dashboard.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="24.0" layoutY="58.0" prefWidth="57.0" text="UTILISATEURS" textFill="#7e7d7d">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Button graphicTextGap="0.0" layoutX="5.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Admins   " textFill="WHITE" textOverrun="CLIP">
+                     <padding>
+                        <Insets right="60.0" top="2.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/admin.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button graphicTextGap="0.0" layoutX="4.0" layoutY="120.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Etudiants" textFill="WHITE" textOverrun="CLIP">
+                     <padding>
+                        <Insets right="60.0" top="2.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/student.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="28.0" layoutY="194.0" prefWidth="57.0" text="LIVRES" textFill="#7e7d7d">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Button graphicTextGap="0.0" layoutX="4.0" layoutY="226.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Livres   " textFill="WHITE" textOverrun="CLIP">
+                     <padding>
+                        <Insets right="60.0" top="2.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/books.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button graphicTextGap="0.0" layoutX="4.0" layoutY="263.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Auteurs " textFill="WHITE" textOverrun="CLIP">
+                     <padding>
+                        <Insets right="50.0" top="2.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/author.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button graphicTextGap="0.0" layoutX="4.0" layoutY="300.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="   Tags     " textFill="WHITE" textOverrun="CLIP">
+                     <padding>
+                        <Insets right="60.0" top="2.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/hashtag.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                 
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="194.0" prefWidth="210.0">
+               <children>
+                  <Button graphicTextGap="0.0" layoutX="3.0" layoutY="63.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Parametres" textFill="WHITE" textOverrun="CLIP">
+                     <padding>
+                        <Insets right="60.0" top="2.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="28.0" layoutY="37.0" prefWidth="57.0" text="PARAMETRES" textFill="#7e7d7d">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="TOP_RIGHT" cacheShape="false" centerShape="false" focusTraversable="false" graphicTextGap="0.0" layoutX="5.0" layoutY="146.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" scaleShape="false" styleClass="besoin_aide" text="Besoin d'aide ?" textAlignment="RIGHT" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children></VBox>
+      <GridPane GridPane.columnIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="225.9333251953125" minHeight="0.0" prefHeight="46.73333053588867" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="660.3333251953125" minHeight="10.0" prefHeight="652.8666694641113" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane prefHeight="26.0" prefWidth="1090.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Label id="nom_utilisateur" alignment="CENTER_RIGHT" layoutX="830.0" layoutY="12.0" prefHeight="22.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Ilias El Amrani">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="982.0" layoutY="11.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="0.0" styleClass="logout_button">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/logout .png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</GridPane>
