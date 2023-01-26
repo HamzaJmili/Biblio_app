@@ -7,11 +7,25 @@
 .label {
     -fx-text-fill: #474444;
     -fx-font-weight: bold;
+    -fx-position: absolute;
+    -fx-font-family :'Muli',sans-serif;
+
+      
 }
 .rightbar{
     -fx-background-color: #222222;
+   
 }
 .textfield{
+    -fx-background-color: #7E8590;
 
 
+} 
+.root{
+    -fx-background-color:#222222 ;
 }
+
+
+
+
+
