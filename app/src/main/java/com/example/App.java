@@ -20,8 +20,9 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("login_inter")); //, 1300, 700 
         stage.setScene(scene);
+        stage.setTitle("ilias");;
        
-        // stage.initStyle(StageStyle.UNDECORATED);
+         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     
     }
