@@ -1,0 +1,13 @@
+ create table livre(id_livre int primary key ,titre varchar(20),description varchar(300),couverture varchar(30),id_auteur int);
+ create table auteur(id_auteu int primary key ,nom_auteur varchar(20),prenom_auteur varchar(20),bio_auteur varchar(300));
+ create table tag(id_tag int primary key , nom_tag varchar(20));
+ create table etudiant(cne varchar(20) primary key , nom_etudiant varchar(20) ,prenom_etudiant varchar(20),email_etudiant varchar(30),mdp_etudiant varchar(30));
+ create table admin(id_admin int primary key , nom_admin varchar(20) ,prenom_admin varchar(20),email_admin varchar(30),mdp_admin varchar(30));
+create table avoir( id_tag int ,id_livre int ,primary key(id_tag,id_livre));
+ create table reserve(cne varchar(20) ,id_livre int ,date_debut date ,date_fin date , primary key(cne,id_livre));
+ alter table auteur rename column id_auteu to id_auteur;
+ ALTER TABLE livre ADD CONSTRAINT fk_1 FOREIGN KEY (id_auteur) REFERENCES auteur(id_auteur);
+ ALTER TABLE avoir  ADD CONSTRAINT fk_2 FOREIGN KEY (id_tag) REFERENCES tag(id_tag);
+ALTER TABLE avoir  ADD CONSTRAINT fk_3 FOREIGN KEY (id_livre) REFERENCES livre(id_livre);
+ALTER TABLE reserve  ADD CONSTRAINT fk_4 FOREIGN KEY (cne) REFERENCES etudiant(cne);
+ ALTER TABLE reserve  ADD CONSTRAINT fk_5 FOREIGN KEY (id_livre) REFERENCES livre(id_livre);

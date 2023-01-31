@@ -38,8 +38,8 @@ public class App extends Application {
         scene = new Scene(loadFXML("login_inter")); //, 1300, 700 
         stage.setScene(scene);
         stage.setTitle("ilias");;
-        stage.setStyle("-fx-background-color: white ;");
-        //  stage.initStyle(StageStyle.UNDECORATED);
+        
+          stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
         }
     
