@@ -55,3 +55,7 @@
   -fx-cursor : "HAND";
   -fx-background-color:  #E38B29 ;
 }
+.eye_button{
+  -fx-cursor : "HAND";
+  -fx-background-color:transparent;
+}
