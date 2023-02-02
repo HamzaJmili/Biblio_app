@@ -1,7 +1,9 @@
 package com.example.controllers;
 import java.io.IOException;
 
+
 import com.example.App;
+import com.example.Admin;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 
 public class loginController  {
     private static boolean visible = false ;
+    protected static boolean isadmin=false;
    
         @FXML
         private Button closeButton;
@@ -52,6 +55,8 @@ public class loginController  {
             
             admin.setStyle("-fx-border-style: hidden hidden solid solid ;-fx-border-color : #FF5F00 ;-fx-border-radius: 3;-fx-background-color:#292929 ;-fx-border-width :1.5px ;");
             etudiant.setStyle(null);
+            isadmin=true;
+
            
         }
         @FXML
@@ -59,6 +64,7 @@ public class loginController  {
             
             etudiant.setStyle("-fx-border-style: hidden solid solid hidden;-fx-border-color : #FF5F00 ;-fx-border-radius: 3;-fx-background-color:#292929 ;-fx-border-width :1.5px ;");
             admin.setStyle(null);
+            isadmin=false;
            
         }
 
@@ -85,6 +91,13 @@ public class loginController  {
            
         }
 
+//    @FXML
+//        boolean  seconnecter(){
+  
+//       // Admin a= com.example.modele_admin.checkadmin();
+      
+//         return false ;
 
+//    }
     
 }

@@ -1,13 +1,13 @@
 package com.example;
 
-public class etudiant {
+public class Etudiant {
     private String cne ;
     private String nom_etudiant ;
     private String prenom_etudiant ;
     private String email_etudiant ;
     private String mdp_etudiant ;
 
-    public etudiant(String cne, String nom_etudiant, String prenom_etudiant, String email_etudiant,String mdp_etudiant) {
+    public Etudiant(String cne, String nom_etudiant, String prenom_etudiant, String email_etudiant,String mdp_etudiant) {
         this.cne = cne;
         this.nom_etudiant = nom_etudiant;
         this.prenom_etudiant = prenom_etudiant;

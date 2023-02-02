@@ -1,6 +1,6 @@
 package com.example;
 
-public class admin {
+public class Admin {
     private int id_admin ;
     private String  nom_admin ;
     private String prenom_admin ;
@@ -8,7 +8,7 @@ public class admin {
     private String mdp_admin ;
 
     
-    public admin(int id_admin, String nom_admin, String prenom_admin, String email_admin, String mdp_admin) {
+    public Admin(int id_admin, String nom_admin, String prenom_admin, String email_admin, String mdp_admin) {
         this.id_admin = id_admin;
         this.nom_admin = nom_admin;
         this.prenom_admin = prenom_admin;

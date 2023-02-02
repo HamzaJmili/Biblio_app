@@ -1,13 +1,13 @@
 package com.example;
 
-public class auteur {
+public class Auteur {
     private int id_auteur ;
     private String nom_auteur ;
     private String prenom_auteur ;
     private String bio_auteur ;
 
     
-    public auteur(int id_auteur, String nom_auteur ,String prenom_auteur ,String bio_auteur){
+    public Auteur(int id_auteur, String nom_auteur ,String prenom_auteur ,String bio_auteur){
         this.id_auteur=id_auteur ;
         this.nom_auteur=nom_auteur;
         this.prenom_auteur=prenom_auteur;

@@ -5,12 +5,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class modele_admin {
-    public static admin checkadmin(String email, String mdp) throws SQLException{
+public  class modele_admin {
+    public static Admin checkadmin(String email, String mdp) throws SQLException{
    ResultSet rs= conn.getStatement().executeQuery("select * from admin where email='"+email+"' and mdp_admin='"+mdp+"' ");
  if(rs.wasNull()) 
  return null ;
-     admin adm = new admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+     Admin adm = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
    return adm;
         
     }

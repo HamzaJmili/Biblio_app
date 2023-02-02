@@ -1,10 +1,10 @@
 package com.example;
 
-public class tag {
+public class Tag {
     private int id_tag ;
     private String nom_tag ;
 
-    public tag(int id_tag, String nom_tag) {
+    public Tag(int id_tag, String nom_tag) {
         this.id_tag = id_tag;
         this.nom_tag = nom_tag;
     }
