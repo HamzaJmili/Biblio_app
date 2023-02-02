@@ -69,18 +69,20 @@
                               <Insets bottom="1.0" top="1.0" />
                            </padding>
                         </Button>
-                        <Button layoutY="108.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="130.0" styleClass="etud_adm" text="Etudiant" fx:id = "etudiant" onAction="#switchtoetudiant">
+                        <Button fx:id="etudiant" layoutY="108.0" mnemonicParsing="false" onAction="#switchtoetudiant" prefHeight="32.0" prefWidth="130.0" styleClass="etud_adm" text="Etudiant">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                            <padding>
-                              <Insets top="1.0" />
+                              <Insets top="-4.0" />
                            </padding>
+                           
                         </Button>
-                        <Button layoutX="130.0" layoutY="108.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="130.0" styleClass="etud_adm" text="Admin" AnchorPane.bottomAnchor="266.0" AnchorPane.topAnchor="108.0" fx:id = "admin" onAction="#switchtoadmin">
+                        <Button fx:id="admin" layoutX="130.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchtoadmin" prefHeight="32.0" prefWidth="130.0" styleClass="etud_adm" text="Admin" AnchorPane.bottomAnchor="260.0" AnchorPane.topAnchor="108.0">
                            <padding>
-                              <Insets top="1.0" />
+                              <Insets top="-4.0" />
                            </padding>
+                          
                         </Button>
                      </children>
                   </AnchorPane>

@@ -60,6 +60,8 @@
   -fx-background-color:transparent;
 }
 .etud_adm{
+  -fx-font-style :Italic;
+  -fx-cursor : "HAND";
   -fx-background-color:transparent;
   -fx-text-fill:#ffffff;
   -fx-font-weight: bold;
