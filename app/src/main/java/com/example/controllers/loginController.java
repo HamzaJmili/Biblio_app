@@ -26,10 +26,16 @@ public class loginController  {
         private TextField password_text_field ;
         @FXML
         private Button eye_button_passwordfield ;
+        @FXML
+        private Button admin ;
+        @FXML
+        private Button etudiant ;
+
        
     @FXML
     protected void initialize (){
         password_text_field.setVisible(false);
+        etudiant.setStyle("-fx-border-style: hidden solid solid hidden;-fx-border-color : #FF5F00 ;-fx-border-radius: 3;-fx-background-color:#292929 ;-fx-border-width :1.5px ;");
          
     }
         
@@ -41,6 +47,21 @@ public class loginController  {
             
            
         }
+        @FXML
+        void switchtoadmin(ActionEvent event) throws IOException {
+            
+            admin.setStyle("-fx-border-style: hidden hidden solid solid ;-fx-border-color : #FF5F00 ;-fx-border-radius: 3;-fx-background-color:#292929 ;-fx-border-width :1.5px ;");
+            etudiant.setStyle(null);
+           
+        }
+        @FXML
+        void switchtoetudiant(ActionEvent event) throws IOException {
+            
+            etudiant.setStyle("-fx-border-style: hidden solid solid hidden;-fx-border-color : #FF5F00 ;-fx-border-radius: 3;-fx-background-color:#292929 ;-fx-border-width :1.5px ;");
+            admin.setStyle(null);
+           
+        }
+
         
         @FXML
         void eye_button(ActionEvent event )throws IOException{
@@ -50,6 +71,7 @@ public class loginController  {
                 password_password_field.setVisible(false);
                 password_text_field.setVisible(true);
                 visible=true;
+                
                 return ;
             }
             if(visible==true){
@@ -60,6 +82,7 @@ public class loginController  {
                 return;
                
             }
+           
         }
 
 
