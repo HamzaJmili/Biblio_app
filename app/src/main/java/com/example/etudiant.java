@@ -7,8 +7,7 @@ public class etudiant {
     private String email_etudiant ;
     private String mdp_etudiant ;
 
-    public etudiant(String cne, String nom_etudiant, String prenom_etudiant, String email_etudiant,
-            String mdp_etudiant) {
+    public etudiant(String cne, String nom_etudiant, String prenom_etudiant, String email_etudiant,String mdp_etudiant) {
         this.cne = cne;
         this.nom_etudiant = nom_etudiant;
         this.prenom_etudiant = prenom_etudiant;

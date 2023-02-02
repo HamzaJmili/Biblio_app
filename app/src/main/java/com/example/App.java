@@ -18,23 +18,23 @@ import java.net.URLConnection;
 public class App extends Application {
 
     private static Scene scene;
-    // private static boolean netIsAvailable() {
-    //     try {
-    //         final URL url = new URL("http://www.google.com");
-    //         final URLConnection conn = url.openConnection();
-    //         conn.connect();
-    //         conn.getInputStream().close();
-    //         return true;
-    //     } catch (MalformedURLException e) {
-    //         throw new RuntimeException(e);
-    //     } catch (IOException e) {
-    //         return false;
-    //     }
-    // }
+    private static boolean netIsAvailable() {
+        try {
+            final URL url = new URL("http://www.google.com");
+            final URLConnection conn = url.openConnection();
+            conn.connect();
+            conn.getInputStream().close();
+            return true;
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            return false;
+        }
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
-        // if(netIsAvailable()==true){
+        if(netIsAvailable()==true){
         scene = new Scene(loadFXML("login_inter")); //, 1300, 700 
         stage.setScene(scene);
         stage.setTitle("ilias");;
@@ -43,13 +43,13 @@ public class App extends Application {
         stage.show();
         }
     
-    // }
+    }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
-    public static Parent loadFXML(String fxml) throws IOException {
+    private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/"+fxml + ".fxml"));
         return fxmlLoader.load();
     }
