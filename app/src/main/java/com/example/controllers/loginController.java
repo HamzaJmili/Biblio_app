@@ -43,7 +43,7 @@ public class loginController  {
         @FXML
         private Button etudiant ;
         @FXML 
-        private TextField email_field ;
+        private TextField email ;
         @FXML 
         private Label incorrect_mdps;
         
@@ -113,16 +113,16 @@ public class loginController  {
         if (isadmin==true){
              
             if (!password_password_field.getText().isEmpty())
-            utilisateur =Modele_admin.checkadmin(email_field.getText(),password_password_field.getText());
+            utilisateur =Modele_admin.checkadmin(email.getText(),password_password_field.getText());
            
              if (!password_text_field.getText().isEmpty())
-             utilisateur=Modele_admin.checkadmin(email_field.getText(),password_text_field.getText());
+             utilisateur=Modele_admin.checkadmin(email.getText(),password_text_field.getText());
         }else {
             if (!password_password_field.getText().isEmpty())
-            utilisateur =Modele_etudiant.checkEtudiant(email_field.getText(),password_password_field.getText());
+            utilisateur =Modele_etudiant.checkEtudiant(email.getText(),password_password_field.getText());
            
              if (!password_text_field.getText().isEmpty())
-             utilisateur=Modele_etudiant.checkEtudiant(email_field.getText(),password_text_field.getText());
+             utilisateur=Modele_etudiant.checkEtudiant(email.getText(),password_text_field.getText());
         }
      
         return utilisateur ;
