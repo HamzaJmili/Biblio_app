@@ -88,7 +88,7 @@ public class loginController  {
             if (visible==false){
                 
                 password_text_field.setText(password_password_field.getText());
-                password_password_field.setText(null);
+                password_password_field.setText("");
                 password_password_field.setVisible(false);
                 password_text_field.setVisible(true);
                 visible=true;
@@ -97,7 +97,7 @@ public class loginController  {
             }
             if(visible==true){
                 password_password_field.setText(password_text_field.getText());
-                password_text_field.setText(null);
+                password_text_field.setText("");
                 password_text_field.setVisible(false);
                 password_password_field.setVisible(true);
                 visible=false;
@@ -112,16 +112,16 @@ public class loginController  {
         User utilisateur = null ; 
         if (isadmin==true){
              
-            if (!password_password_field.equals(null))
+            if (!password_password_field.getText().isEmpty())
             utilisateur =Modele_admin.checkadmin(email_field.getText(),password_password_field.getText());
            
-             if (!password_text_field.equals(null))
+             if (!password_text_field.getText().isEmpty())
              utilisateur=Modele_admin.checkadmin(email_field.getText(),password_text_field.getText());
         }else {
-            if (!password_password_field.equals(null))
+            if (!password_password_field.getText().isEmpty())
             utilisateur =Modele_etudiant.checkEtudiant(email_field.getText(),password_password_field.getText());
            
-             if (!password_text_field.equals(null))
+             if (!password_text_field.getText().isEmpty())
              utilisateur=Modele_etudiant.checkEtudiant(email_field.getText(),password_text_field.getText());
         }
      
