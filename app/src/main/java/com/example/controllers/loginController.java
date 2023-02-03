@@ -12,10 +12,11 @@ import com.example.Admin;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 import javafx.scene.Group;
-
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -129,11 +130,25 @@ public class loginController  {
 
    }
    @FXML
-   void seconnecter (ActionEvent event) throws SQLException {
+   void seconnecter (ActionEvent event) throws SQLException, IOException {
     if (verifierEtulisateur()==null){
         incorrect_mdps.setVisible(true);
     }
+    else {
+        ((Stage) closeButton.getScene().getWindow()).close();
+        Stage stage2 =new Stage();
+        Scene scene2 = new Scene(loadFXML("leftbar"));
+        stage2.setScene(scene2);
+        stage2.show();
+    }
    }
+
+
+private Parent loadFXML(String fxml) throws IOException {
+    FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/"+fxml + ".fxml"));
+        return fxmlLoader.load();
+    
+}
   
     
 }

@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public  class Modele_admin {
   public static User checkadmin(String email,String mot_de_pass) {
-    System.out.println("222");
+    
     try {
       Statement s=conn.getStatement();      
       ResultSet rs= conn.getStatement().executeQuery("select * from admin where email_admin='"+email+"' and mdp_admin='"+mot_de_pass+"' ");
@@ -19,7 +19,7 @@ public  class Modele_admin {
         return null;
             
       } catch (SQLException e) {
-        System.out.println("mmmmmmm");
+       
         return null;
         
       }
