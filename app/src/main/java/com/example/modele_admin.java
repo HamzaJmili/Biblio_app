@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 
 public  class Modele_admin {
-  public static User checkEtudiant(String email,String mot_de_pass) {
+  public static User checkadmin(String email,String mot_de_pass) {
     System.out.println("222");
     try {
       Statement s=conn.getStatement();      
