@@ -10,7 +10,7 @@ public  class Modele_admin {
     System.out.println("222");
     try {
       Statement s=conn.getStatement();      
-      ResultSet rs= conn.getStatement().executeQuery("select * from admin where email='"+email+"' and mdp_admin='"+mot_de_pass+"' ");
+      ResultSet rs= conn.getStatement().executeQuery("select * from admin where email_admin='"+email+"' and mdp_admin='"+mot_de_pass+"' ");
       
         while (rs.next()) {
           User adm = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
