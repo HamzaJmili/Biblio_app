@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class Modele_etudiant {
     public static User checkEtudiant(String email,String mot_de_pass) {
-      System.out.println("222");
+      
       try {
         Statement s=conn.getStatement();
         ResultSet r=s.executeQuery("select * from etudiant where EMAIL_ETUDIANT='"+email+"' and MDP_ETUDIANT='"+mot_de_pass+"'");
@@ -18,7 +18,7 @@ public class Modele_etudiant {
           return null;
               
         } catch (SQLException e) {
-          System.out.println("mmmmmmm");
+         
           return null;
           
         }
