@@ -51,7 +51,7 @@
                               <Font name="System Bold Italic" size="13.0" />
                            </font>
                         </Label>
-                        <Button layoutX="112.0" layoutY="336.0" mnemonicParsing="false" styleClass="connecter" text="Se connecter">
+                        <Button fx:id="seConnecter" layoutX="112.0" layoutY="346.0" mnemonicParsing="false" styleClass="connecter" text="Se connecter" onAction="#seconnecter" >
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font>
@@ -69,7 +69,7 @@
                               <Insets bottom="1.0" top="1.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="etudiant" layoutY="108.0" mnemonicParsing="false" onAction="#switchtoetudiant" prefHeight="32.0" prefWidth="130.0" styleClass="etud_adm" text="Etudiant">
+                        <Button fx:id="etudiant" layoutY="108.0" mnemonicParsing="false" onAction="#switchtoetudiant" prefHeight="27.0" prefWidth="130.0" styleClass="etud_adm" text="Etudiant">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -78,12 +78,17 @@
                            </padding>
                            
                         </Button>
-                        <Button fx:id="admin" layoutX="130.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchtoadmin" prefHeight="32.0" prefWidth="130.0" styleClass="etud_adm" text="Admin" AnchorPane.bottomAnchor="260.0" AnchorPane.topAnchor="108.0">
+                        <Button fx:id="admin" layoutX="130.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchtoadmin" prefHeight="27.0" prefWidth="130.0" styleClass="etud_adm" text="Admin" AnchorPane.bottomAnchor="265.0" AnchorPane.topAnchor="108.0">
                            <padding>
                               <Insets top="-4.0" />
                            </padding>
                           
                         </Button>
+                        <Label layoutX="31.0" layoutY="315.0" text="Email et/ou mot de passe incorrect !" textFill="#c41515" fx:id ="incorrect_mdps">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>

@@ -4,7 +4,9 @@ import java.sql.SQLException;
 
 import com.example.App;
 import com.example.Etudiant;
+import com.example.Modele_admin;
 import com.example.Modele_etudiant;
+import com.example.User;
 import com.example.Admin;
 
 import javafx.application.Application;
@@ -15,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.Group;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,6 +26,10 @@ public class loginController  {
     private static boolean visible = false ;
     protected static boolean isadmin=false;
    
+        public static boolean isIsadmin() {
+        return isadmin;
+    }
+
         @FXML
         private Button closeButton;
         @FXML
@@ -35,13 +42,18 @@ public class loginController  {
         private Button admin ;
         @FXML
         private Button etudiant ;
+        @FXML 
+        private TextField email_field ;
+        @FXML 
+        private Label incorrect_mdps;
+        
 
        
     @FXML
     protected void initialize (){
         password_text_field.setVisible(false);
         etudiant.setStyle("-fx-border-style: hidden solid solid hidden;-fx-border-color : #FF5F00 ;-fx-border-radius: 3;-fx-background-color:#292929 ;-fx-border-width :1.5px ;");
-         
+        incorrect_mdps.setVisible(false);
     }
         
     
@@ -76,6 +88,7 @@ public class loginController  {
             if (visible==false){
                 
                 password_text_field.setText(password_password_field.getText());
+                password_password_field.setText(null);
                 password_password_field.setVisible(false);
                 password_text_field.setVisible(true);
                 visible=true;
@@ -84,6 +97,7 @@ public class loginController  {
             }
             if(visible==true){
                 password_password_field.setText(password_text_field.getText());
+                password_text_field.setText(null);
                 password_text_field.setVisible(false);
                 password_password_field.setVisible(true);
                 visible=false;
@@ -93,20 +107,34 @@ public class loginController  {
            
         }
 
-   @FXML
-   TextField email;
- 
- @FXML
-
-       public void  seconnecteretu() throws SQLException{
-        if(password_password_field.getText().isEmpty()==false || password_text_field.getText().isEmpty()==false){
-        if(password_password_field.getText().isEmpty()==true){
-  Etudiant Etu=Modele_etudiant.checkuser(email.getText(),password_text_field.getText() );}else{
-    Etudiant Etu=Modele_etudiant.checkuser(email.getText(), password_password_field.getText());
-  }
+   
+       User  verifierEtulisateur() throws SQLException{
+        User utilisateur = null ; 
+        if (isadmin==true){
+             
+            if (!password_password_field.equals(null))
+            utilisateur =Modele_admin.checkadmin(email_field.getText(),password_password_field.getText());
+           
+             if (!password_text_field.equals(null))
+             utilisateur=Modele_admin.checkadmin(email_field.getText(),password_text_field.getText());
+        }else {
+            if (!password_password_field.equals(null))
+            utilisateur =Modele_etudiant.checkEtudiant(email_field.getText(),password_password_field.getText());
+           
+             if (!password_text_field.equals(null))
+             utilisateur=Modele_etudiant.checkEtudiant(email_field.getText(),password_text_field.getText());
+        }
      
-  }else{
+        return utilisateur ;
+
+   }
+   @FXML
+   void seconnecter (ActionEvent event) throws SQLException {
+    if (verifierEtulisateur()==null){
+        incorrect_mdps.setVisible(true);
+    }
+   }
+  
     
-  }
-}  
 }
+

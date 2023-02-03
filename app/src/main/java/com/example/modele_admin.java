@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public  class modele_admin {
+public  class Modele_admin {
     public static User checkadmin(String email, String mdp) throws SQLException{
    ResultSet rs= conn.getStatement().executeQuery("select * from admin where email='"+email+"' and mdp_admin='"+mdp+"' ");
  if(rs.wasNull()) 
