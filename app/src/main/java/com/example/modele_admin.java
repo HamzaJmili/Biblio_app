@@ -6,11 +6,11 @@ import java.sql.Statement;
 
 
 public  class modele_admin {
-    public static Admin checkadmin(String email, String mdp) throws SQLException{
+    public static User checkadmin(String email, String mdp) throws SQLException{
    ResultSet rs= conn.getStatement().executeQuery("select * from admin where email='"+email+"' and mdp_admin='"+mdp+"' ");
  if(rs.wasNull()) 
  return null ;
-     Admin adm = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+     User adm = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
    return adm;
         
     }

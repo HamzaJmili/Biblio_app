@@ -1,8 +1,10 @@
 package com.example.controllers;
 import java.io.IOException;
-
+import java.sql.SQLException;
 
 import com.example.App;
+import com.example.Etudiant;
+import com.example.Modele_etudiant;
 import com.example.Admin;
 
 import javafx.application.Application;
@@ -91,13 +93,20 @@ public class loginController  {
            
         }
 
-//    @FXML
-//        boolean  seconnecter(){
-  
-//       // Admin a= com.example.modele_admin.checkadmin();
-      
-//         return false ;
+   @FXML
+   TextField email;
+ 
+ @FXML
 
-//    }
+       public void  seconnecteretu() throws SQLException{
+        if(password_password_field.getText().isEmpty()==false || password_text_field.getText().isEmpty()==false){
+        if(password_password_field.getText().isEmpty()==true){
+  Etudiant Etu=Modele_etudiant.checkuser(email.getText(),password_text_field.getText() );}else{
+    Etudiant Etu=Modele_etudiant.checkuser(email.getText(), password_password_field.getText());
+  }
+     
+  }else{
     
+  }
+}  
 }
