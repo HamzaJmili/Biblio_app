@@ -124,7 +124,7 @@ public class loginController  {
              if (!password_text_field.getText().isEmpty())
              utilisateur=Modele_etudiant.checkEtudiant(email.getText(),password_text_field.getText());
         }
-     
+     System.out.println("jjjjjjj");
         return utilisateur ;
 
    }
