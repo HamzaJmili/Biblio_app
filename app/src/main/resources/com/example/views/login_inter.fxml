@@ -39,7 +39,7 @@
                               <Image url="@../icons/estmlogo.png" />
                            </image>
                         </ImageView>
-                        <TextField fx:id="email_field" layoutX="31.0" layoutY="183.0" prefHeight="32.0" prefWidth="185.0" styleClass="textfield" />
+                        <TextField fx:id="email" layoutX="31.0" layoutY="183.0" prefHeight="32.0" prefWidth="185.0" styleClass="textfield" />
                         <Label layoutX="31.0" layoutY="160.0" text="Email :" textFill="#e38b29">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
