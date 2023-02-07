@@ -139,6 +139,7 @@ public class loginController  {
     }
     else {
         
+        
         ((Stage) closeButton.getScene().getWindow()).close();
         Stage stage2 =new Stage();
         Scene scene2 = new Scene(App.loadFXML("dashboard"));
