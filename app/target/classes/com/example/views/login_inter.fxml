@@ -51,7 +51,7 @@
                               <Font name="System Bold Italic" size="13.0" />
                            </font>
                         </Label>
-                        <Button fx:id="seConnecter" layoutX="112.0" layoutY="346.0" mnemonicParsing="false" styleClass="connecter" text="Se connecter" onAction="#seconnecter" >
+                        <Button fx:id="seConnecter" layoutX="112.0" layoutY="346.0" mnemonicParsing="false" styleClass="connecter" onAction="#seconnecter" >
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font>

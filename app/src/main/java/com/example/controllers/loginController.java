@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class loginController  {
@@ -47,11 +48,13 @@ public class loginController  {
         private TextField email ;
         @FXML 
         private Label incorrect_mdps;
+        @FXML
+        private Button seConnecter;
         
 
        
     @FXML
-    protected void initialize (){
+    protected void initialize (){seConnecter.setText("zit");
         password_text_field.setVisible(false);
         etudiant.setStyle("-fx-border-style: hidden solid solid hidden;-fx-border-color : #FF5F00 ;-fx-border-radius: 3;-fx-background-color:#292929 ;-fx-border-width :1.5px ;");
         incorrect_mdps.setVisible(false);
@@ -130,16 +133,22 @@ public class loginController  {
 
    }
    @FXML
-   void seconnecter (ActionEvent event) throws SQLException, IOException {
+   void seconnecter (ActionEvent event) throws Exception {
+    seConnecter.setText("wait..");
     if (verifierEtulisateur()==null){
         incorrect_mdps.setVisible(true);
     }
     else {
+        
+        Thread.sleep( 7000);
         ((Stage) closeButton.getScene().getWindow()).close();
         Stage stage2 =new Stage();
-        Scene scene2 = new Scene(App.loadFXML("leftbar"));
+        Scene scene2 = new Scene(App.loadFXML("dashboard"));
+       
+     
         stage2.setScene(scene2);
         stage2.setResizable(false);
+        
         stage2.show();
     }
    }
