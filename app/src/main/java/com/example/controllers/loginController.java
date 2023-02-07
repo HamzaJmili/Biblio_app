@@ -54,7 +54,7 @@ public class loginController  {
 
        
     @FXML
-    protected void initialize (){seConnecter.setText("zit");
+    protected void initialize (){
         password_text_field.setVisible(false);
         etudiant.setStyle("-fx-border-style: hidden solid solid hidden;-fx-border-color : #FF5F00 ;-fx-border-radius: 3;-fx-background-color:#292929 ;-fx-border-width :1.5px ;");
         incorrect_mdps.setVisible(false);
@@ -134,13 +134,11 @@ public class loginController  {
    }
    @FXML
    void seconnecter (ActionEvent event) throws Exception {
-    seConnecter.setText("wait..");
     if (verifierEtulisateur()==null){
         incorrect_mdps.setVisible(true);
     }
     else {
         
-        Thread.sleep( 7000);
         ((Stage) closeButton.getScene().getWindow()).close();
         Stage stage2 =new Stage();
         Scene scene2 = new Scene(App.loadFXML("dashboard"));

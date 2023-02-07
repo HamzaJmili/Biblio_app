@@ -35,7 +35,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         if(netIsAvailable()==true){
-        scene = new Scene(loadFXML("login_inter")); //, 1300, 700 
+        scene = new Scene(loadFXML("dashboard")); //, 1300, 700 
         stage.setScene(scene);
         stage.setTitle("ilias");;
         
