@@ -137,18 +137,15 @@ public class loginController  {
     else {
         ((Stage) closeButton.getScene().getWindow()).close();
         Stage stage2 =new Stage();
-        Scene scene2 = new Scene(loadFXML("leftbar"));
+        Scene scene2 = new Scene(App.loadFXML("leftbar"));
         stage2.setScene(scene2);
+        stage2.setResizable(false);
         stage2.show();
     }
    }
 
 
-private Parent loadFXML(String fxml) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/"+fxml + ".fxml"));
-        return fxmlLoader.load();
-    
-}
+
   
     
 }
