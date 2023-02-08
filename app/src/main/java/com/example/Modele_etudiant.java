@@ -24,6 +24,25 @@ public class Modele_etudiant {
         }
            
         }
+        public static int countetu() {
+      
+          try {
+            Statement s=conn.getStatement();
+            ResultSet r=s.executeQuery("select count(*) from etudiant");
+            
+              while (r.next()) {
+                
+                return r.getInt("count(*)");
+              }
+              return 0;
+                  
+            } catch (SQLException e) {
+             
+              return 0;
+              
+            }
+               
+            }
         
     }
 

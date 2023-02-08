@@ -6,6 +6,7 @@ import com.example.App;
 import com.example.Etudiant;
 import com.example.Modele_admin;
 import com.example.Modele_etudiant;
+import com.example.Session;
 import com.example.User;
 import com.example.Admin;
 
@@ -138,6 +139,10 @@ public class loginController  {
         incorrect_mdps.setVisible(true);
     }
     else {
+        User user=this.verifierEtulisateur();
+        Session.nom_utiliasteur=user.getNom_user();
+        Session.prenom_utiliasteur=user.getPrenom_user();
+        Session.email_utiliasteur=user.getEmail_user();
         
         
         ((Stage) closeButton.getScene().getWindow()).close();
