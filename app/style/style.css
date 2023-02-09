@@ -7,8 +7,10 @@
 }
 
 .buttonn:hover {
-  -fx-background-color:#E38B29;
-  -fx-text-fill: #222222;
+  -fx-border-width :1.5px ;
+  -fx-border-radius: 5 ;
+  -fx-border-color : #E38B29 ;
+ 
 }
 .logout_button {
   -fx-background-color:transparent;

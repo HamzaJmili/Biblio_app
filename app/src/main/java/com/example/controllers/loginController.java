@@ -52,6 +52,7 @@ public class loginController  {
         @FXML
         private Button seConnecter;
         
+        
 
        
     @FXML
@@ -143,11 +144,11 @@ public class loginController  {
         Session.nom_utiliasteur=user.getNom_user();
         Session.prenom_utiliasteur=user.getPrenom_user();
         Session.email_utiliasteur=user.getEmail_user();
-        
+        leftbarController.button_selected="dashboard";
         
         ((Stage) closeButton.getScene().getWindow()).close();
-        Stage stage2 =new Stage();
-        Scene scene2 = new Scene(App.loadFXML("dashboard"));
+      Stage stage2 =new Stage();
+      Scene scene2 = new Scene(App.loadFXML("dashboard"));
        
      
         stage2.setScene(scene2);

@@ -74,7 +74,7 @@
                </children></AnchorPane>
             <AnchorPane prefHeight="335.0" prefWidth="210.0">
                <children>
-                  <Button graphicTextGap="0.0" layoutX="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Dashboard" textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="dashboard" onAction="#gotodashboard" graphicTextGap="0.0" layoutX="5.0"  mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Dashboard" textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
@@ -100,7 +100,7 @@
                         <Font size="8.0" />
                      </font>
                   </Label>
-                  <Button graphicTextGap="0.0" layoutX="5.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Admins   " textFill="WHITE" textOverrun="CLIP">
+                  <Button onAction="#gotoadmin" fx:id="admin" graphicTextGap="0.0" layoutX="5.0" layoutY="82.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Admins   " textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>

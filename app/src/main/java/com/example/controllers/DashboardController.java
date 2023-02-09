@@ -8,6 +8,7 @@ import com.example.Session;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+ 
 
 public class DashboardController {
     @FXML
@@ -18,12 +19,17 @@ public class DashboardController {
     Label nb_auteur;
     @FXML 
     Label nb_tag;
+    @FXML 
+    Label label;
     @FXML
     protected void initialize (){
-       
+        
+        label.getStyleClass().add("outline");
+        leftbarController.button_selected="dashboard";
        nb_etu.setText(""+Modele_etudiant.countetu());
        nb_livre.setText(""+Modele_livre.countlivre());
        nb_auteur.setText(""+Modele_auteur.countauteur());
        nb_tag.setText(""+Modele_tag.counttag());
+       
     }
 }
