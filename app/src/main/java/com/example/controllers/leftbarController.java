@@ -18,12 +18,13 @@ public class leftbarController {
     @FXML
     Button admin;
     public static String button_selected ;
+    @FXML
+    Button etudiants;
 
     @FXML
     protected void initialize (){
-
-       
-       nom_utilisateur.setText(Session.nom_utiliasteur+" "+Session.prenom_utiliasteur);
+        char first_char = Session.prenom_utiliasteur.charAt(0) ;
+       nom_utilisateur.setText(new String(new char[]{first_char}).toUpperCase());
        make_effect_to_selected_button();
       
     }
@@ -34,6 +35,9 @@ public class leftbarController {
         }
         else  if (leftbarController.button_selected.equals("admin")){
             admin.setStyle("-fx-background-color:#E38B29;-fx-text-fill: #222222;");
+        }
+        else  if (leftbarController.button_selected.equals("etudiants")){
+            etudiants.setStyle("-fx-background-color:#E38B29;-fx-text-fill: #222222;");
         }
     }
 
@@ -54,4 +58,10 @@ public class leftbarController {
 
         
     }
+    @FXML
+    void gotoListeEtudiants() throws IOException{
+        dashboard.setStyle(null);
+        leftbarController.button_selected="etudiants";
+        App.setRoot(dashboard.getScene(),"ListeEtudiants");
+}
 }

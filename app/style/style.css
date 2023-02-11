@@ -69,3 +69,19 @@
   -fx-font-weight: bold;
  
 }
+.menu{
+  -fx-background-color: transparent;
+  
+
+}
+.menu:hover{
+  -fx-background-color: transparent;
+ 
+}
+.menu_title:hover{
+  -fx-cursor : "HAND";
+}
+.menu_bar{
+  -fx-pref-width: 200px;
+}
+

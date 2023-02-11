@@ -3,6 +3,10 @@ package com.example;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Modele_etudiant {
     public static User checkEtudiant(String email,String mot_de_pass) {
@@ -42,6 +46,17 @@ public class Modele_etudiant {
               
             }
                
+            }
+            public static  ObservableList<Etudiant> load() throws SQLException{
+              ObservableList<Etudiant> e=FXCollections.observableArrayList();
+              
+              Statement s=conn.getStatement();
+              ResultSet r=s.executeQuery("select * from etudiant");
+              while (r.next()) {
+                Etudiant etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"), r.getString("PRENOM_ETUDIANT"), r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"), r.getString("FILIERE"));
+                e.add(etu);
+              }
+              return e;
             }
         
     }

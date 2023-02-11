@@ -50,13 +50,22 @@
 .pane_all:hover{
     -fx-border-color:#E38B29;
 }
-
-
-.pane_11{
-      -fx-background-color:#ffffff;
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-radius: 16px;
-    -fx-background-radius: 16px;
-     -fx-border-style: solid;
-    -fx-border-color: #ffffff;
+.pane_left{
+    -fx-background-color:#222222;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: #E38B29; 
 }
+.pane_right{
+    -fx-background-color:#222222;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: #E38B29; 
+}
+
+
+
