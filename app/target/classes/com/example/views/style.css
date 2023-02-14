@@ -31,6 +31,38 @@
     -fx-font-size:11px;
     -fx-font-weight:bold;
 }
+.trash{
+    -fx-text-fill:#ce2d2d;
+    -fx-cursor : "HAND";
+    -fx-font-weight:bold;
+    -fx-border-style: solid; 
+    -fx-font-size:11px;
+    -fx-border-width: 0.5px 0px 0px 0px;
+    -fx-border-color: #6c6c6c;
+    -fx-background-color : transparent;
+    
+    
+}
+.voir{
+    -fx-text-fill:#1d961f;
+    -fx-cursor : "HAND";
+    -fx-font-weight:bold;
+    -fx-border-style: solid; 
+    -fx-font-size:11px;
+    -fx-border-width: 0.5px 0px 0px 0px;
+    -fx-border-color: #6c6c6c;
+    -fx-background-color : transparent;
+    
+    
+}
+.voir:hover{
+   
+    -fx-text-fill: #0b380b;
+}
+.trash:hover{
+    -fx-text-fill:#530f0f;
+}
+
 
 
 .outline.label .text {
