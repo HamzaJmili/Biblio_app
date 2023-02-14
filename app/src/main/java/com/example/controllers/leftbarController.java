@@ -86,7 +86,7 @@ public class leftbarController {
 void gotoAuteurs() throws IOException{
     
     leftbarController.button_selected='U';
-    App.setRoot(dashboard.getScene(),"Livre");
+    App.setRoot(dashboard.getScene(),"listeauteur");
 }
 
 
