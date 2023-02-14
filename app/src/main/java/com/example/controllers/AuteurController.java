@@ -64,7 +64,8 @@ public class AuteurController {
        nom.setCellValueFactory(new PropertyValueFactory<>("nom_auteur"));
        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom_auteur"));
        bio.setCellValueFactory(new PropertyValueFactory<>("bio_auteur"));
-       Image image = new Image("file:C:/Users/ilias/Desktop/projet/Biblio_app/app/src/main/resources/com/example/icons/aut.png");
+       Image image  = new Image(getClass().getResource("/com/example/icons/aut.png").toExternalForm());
+
     ImageView imageView = new ImageView(image);
     imageView.setFitWidth(45);
     imageView.setFitHeight(45);
@@ -119,7 +120,8 @@ public class AuteurController {
    
     supCol.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
     deleteIcon.setStyle("-fx-background-color:transparent ");
-    Image image = new Image("file:C:/Users/ilias/Desktop/projet/Biblio_app/app/src/main/resources/com/example/icons/delete-noir.png");
+    Image image  = new Image(getClass().getResource("/com/example/icons/delete-noir.png").toExternalForm());
+    
     ImageView imageView = new ImageView(image);
     imageView.setFitWidth(19);
     imageView.setFitHeight(19);
@@ -139,7 +141,8 @@ public class AuteurController {
     supCol.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-font-weight: bold;" );
     
     deleteIcon.setStyle("-fx-background-color:transparent ");
-    Image image = new Image("file:C:/Users/ilias/Desktop/projet/Biblio_app/app/src/main/resources/com/example/icons/delete-asfar.png");
+    Image image  = new Image(getClass().getResource("/com/example/icons/delete-asfar.png").toExternalForm());
+
     ImageView imageView = new ImageView(image);
     imageView.setFitWidth(19);
     imageView.setFitHeight(19);
