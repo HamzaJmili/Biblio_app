@@ -90,6 +90,12 @@ public class AuteurController {
                 //that cell created only on non-empty rows
                 if (empty) {
                     setGraphic(null);
+                    id.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-border-radius: 10;-fx-font-weight: bold;" );
+                    nom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
+                    prenom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
+                   bio.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
+                   
+                    supCol.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
                    
     
                 } else {
@@ -152,8 +158,11 @@ public class AuteurController {
       try (PreparedStatement stmt = con.prepareStatement(sql)) {
     stmt.setInt(1,er.getId_auteur() );
               stmt.executeQuery();
+             
+              leftbarController.button_selected='U';
               App.setRoot(addaut.getScene(), "listeauteur");
-              leftbarController.button_selected='D';
+              
+             
               
             
 } catch (SQLException e) {

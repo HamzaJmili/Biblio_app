@@ -58,6 +58,24 @@ public class Modele_etudiant {
               }
               return e;
             }
+            public static  Etudiant getProfileEtudiant( String cneEtudiant) {
+              Etudiant etu=null;
+              try {
+                Statement s=conn.getStatement();
+                ResultSet r=s.executeQuery("select * from etudiant  where cne='"+cneEtudiant+"'");
+               
+                while(r.next()){
+                   etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"), r.getString("PRENOM_ETUDIANT"), r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"), r.getString("FILIERE"));
+                }
+            } 
+            catch (Exception e) {
+              // TODO: handle exception
+            } 
+             
+              
+           return etu;
+           
+          }
         
     }
 

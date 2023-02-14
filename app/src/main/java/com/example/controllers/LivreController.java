@@ -93,9 +93,9 @@ public class LivreController {
     //      writer.setLayoutY(17);
 
          
-    //                 //add style for label
-    //     writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-    //     writer.getStyleClass().add("textofcarte");
+        //             //add style for label
+        // writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+        // writer.getStyleClass().add("textofcarte");
         
     //     // add label for name of books
     //     Label numberofpages = new Label("100p");
@@ -186,7 +186,7 @@ public class LivreController {
         hBox .setPrefHeight(170);
        
         for (int j = 0; j < 4 && nb_of_livre!=liste_of_livres.size() ; j++) {
-            nb_of_livre++;
+            
             System.out.println(j);
             AnchorPane carteoflivre = new AnchorPane();
             carteoflivre.setPrefWidth(260);
@@ -201,27 +201,90 @@ public class LivreController {
             
             
             try {
-                Image image = new Image("file:C:/Users/ilias/OneDrive/Bureau/cover.jpg");
+                Image image = new Image(getClass().getResource("/com/example/books_cover/cover.jpg").toExternalForm());
                 ImageView imageView = new ImageView(image);
                 imageView.setFitHeight(109.1);
                 imageView.setFitWidth(74.888);
                 imageView.setLayoutX(1.5);
                 imageView.setLayoutY(1);
                 
+                
                 imagelayout.getChildren().add(imageView);
             
             } catch (Exception e) {
-                e.printStackTrace();
+               System.out.println("ilias");
             }
-           carteoflivre.getChildren().add(imagelayout);
            
+
+           Label book_name = new Label(liste_of_livres.get(nb_of_livre).getTitre());
+
+    //                 //location of label in pane
+                book_name.setLayoutX(102);
+                book_name.setLayoutY(17);
+        
+    //                 //add style for label
+                book_name.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                book_name.getStyleClass().add("textofcarte");
+
+                
+                        // add label for name of writer
+                        Label writer = new Label(Modele_auteur.getWriterName(liste_of_livres.get(j).getId_auteur()));
+                        //location of label in pane
+                writer.setLayoutX(107);
+                writer.setLayoutY(42);
+
+                                        //add style for label
+                writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                writer.getStyleClass().add("writer_name");
+                
+                
+                        // add label for Page
+                        Label page = new Label("Pages : "+liste_of_livres.get(j).getNombre_pages());
+                        //location of label in pane
+                page.setLayoutX(107);
+                page.setLayoutY(63);
+
+
+
+                                        //add style for Page
+                page.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                page.getStyleClass().add("page_label");
+
+                  //add button
+                  Button button_trash = new Button("trash");
+                  //the position if button in pane
+                  button_trash.setLayoutX(102);
+                  button_trash.setLayoutY(90);
+  
+                  // set the hight of button
+                  button_trash.setPrefSize(60, 27);
+                //add image trash to button
+                  Image image = new Image(getClass().getResource("/com/example/icons/bin.png").toExternalForm());
+                ImageView trashimage = new ImageView(image);
+                
+                    button_trash.setGraphic(trashimage);
+                
             
             
                    //set style to pane
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                    carteoflivre.getStyleClass().add("carte_livre");
+
+                   
+
+                   // add compnents to livre carte
+                   carteoflivre.getChildren().add(imagelayout);
+                   carteoflivre.getChildren().add(book_name);
+                   carteoflivre.getChildren().add(writer);
+                   carteoflivre.getChildren().add(page);
+                   carteoflivre.getChildren().add(button_trash);
+
+          
+                
             hBox.getChildren().add(carteoflivre);
+            
             HBox.setMargin(carteoflivre, margins);
+            nb_of_livre++;
         }
 
         boxOfStudent.getChildren().add(hBox);

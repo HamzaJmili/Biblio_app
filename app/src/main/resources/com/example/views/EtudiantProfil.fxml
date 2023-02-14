@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="672.0" style="-fx-background-color: #292929;"  stylesheets="@../../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.example.controllers.loginController">
+   <children>
+      <Button fx:id="closeButton" layoutX="644.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeButtonClicked" prefHeight="20.5" prefWidth="28.0" styleClass="xbutton" text="X">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutY="21.0" minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="672.0" style="-fx-background-color: WHITE;">
+         <children>
+            <ImageView fitHeight="145.0" fitWidth="114.0" layoutX="38.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Downloads/diplome.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="143.0" layoutY="23.0" prefHeight="48.0" prefWidth="202.0" text="nom et prenom" textFill="#3c3838">
+               <font>
+                  <Font name="Cambria Bold" size="25.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="5.0" layoutY="87.0" prefHeight="155.0" prefWidth="370.0">
+               <children>
+                  <Label layoutX="14.0" prefHeight="30.0" prefWidth="81.0" text="Filière :" textFill="#1e1e1e">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="50.0" text="Email :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="30.0" prefHeight="17.0" prefWidth="259.0" text="TTM">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="13.0" layoutY="78.0" prefHeight="17.0" prefWidth="138.0" text="ssfjksdlgdfkjlgdfigvd">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="13.0" layoutY="104.0" text="Téléphone :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="12.0" layoutY="131.0" text="Lab098765432345678el">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="386.0" layoutY="90.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="149.0" prefWidth="253.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="14.0" text="Totale des livres empruntés :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="82.0" text="Livre emprunté pur le moment :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="125.0" text="titre de livre emprunté">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="28.0" layoutY="45.0" text="20 livre(s)">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="143.0" layoutY="239.0" prefHeight="30.0" prefWidth="303.0" text="Livres empruntés par l'étudiant : ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="-1.0" layoutY="276.0" prefHeight="172.0" prefWidth="672.0">
+               <content>
+                  <TableView prefHeight="162.0" prefWidth="662.0">
+                     <columns>
+                        <TableColumn prefWidth="246.0" text="Titre" />
+                        <TableColumn prefWidth="148.0" text="Date d'emprunt" />
+                        <TableColumn prefWidth="163.0" text="Date de retourne" />
+                        <TableColumn prefWidth="103.0" text="View" />
+                     </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

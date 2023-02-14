@@ -6,7 +6,10 @@ public class Livre {
  private String description ;
  private String couverture ;
  private int id_auteur ;
+ private int nombre_pages;
  
+
+
 
 public int getId_auteur() {
     return id_auteur;
@@ -16,12 +19,13 @@ public void setId_auteur(int id_auteur) {
     this.id_auteur = id_auteur;
 }
 
-public Livre(int id_livre, String titre, String description, String couverture, int id_auteur) {
+public Livre(int id_livre, String titre, String description, String couverture, int id_auteur , int nombre_pages) {
     this.id_livre = id_livre;
     this.titre = titre;
     this.description = description;
     this.couverture = couverture;
     this.id_auteur = id_auteur;
+    this.nombre_pages=nombre_pages ;
 
 }
 
@@ -56,7 +60,13 @@ public String getCouverture() {
 public void setCouverture(String couverture) {
     this.couverture = couverture;
 }
- 
+public int getNombre_pages() {
+    return nombre_pages;
+}
+
+public void setNombre_pages(int nombre_pages) {
+    this.nombre_pages = nombre_pages;
+}
 
     
 }

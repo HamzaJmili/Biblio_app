@@ -2,6 +2,7 @@ package com.example.controllers;
 
 import java.sql.SQLException;
 
+import com.example.App;
 import com.example.Etudiant;
 import com.example.Modele_etudiant;
 
@@ -9,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -18,7 +20,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javafx.util.Callback;
+
+import java.io.IOException;
 import java.sql.*;
 
 public class EtudiantsController {
@@ -38,6 +43,7 @@ public class EtudiantsController {
     @FXML
     private TableColumn<Etudiant, String> editCol;
     Etudiant Etudiant = null ;
+    public static String s =null ;
     public void loadData() throws SQLException{
         ObservableList<Etudiant> e=Modele_etudiant.load();
         tableetu.setItems(e);
@@ -118,8 +124,21 @@ imageView.setFitHeight(30);
                    
                     int a=Character.getNumericValue(b);
                     Etudiant er= tableetu.getItems().get(a);
-                    System.out.println(er.getCne());
-                    
+                    s=er.getCne();
+                    Stage stage =new Stage();
+                    Scene scene4=null ;
+                    try {
+                        scene4 = new Scene(App.loadFXML("EtudiantProfil"));
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                     
+                   
+                      stage.setScene(scene4);
+                      stage.setResizable(false);
+
+                      stage.show();
                     
                     
                    

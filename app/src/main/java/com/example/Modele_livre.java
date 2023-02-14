@@ -30,7 +30,7 @@ public class Modele_livre {
             
             while (r.next()) {
              
-              Livre livre = new Livre(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getInt(5));
+              Livre livre = new Livre(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getInt(5),r.getInt(6));
               listeoflivres.add(livre);
             }
             return listeoflivres;

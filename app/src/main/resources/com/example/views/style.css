@@ -13,10 +13,23 @@
 
 }
 .textofcarte{
-    -fx-text-fill:#ffffff;
+    -fx-text-fill:#000000;
     -fx-font-weight: bold;
-    -fx-font-size: 13px ;
-    -fx-font-style : italic;
+    -fx-font-size: 15px ;
+   
+   
+}
+.page_label{
+    -fx-text-fill:#1d5e21;
+    -fx-font-style:italic;
+    -fx-font-size:11px;
+    -fx-font-weight:bold; 
+}
+.writer_name{
+    -fx-text-fill:#797979;
+    -fx-font-style:italic;
+    -fx-font-size:11px;
+    -fx-font-weight:bold;
 }
 
 

@@ -144,7 +144,7 @@ public class loginController  {
         Session.nom_utiliasteur=user.getNom_user();
         Session.prenom_utiliasteur=user.getPrenom_user();
         Session.email_utiliasteur=user.getEmail_user();
-        leftbarController.button_selected="dashboard";
+        leftbarController.button_selected='D';
         
         ((Stage) closeButton.getScene().getWindow()).close();
       Stage stage2 =new Stage();
