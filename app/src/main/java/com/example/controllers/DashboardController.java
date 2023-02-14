@@ -25,7 +25,7 @@ public class DashboardController {
     protected void initialize (){
         
         label.getStyleClass().add("outline");
-       leftbarController.button_selected="dashboard";
+       leftbarController.button_selected='D';
        nb_etu.setText(""+Modele_etudiant.countetu());
        nb_livre.setText(""+Modele_livre.countlivre());
        nb_auteur.setText(""+Modele_auteur.countauteur());

@@ -201,17 +201,18 @@ public class LivreController {
             
             
             try {
-                Image image = new Image("file:C:/Users/ilias/OneDrive/Bureau/cover.jpg");
+                Image image = new Image(getClass().getResource("/com/example/books_cover/cover.jpg").toExternalForm());
                 ImageView imageView = new ImageView(image);
                 imageView.setFitHeight(109.1);
                 imageView.setFitWidth(74.888);
                 imageView.setLayoutX(1.5);
                 imageView.setLayoutY(1);
                 
+                
                 imagelayout.getChildren().add(imageView);
             
             } catch (Exception e) {
-                e.printStackTrace();
+               System.out.println("ilias");
             }
            
 
@@ -229,12 +230,39 @@ public class LivreController {
                         // add label for name of writer
                         Label writer = new Label(Modele_auteur.getWriterName(liste_of_livres.get(j).getId_auteur()));
                         //location of label in pane
-                writer.setLayoutX(104);
-                writer.setLayoutY(40);
+                writer.setLayoutX(107);
+                writer.setLayoutY(42);
 
                                         //add style for label
                 writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                 writer.getStyleClass().add("writer_name");
+                
+                
+                        // add label for Page
+                        Label page = new Label("Pages : "+liste_of_livres.get(j).getNombre_pages());
+                        //location of label in pane
+                page.setLayoutX(107);
+                page.setLayoutY(63);
+
+
+
+                                        //add style for Page
+                page.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                page.getStyleClass().add("page_label");
+
+                  //add button
+                  Button button_trash = new Button("trash");
+                  //the position if button in pane
+                  button_trash.setLayoutX(102);
+                  button_trash.setLayoutY(90);
+  
+                  // set the hight of button
+                  button_trash.setPrefSize(60, 27);
+                //add image trash to button
+                  Image image = new Image(getClass().getResource("/com/example/icons/bin.png").toExternalForm());
+                ImageView trashimage = new ImageView(image);
+                
+                    button_trash.setGraphic(trashimage);
                 
             
             
@@ -242,11 +270,16 @@ public class LivreController {
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                    carteoflivre.getStyleClass().add("carte_livre");
 
+                   
+
                    // add compnents to livre carte
                    carteoflivre.getChildren().add(imagelayout);
                    carteoflivre.getChildren().add(book_name);
                    carteoflivre.getChildren().add(writer);
+                   carteoflivre.getChildren().add(page);
+                   carteoflivre.getChildren().add(button_trash);
 
+          
                 
             hBox.getChildren().add(carteoflivre);
             
