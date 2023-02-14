@@ -21,6 +21,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Line;
 
 public class LivreController {
     public static int numcarte=4 ;
@@ -251,33 +253,60 @@ public class LivreController {
                 page.getStyleClass().add("page_label");
 
                   //add button
-                  Button button_trash = new Button("trash");
+                  Button button_trash = new Button("Supprimer");
                   //the position if button in pane
-                  button_trash.setLayoutX(102);
-                  button_trash.setLayoutY(90);
+                  button_trash.setLayoutX(87);
+                  button_trash.setLayoutY(100);
   
                   // set the hight of button
-                  button_trash.setPrefSize(60, 27);
+                  button_trash.setPrefSize(92, 33);
                 //add image trash to button
-                  Image image = new Image(getClass().getResource("/com/example/icons/bin.png").toExternalForm());
-                ImageView trashimage = new ImageView(image);
-                
-                    button_trash.setGraphic(trashimage);
+                Image trashimage  = new Image(getClass().getResource("/com/example/icons/bin.png").toExternalForm());
+                ImageView trashimageview = new ImageView(trashimage);
+                trashimageview.setFitHeight(13);
+                trashimageview.setFitWidth(13);
+                button_trash.setGraphic(trashimageview);
+                        //add style for button
+                        button_trash.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                        button_trash.getStyleClass().add("trash");
+                        button_trash.toBack();
+
+                        //add button voir
+                  Button button_voir = new Button("Voir");
+                  //the position if button in pane
+                  button_voir.setLayoutX(179);
+                  button_voir.setLayoutY(100);
+  
+                  // set the hight of button
+                  button_voir.setPrefSize(80, 30);
+                //add image trash to button
+                Image trashimage1  = new Image(getClass().getResource("/com/example/icons/green_eye.png").toExternalForm());
+                ImageView trashimageview1 = new ImageView(trashimage1);
+                trashimageview1.setFitHeight(17);
+                trashimageview1.setFitWidth(17);
+                button_voir.setGraphic(trashimageview1);
+
+                        //add style for button
+                        button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                        button_voir.getStyleClass().add("voir");
+                        button_voir.toBack();
                 
             
             
                    //set style to pane
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                    carteoflivre.getStyleClass().add("carte_livre");
-
+                    
+                  
                    
-
                    // add compnents to livre carte
                    carteoflivre.getChildren().add(imagelayout);
                    carteoflivre.getChildren().add(book_name);
                    carteoflivre.getChildren().add(writer);
                    carteoflivre.getChildren().add(page);
                    carteoflivre.getChildren().add(button_trash);
+                   carteoflivre.getChildren().add(button_voir);
+
 
           
                 

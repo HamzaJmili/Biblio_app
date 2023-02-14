@@ -85,3 +85,9 @@
   -fx-pref-width: 200px;
 }
 
+.titres{
+  -fx-text-fill:#E38B29;
+  -fx-font-weight: bold;
+}
+
+
