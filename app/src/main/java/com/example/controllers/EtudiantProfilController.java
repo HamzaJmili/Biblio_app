@@ -36,14 +36,14 @@ public class EtudiantProfilController {
     Label cne ;
    
     @FXML
- protected  void initiliaze() { 
+   void initialize() { 
        System.out.println("'''''''''''''''''''''''ttttttttttttttttttttttttt/n/n");
        final Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
        cne.setText(etu.getCne());
-       filiere.setText(etu.getFiliere());
+       filiere.setText(etu.getFiliere().toUpperCase());
        email.setText(etu.getEmail_user());
        telephone.setText(etu.getTelephone());
-       nomprenometudiant.setText(etu.getNom_user()+" "+etu.getPrenom_user());
+       nomprenometudiant.setText((etu.getNom_user()+" "+etu.getPrenom_user()).toUpperCase());
        totalLivresEmprt.setText("0");
        // TitreLivreEmpt.setText("");
     }
