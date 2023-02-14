@@ -14,6 +14,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
@@ -56,24 +58,60 @@ Callback<TableColumn<Etudiant, String>, TableCell<Etudiant, String>> cellFoctory
         @Override
         public void updateItem(String item, boolean empty) {
             super.updateItem(item, empty);
+            
             //that cell created only on non-empty rows
             if (empty) {
                 setGraphic(null);
                
 
             } else {
-System.out.println(i);
-                Button deleteIcon = new Button();
+
+Button deleteIcon = new Button();
+
+              
+
+
+
                 deleteIcon.setId(""+(i-1));
                 i++;
-              
-               
+                cne.setStyle(" -fx-text-fill: white;");
+if((i%2)!=0)    {       
+    
+cne.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-border-radius: 10" );
+nom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
+prenom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
+email .setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
+fil.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
+editCol.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
+deleteIcon.setStyle("-fx-background-color:transparent ");
+Image image = new Image("file:C:/Users/ilias/Desktop/project1/Biblio_app/app/src/main/resources/com/example/icons/eye1.png");
+ImageView imageView = new ImageView(image);
+imageView.setFitWidth(30);
+imageView.setFitHeight(30);
 
-                deleteIcon.setStyle(
-                        " -fx-cursor: hand ;"
-                        + "-glyph-size:28px;"
-                        + "-fx-fill:#ff1744;"
-                );
+ deleteIcon.setGraphic(imageView);
+
+
+
+}
+
+else{
+    
+    cne.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-border-radius: 10" ); 
+    nom.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
+prenom.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
+email .setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
+fil.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
+editCol.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-border-radius: 10" ); 
+deleteIcon.setStyle("-fx-background-color:transparent ");
+Image image = new Image("file:C:/Users/ilias/Desktop/project1/Biblio_app/app/src/main/resources/com/example/icons/oeil (1).png");
+ImageView imageView = new ImageView(image);
+imageView.setFitWidth(30);
+imageView.setFitHeight(30);
+
+ deleteIcon.setGraphic(imageView); 
+}
+          
               
                 deleteIcon.setOnMouseClicked((MouseEvent event) -> {
                     Character b= deleteIcon.getId().charAt(0);

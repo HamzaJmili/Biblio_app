@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color:#222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.AuteurController">
+ <fx:include source="leftbar.fxml" />
+  <Pane fx:id="root" layoutX="208.0" prefHeight="711.0" prefWidth="1094.0" style="-fx-background-color:#222222;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+         <Label fx:id="label" layoutX="185.0" layoutY="74.0" styleClass="outline" text="Liste des auteur" />
+       <AnchorPane layoutX="-17.0" minHeight="0.0" minWidth="0.0" prefHeight="138.0" prefWidth="163.0" style="-fx-background-color:#222222;" />
+         <TableView fx:id="tableetu" cacheShape="false" centerShape="false" layoutX="127.0" layoutY="168.0" prefHeight="547.0" prefWidth="884.0" scaleShape="false" style="-fx-background-radius: 14 14 0 0;" stylesheets="@style.css">
+           <columns>
+             <TableColumn fx:id="id" editable="false" prefWidth="120.79998779296875" sortable="false" text=" ID" />
+             <TableColumn fx:id="nom" editable="false" prefWidth="193.6000213623047" sortable="false" text=" NOM" />
+               <TableColumn fx:id="prenom" editable="false" minWidth="0.0" prefWidth="223.20001220703125" sortable="false" text=" PRENOM" />
+               <TableColumn fx:id="bio" editable="false" prefWidth="337.5999755859375" sortable="false" text=" BIO" />
+           </columns>
+         </TableView>
+   </children>
+</Pane>
+
+</AnchorPane>

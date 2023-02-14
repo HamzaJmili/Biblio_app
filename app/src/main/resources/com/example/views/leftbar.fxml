@@ -117,7 +117,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="etudiants" graphicTextGap="0.0" layoutX="4.0" layoutY="120.0" mnemonicParsing="false" onAction="#gotoListeEtudiants" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Etudiants" textFill="WHITE" textOverrun="CLIP">
+                  <Button graphicTextGap="0.0" layoutX="4.0" layoutY="120.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" onAction="#gotoListeEtudiants" fx:id="etudiants" text="  Etudiants" textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
@@ -164,7 +164,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button graphicTextGap="0.0" layoutX="4.0" layoutY="263.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Auteurs " textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="auteurs" onAction="#gotoAuteurs" graphicTextGap="0.0" layoutX="4.0" layoutY="263.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Auteurs " textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="50.0" top="2.0" />
                      </padding>
@@ -260,8 +260,8 @@
                </children>
             </AnchorPane>
             <MenuBar prefHeight="54.0" prefWidth="1083.0" styleClass="menu" useSystemMenuBar="true">
-               <menus>
-                  <Menu styleClass="menu_bar">
+               <menus >
+                  <Menu  styleClass="menu_bar">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Profile" />
                         <MenuItem mnemonicParsing="false" text="Parametres" />
@@ -284,7 +284,6 @@
                   <Insets left="1000.0" />
                </padding>
             </MenuBar>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #DDDDDD;" GridPane.rowIndex="1" />
             
 
 
