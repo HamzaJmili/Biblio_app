@@ -21,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -94,7 +95,8 @@ fil.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: c
 tel.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
 profile.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
 deleteIcon.setStyle("-fx-background-color:transparent ");
-Image image = new Image("file:C:/Users/ilias/Desktop/project1/Biblio_app/app/src/main/resources/com/example/icons/eye1.png");
+Image image  = new Image(getClass().getResource("/com/example/icons/eye1.png").toExternalForm());
+
 ImageView imageView = new ImageView(image);
 imageView.setFitWidth(30);
 imageView.setFitHeight(30);
@@ -115,7 +117,8 @@ fil.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: c
 tel.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
 profile.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-border-radius: 10" ); 
 deleteIcon.setStyle("-fx-background-color:transparent ");
-Image image = new Image("file:C:/Users/ilias/Desktop/project1/Biblio_app/app/src/main/resources/com/example/icons/oeil (1).png");
+Image image  = new Image(getClass().getResource("/com/example/icons/oeil (1).png").toExternalForm());
+
 ImageView imageView = new ImageView(image);
 imageView.setFitWidth(30);
 imageView.setFitHeight(30);
@@ -134,6 +137,7 @@ imageView.setFitHeight(30);
                     Scene scene4=null ;
                     try {
                         scene4 = new Scene(App.loadFXML("EtudiantProfil"));
+
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -142,7 +146,7 @@ imageView.setFitHeight(30);
                    
                       stage.setScene(scene4);
                       stage.setResizable(false);
-
+                     stage.initStyle(StageStyle.UNDECORATED);
                       stage.show();
                     
                     
