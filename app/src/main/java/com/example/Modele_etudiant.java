@@ -16,7 +16,7 @@ public class Modele_etudiant {
         ResultSet r=s.executeQuery("select * from etudiant where EMAIL_ETUDIANT='"+email+"' and MDP_ETUDIANT='"+mot_de_pass+"'");
         
           while (r.next()) {
-            User e=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"));
+            User e=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
             return e;
           }
           return null;
@@ -53,19 +53,20 @@ public class Modele_etudiant {
               Statement s=conn.getStatement();
               ResultSet r=s.executeQuery("select * from etudiant");
               while (r.next()) {
-                Etudiant etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"), r.getString("PRENOM_ETUDIANT"), r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"), r.getString("FILIERE"));
+                Etudiant etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
                 e.add(etu);
               }
               return e;
             }
-            public static  Etudiant getProfileEtudiant( String cneEtudiant) {
+            public static  Etudiant getProfileEtudiant( String cneEtudiant)  {
               Etudiant etu=null;
               try {
                 Statement s=conn.getStatement();
                 ResultSet r=s.executeQuery("select * from etudiant  where cne='"+cneEtudiant+"'");
                
                 while(r.next()){
-                   etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"), r.getString("PRENOM_ETUDIANT"), r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"), r.getString("FILIERE"));
+                  etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
+                  
                 }
             } 
             catch (Exception e) {

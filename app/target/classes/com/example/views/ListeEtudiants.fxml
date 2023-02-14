@@ -18,12 +18,13 @@
                   <children>
                      <TableView fx:id="tableetu" cacheShape="false" centerShape="false" prefHeight="548.0" prefWidth="1079.0" scaleShape="false" style="-fx-background-radius: 14 14 0 0;" stylesheets="@../../../../../tableview.css">
                        <columns>
-                         <TableColumn fx:id="cne" editable="false" prefWidth="140.33334350585938" sortable="false" text="CNE " />
-                         <TableColumn fx:id="nom" editable="false" prefWidth="266.6666564941406" sortable="false" text="Nom" />
-                           <TableColumn fx:id="prenom" editable="false" prefWidth="184.66668701171875" sortable="false" text="Prénom" />
-                           <TableColumn fx:id="email" editable="false" prefWidth="224.33331298828125" sortable="false" text="Email" />
-                           <TableColumn fx:id="fil" editable="false" prefWidth="143.0" sortable="false" text="Filière" />
-                           <TableColumn fx:id="editCol" prefWidth="111.0" text="view profile" />
+                         <TableColumn fx:id="cne" editable="false" prefWidth="123.66668701171875" sortable="false" text="CNE " />
+                         <TableColumn fx:id="nom" editable="false" prefWidth="178.33331298828125" sortable="false" text="Nom" />
+                           <TableColumn fx:id="prenom" editable="false" prefWidth="188.33331298828125" sortable="false" text="Prénom" />
+                           <TableColumn fx:id="email" editable="false" prefWidth="234.66668701171875" sortable="false" text="Email" />
+                           <TableColumn fx:id="fil" editable="false" prefWidth="107.0" sortable="false" text="Filière" />
+                           <TableColumn fx:id="tel" prefWidth="167.0"  text="téléphone" />
+                           <TableColumn fx:id="profile" prefWidth="77.0" sortable="false" text="Profile" />
                        </columns>
                      </TableView>
                   </children>

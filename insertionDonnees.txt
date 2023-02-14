@@ -1,6 +1,8 @@
 insert into admin values(1,'hamza','jmili','hamza.jmili@gmail.com','wydad37');
 insert into admin values(2,'ilias','amrani','ilias.amrani@gmail.com','codm122');
 insert into admin values(3,'younes','amrani','younes.amrani@gmail.com','codm133');
-insert into etudiant values('M1','ayman','hamraoui','ayman.hamraoui@gmail.com','sab3iyon');
-insert into etudiant values('M2','soufiane','boubkari','soufiane.boubkari@gmail.com','wislane');
+insert into admin values(3,'younes','amrani','a','a');
+insert into etudiant values('M1','ayman','hamraoui','ayman.hamraoui@gmail.com','sab3iyon','gi','876543456787');
+insert into etudiant values('M2','soufiane','boubkari','soufiane.boubkari@gmail.com','wislane','gi','876543456787');
+
 commit ;

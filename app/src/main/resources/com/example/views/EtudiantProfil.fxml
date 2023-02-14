@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="672.0" style="-fx-background-color: #292929;"  stylesheets="@../../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.example.controllers.loginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="672.0" style="-fx-background-color: #292929;" stylesheets="@../../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.EtudiantProfilController">
    <children>
       <Button fx:id="closeButton" layoutX="644.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeButtonClicked" prefHeight="20.5" prefWidth="28.0" styleClass="xbutton" text="X">
          <font>
@@ -19,44 +19,54 @@
       </Button>
       <AnchorPane layoutY="21.0" minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="672.0" style="-fx-background-color: WHITE;">
          <children>
-            <ImageView fitHeight="145.0" fitWidth="114.0" layoutX="38.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="76.0" fitWidth="81.0" layoutX="55.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Downloads/diplome.png" />
+                  <Image url="@../icons/diplome.png" />
                </image>
             </ImageView>
-            <Label layoutX="143.0" layoutY="23.0" prefHeight="48.0" prefWidth="202.0" text="nom et prenom" textFill="#3c3838">
+            <Label fx:id="nomprenometudiant" layoutX="143.0" layoutY="15.0" prefHeight="48.0" prefWidth="202.0" text="nom et prenom" textFill="#3c3838">
                <font>
                   <Font name="Cambria Bold" size="25.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="5.0" layoutY="87.0" prefHeight="155.0" prefWidth="370.0">
+            <AnchorPane layoutX="14.0" layoutY="63.0" prefHeight="182.0" prefWidth="370.0">
                <children>
-                  <Label layoutX="14.0" prefHeight="30.0" prefWidth="81.0" text="Filière :" textFill="#1e1e1e">
+                  <Label layoutX="20.0" layoutY="58.0" prefHeight="30.0" prefWidth="81.0" text="FILIERE:" textFill="#1e1e1e">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="50.0" text="Email :">
+                  <Label layoutX="20.0" layoutY="98.0" text="EMAIL :">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="30.0" prefHeight="17.0" prefWidth="259.0" text="TTM">
+                  <Label fx:id="filiere" layoutX="20.0" layoutY="78.0" prefHeight="17.0" prefWidth="259.0" text="vbvbcc">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="78.0" prefHeight="17.0" prefWidth="138.0" text="ssfjksdlgdfkjlgdfigvd">
+                  <Label fx:id="email" layoutX="20.0" layoutY="118.0" prefHeight="17.0" prefWidth="138.0" text="ssfjksdlgdfkjlgdfigvd">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="104.0" text="Téléphone :">
+                  <Label layoutX="20.0" layoutY="138.0" text="TELEPHONE :">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="12.0" layoutY="131.0" text="Lab098765432345678el">
+                  <Label fx:id="telephone" layoutX="20.0" layoutY="158.0" text="Lab098765432345678el">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cne" layoutX="20.0" layoutY="38.0" text="P11222">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="18.0" layoutY="18.0" text="CNE :">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -65,22 +75,22 @@
             </AnchorPane>
             <AnchorPane layoutX="386.0" layoutY="90.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="149.0" prefWidth="253.0">
                <children>
-                  <Label layoutX="3.0" layoutY="14.0" text="Totale des livres empruntés :">
+                  <Label  layoutX="3.0" layoutY="14.0" text="Totale des livres empruntés :">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="7.0" layoutY="82.0" text="Livre emprunté pur le moment :">
+                  <Label  layoutX="7.0" layoutY="82.0" text="Livre emprunté pour le moment :">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="7.0" layoutY="125.0" text="titre de livre emprunté">
+                  <Label fx:id="TitreLivreEmpt" layoutX="7.0" layoutY="125.0" text="Ancun livre emprunté">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="28.0" layoutY="45.0" text="20 livre(s)">
+                  <Label fx:id="totalLivresEmprt" layoutX="28.0" layoutY="45.0" text="20 livre(s)">
                      <font>
                         <Font size="14.0" />
                      </font>
