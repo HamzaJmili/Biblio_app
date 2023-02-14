@@ -39,11 +39,11 @@ public class Auteur {
         this.prenom_auteur = prenom_auteur;
     }
 
-    public String getbio_auteur() {
+    public String getBio_auteur() {
         return bio_auteur;
     }
 
-    public void setbio_auteur(String bio_auteur) {
+    public void setBio_auteur(String bio_auteur) {
         this.bio_auteur = bio_auteur;
     }
     

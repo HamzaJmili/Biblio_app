@@ -2,7 +2,22 @@
     -fx-background-color:"#2F2F2F" ; 
    
 }
+.buttonInPanel{
+    -fx-background-color:#E38B29; 
+}
 
+.carte_livre{
+    -fx-background-color : #ffffff;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(65, 65, 65, 0.8), 10, 0, 0, 0);
+
+}
+.textofcarte{
+    -fx-text-fill:#ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px ;
+    -fx-font-style : italic;
+}
 
 
 .outline.label .text {
@@ -16,12 +31,14 @@
 
 
 .pane_1{
-    -fx-background-color:#222222;
+    -fx-border-style: solid; 
     -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-color: #222222;
+    -fx-background-color:#222222;
+   
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
-    -fx-border-style: solid;
-    -fx-border-color: #222222;
+    
 }
 .pane_2{
     -fx-background-color:#222222;

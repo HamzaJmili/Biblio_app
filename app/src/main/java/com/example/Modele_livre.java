@@ -1,6 +1,7 @@
 package com.example;import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 
 public class Modele_livre {
@@ -21,4 +22,17 @@ public class Modele_livre {
             return 0;
             
           }}
+          public static Vector<Livre> getLivres() throws SQLException{
+            Statement s = conn.getStatement(); 
+            ResultSet r = s.executeQuery("select * from livre");
+           
+            Vector<Livre> listeoflivres = new Vector<>();
+            
+            while (r.next()) {
+             
+              Livre livre = new Livre(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getInt(5));
+              listeoflivres.add(livre);
+            }
+            return listeoflivres;
+          }
 }

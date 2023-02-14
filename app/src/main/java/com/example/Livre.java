@@ -5,18 +5,18 @@ public class Livre {
  private String titre ;
  private String description ;
  private String couverture ;
- private String id_auteur ;
+ private int id_auteur ;
  
 
-public String getId_auteur() {
+public int getId_auteur() {
     return id_auteur;
 }
 
-public void setId_auteur(String id_auteur) {
+public void setId_auteur(int id_auteur) {
     this.id_auteur = id_auteur;
 }
 
-public Livre(int id_livre, String titre, String description, String couverture, String id_auteur) {
+public Livre(int id_livre, String titre, String description, String couverture, int id_auteur) {
     this.id_livre = id_livre;
     this.titre = titre;
     this.description = description;

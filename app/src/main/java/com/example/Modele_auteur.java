@@ -22,4 +22,14 @@ public class Modele_auteur {
           }
              
           }
+          public static String getWriterName(int id ) throws SQLException{
+            Statement s=conn.getStatement();
+            ResultSet r =s.executeQuery("select NOM_AUTEUR, PRENOM_AUTEUR from auteur where ID_AUTEUR='"+id+"'");
+            String st=null;
+          while( r.next()) {
+            st= r.getString(1)+"  "+r.getString(2);
+          }
+            return st ;
+            
+          } 
 }

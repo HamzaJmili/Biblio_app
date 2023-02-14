@@ -24,12 +24,12 @@ public class DashboardController {
     @FXML
     protected void initialize (){
         
-        label.getStyleClass().add("outline");
-        leftbarController.button_selected="dashboard";
-       nb_etu.setText(""+Modele_etudiant.countetu());
-       nb_livre.setText(""+Modele_livre.countlivre());
-       nb_auteur.setText(""+Modele_auteur.countauteur());
-       nb_tag.setText(""+Modele_tag.counttag());
+    //     label.getStyleClass().add("outline");
+    //     leftbarController.button_selected="dashboard";
+    //    nb_etu.setText(""+Modele_etudiant.countetu());
+    //    nb_livre.setText(""+Modele_livre.countlivre());
+    //    nb_auteur.setText(""+Modele_auteur.countauteur());
+    //    nb_tag.setText(""+Modele_tag.counttag());
        
     }
 }
