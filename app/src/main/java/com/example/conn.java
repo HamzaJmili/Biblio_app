@@ -16,4 +16,17 @@ public class conn {
         return null;
     }
    
+    public static Connection getConnection() {
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection c=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "pfe", "1234");
+          
+            return c;
+            
+        } catch (Exception e) {
+          System.out.println("error");
+        }
+        return null;
+    }
+   
 }
