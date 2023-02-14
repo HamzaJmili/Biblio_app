@@ -84,10 +84,19 @@
 .menu_bar{
   -fx-pref-width: 200px;
 }
-
+ /* interface profiletudiant */
 .titres{
   -fx-text-fill:#E38B29;
   -fx-font-weight: bold;
+}
+.tablelivres{
+  -fx-background-color: #f0f0f0;
+  -fx-font-size: 14pt;
+}
+.tablelivre-header .column-header-background {
+  -fx-background-color: #1e1c1c;
+  -fx-text-fill: white;
+ 
 }
 
 

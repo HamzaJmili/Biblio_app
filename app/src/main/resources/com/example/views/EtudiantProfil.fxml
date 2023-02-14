@@ -90,7 +90,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalLivresEmprt" layoutX="221.0" layoutY="14.0" prefHeight="20.0" prefWidth="132.0" text="20 livre(s)" textFill="#807878">
+                  <Label fx:id="totalLivresEmprt" layoutX="227.0" layoutY="14.0" prefHeight="20.0" prefWidth="132.0" text="20 livre(s)" textFill="#807878">
                      <font>
                         <Font size="14.0" />
                      </font>
