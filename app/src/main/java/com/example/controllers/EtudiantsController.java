@@ -41,7 +41,9 @@ public class EtudiantsController {
     @FXML
     TableColumn<Etudiant,String> fil;
     @FXML
-    private TableColumn<Etudiant, String> editCol;
+    TableColumn<Etudiant,String> tel;
+    @FXML
+    private TableColumn<Etudiant, String> profile;
     Etudiant Etudiant = null ;
     public static String s =null ;
     public void loadData() throws SQLException{
@@ -57,6 +59,7 @@ public class EtudiantsController {
        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom_user"));
        email.setCellValueFactory(new PropertyValueFactory<>("email_user"));
        fil.setCellValueFactory(new PropertyValueFactory<>("filiere"));
+       tel.setCellValueFactory(new PropertyValueFactory<>("telephone"));
 
 Callback<TableColumn<Etudiant, String>, TableCell<Etudiant, String>> cellFoctory = (TableColumn<Etudiant, String> param) -> {
     // make cell containing buttons
@@ -88,7 +91,8 @@ nom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: c
 prenom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
 email .setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
 fil.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
-editCol.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
+tel.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
+profile.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
 deleteIcon.setStyle("-fx-background-color:transparent ");
 Image image = new Image("file:C:/Users/ilias/Desktop/project1/Biblio_app/app/src/main/resources/com/example/icons/eye1.png");
 ImageView imageView = new ImageView(image);
@@ -108,7 +112,8 @@ else{
 prenom.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
 email .setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
 fil.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
-editCol.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-border-radius: 10" ); 
+tel.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;" );
+profile.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-border-radius: 10" ); 
 deleteIcon.setStyle("-fx-background-color:transparent ");
 Image image = new Image("file:C:/Users/ilias/Desktop/project1/Biblio_app/app/src/main/resources/com/example/icons/oeil (1).png");
 ImageView imageView = new ImageView(image);
@@ -162,7 +167,7 @@ imageView.setFitHeight(30);
 
     return cell;
 };
- editCol.setCellFactory(cellFoctory);
+ profile.setCellFactory(cellFoctory);
 
  this.loadData();
  

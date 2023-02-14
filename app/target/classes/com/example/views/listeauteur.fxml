@@ -1,25 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color:#222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.AuteurController">
  <fx:include source="leftbar.fxml" />
-  <Pane fx:id="root" layoutX="208.0" prefHeight="711.0" prefWidth="1094.0" style="-fx-background-color:#222222;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <Pane fx:id="root" layoutX="207.0" prefHeight="711.0" prefWidth="1094.0" style="-fx-background-color:#222222;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-         <Label fx:id="label" layoutX="185.0" layoutY="74.0" styleClass="outline" text="Liste des auteur" />
+         <Label fx:id="label" layoutX="157.0" layoutY="47.0" styleClass="outline" text="Liste des auteur" />
        <AnchorPane layoutX="-17.0" minHeight="0.0" minWidth="0.0" prefHeight="138.0" prefWidth="163.0" style="-fx-background-color:#222222;" />
-         <TableView fx:id="tableetu" cacheShape="false" centerShape="false" layoutX="127.0" layoutY="168.0" prefHeight="547.0" prefWidth="884.0" scaleShape="false" style="-fx-background-radius: 14 14 0 0;" stylesheets="@style.css">
+         <TableView fx:id="tableetu" cacheShape="false" centerShape="false" layoutX="115.0" layoutY="138.0" prefHeight="491.0" prefWidth="934.0" scaleShape="false" style="-fx-background-radius: 14 14 0 0;" stylesheets="@style.css">
            <columns>
-             <TableColumn fx:id="id" editable="false" prefWidth="120.79998779296875" sortable="false" text=" ID" />
-             <TableColumn fx:id="nom" editable="false" prefWidth="193.6000213623047" sortable="false" text=" NOM" />
-               <TableColumn fx:id="prenom" editable="false" minWidth="0.0" prefWidth="223.20001220703125" sortable="false" text=" PRENOM" />
-               <TableColumn fx:id="bio" editable="false" prefWidth="337.5999755859375" sortable="false" text=" BIO" />
+             <TableColumn fx:id="id" editable="false" prefWidth="120.79998779296875" sortable="false" />
+               <TableColumn fx:id="prenom" editable="false" minWidth="0.0" prefWidth="143.20001220703125" sortable="false" />
+             <TableColumn fx:id="nom" editable="false" prefWidth="160.800048828125" sortable="false" />
+               <TableColumn fx:id="bio" editable="false" prefWidth="402.39996337890625" sortable="false" />
+               <TableColumn fx:id="supCol" prefWidth="129.60009765625" />
            </columns>
          </TableView>
+         <Pane layoutX="115.0" layoutY="136.0" prefHeight="26.0" prefWidth="121.0" style="-fx-background-color: #222222;">
+            <children>
+               <Label layoutX="30.0" layoutY="5.0" prefWidth="65.0" text="ID_AUTEUR" textFill="#f49e61">
+                  <font>
+                     <Font name="System Bold Italic" size="12.0" />
+                  </font>
+               </Label>
+            </children>
+         </Pane>
+         <Pane layoutX="235.0" layoutY="136.0" prefHeight="26.0" prefWidth="145.0" style="-fx-background-color: #222222;">
+            <children>
+               <Label layoutX="65.0" layoutY="5.0" text="NOM" textFill="#f49e61">
+                  <font>
+                     <Font name="System Bold Italic" size="12.0" />
+                  </font>
+               </Label>
+            </children>
+         </Pane>
+         <Pane layoutX="380.0" layoutY="136.0" prefHeight="26.0" prefWidth="163.0" style="-fx-background-color: #222222;">
+            <children>
+               <Label layoutX="52.0" layoutY="5.0" text="PRENOM" textFill="#f49e61">
+                  <font>
+                     <Font name="System Bold Italic" size="12.0" />
+                  </font>
+               </Label>
+            </children>
+         </Pane>
+         <Pane layoutX="942.0" layoutY="136.0" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #222222;">
+            <children>
+               <Label layoutX="20.0" layoutY="5.0" text="SUPPRIMER" textFill="#f49e61">
+                  <font>
+                     <Font name="System Bold Italic" size="12.0" />
+                  </font>
+               </Label>
+            </children>
+         </Pane>
+         <Pane layoutX="543.0" layoutY="136.0" prefHeight="26.0" prefWidth="401.0" style="-fx-background-color: #222222;">
+            <children>
+               <Label layoutX="90.0" layoutY="5.0" text="BIO" textFill="#f49e61">
+                  <font>
+                     <Font name="System Bold Italic" size="12.0" />
+                  </font>
+               </Label>
+            </children>
+         </Pane>
+         <Button fx:id="addaut" layoutX="990.0" layoutY="73.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="51.0" style="-fx-background-color: transparent;" textFill="#1e1c1b">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
    </children>
 </Pane>
 
