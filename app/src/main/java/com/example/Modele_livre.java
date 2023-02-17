@@ -5,10 +5,11 @@ import java.util.Vector;
 
 
 public class Modele_livre {
+  public static Statement s = conn.getStatement();
     public static int countlivre() {
       
         try {
-          Statement s=conn.getStatement();
+          
           ResultSet r=s.executeQuery("select count(*) from livre");
           
             while (r.next()) {
@@ -23,7 +24,7 @@ public class Modele_livre {
             
           }}
     public static Vector<Livre> getLivres() throws SQLException{
-            Statement s = conn.getStatement(); 
+            
             ResultSet r = s.executeQuery("select * from livre");
            
             Vector<Livre> listeoflivres = new Vector<>();
@@ -35,8 +36,9 @@ public class Modele_livre {
             }
             return listeoflivres;
           }
+          
     public static boolean deletelivre(String idlivre) throws SQLException{
-      Statement s = conn.getStatement();
+      
       s.executeUpdate("delete from livre  where id_livre = '"+idlivre+"'");
       return true;
       
