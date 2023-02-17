@@ -22,7 +22,7 @@ public class Modele_livre {
             return 0;
             
           }}
-          public static Vector<Livre> getLivres() throws SQLException{
+    public static Vector<Livre> getLivres() throws SQLException{
             Statement s = conn.getStatement(); 
             ResultSet r = s.executeQuery("select * from livre");
            
@@ -35,4 +35,11 @@ public class Modele_livre {
             }
             return listeoflivres;
           }
+    public static boolean deletelivre(String idlivre) throws SQLException{
+      Statement s = conn.getStatement();
+      s.executeUpdate("delete from livre  where id_livre = '"+idlivre+"'");
+      return true;
+      
+    }
+
 }
