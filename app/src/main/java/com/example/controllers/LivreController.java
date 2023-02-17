@@ -9,13 +9,18 @@ import com.example.Livre;
 import com.example.Modele_auteur;
 import com.example.Modele_livre;
 
+
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -23,6 +28,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 public class LivreController {
     public static int numcarte=4 ;
@@ -230,7 +237,7 @@ public class LivreController {
 
                 
                         // add label for name of writer
-                        Label writer = new Label(Modele_auteur.getWriterName(liste_of_livres.get(j).getId_auteur()));
+                        Label writer = new Label(Modele_auteur.getWriterName(liste_of_livres.get(nb_of_livre).getId_auteur()));
                         //location of label in pane
                 writer.setLayoutX(107);
                 writer.setLayoutY(42);
@@ -241,7 +248,7 @@ public class LivreController {
                 
                 
                         // add label for Page
-                        Label page = new Label("Pages : "+liste_of_livres.get(j).getNombre_pages());
+                        Label page = new Label("Pages : "+liste_of_livres.get(nb_of_livre).getNombre_pages());
                         //location of label in pane
                 page.setLayoutX(107);
                 page.setLayoutY(63);
@@ -271,6 +278,9 @@ public class LivreController {
                         button_trash.getStyleClass().add("trash");
                         button_trash.toBack();
 
+                        // add id button trash is the id of the livre
+                        button_trash.setId(liste_of_livres.get(nb_of_livre).getId_livre()+"");
+
                         //add button voir
                   Button button_voir = new Button("Voir");
                   //the position if button in pane
@@ -296,6 +306,39 @@ public class LivreController {
                    //set style to pane
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                    carteoflivre.getStyleClass().add("carte_livre");
+
+                   // add action to trash button 
+
+                    button_trash.setOnMouseClicked((MouseEvent event)->{
+                        try {
+                            System.out.println("iiiiiiiiiiiih");
+                            Alert a = new Alert(AlertType.CONFIRMATION);
+                            // set the propriety for alert
+                            a.setTitle("");
+                            a.setContentText("ce livre va etre supprimer definitivement");
+                            a.setHeaderText("vous etes sure ?");
+                            
+                            
+                            a.showAndWait().ifPresent(response -> {
+                                if (
+                                    response == ButtonType.OK) {
+                                    // Action to perform when user clicks OK
+                                    System.out.println("User clicked OK");
+                                    try {
+                                        Modele_livre.deletelivre(button_trash.getId());
+                                        App.setRoot(button_trash.getScene(), "Livre");
+                                    } catch (Exception e) {
+                                        
+                                    }
+                                }
+                            });
+                            
+                            
+                        } catch (Exception e) {
+                            System.out.println("ilias");
+                           
+                        }
+                    });
                     
                   
                    
