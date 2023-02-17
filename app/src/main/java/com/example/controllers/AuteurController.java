@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.TableCell;
@@ -27,6 +28,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -47,6 +50,8 @@ public class AuteurController {
     private TableColumn<Etudiant, String> supCol;
     @FXML
     Button addaut;
+    @FXML
+    Button refresh;
    
     int i=0 ;
    
@@ -72,6 +77,12 @@ public class AuteurController {
     
     
      addaut.setGraphic(imageView);
+     Image image2  = new Image(getClass().getResource("/com/example/icons/refresh-page-option.png").toExternalForm());
+
+    ImageView imageView2 = new ImageView(image2);
+    imageView2.setFitWidth(33);
+    imageView2.setFitHeight(33);
+    refresh.setGraphic(imageView2);
    
     
       
@@ -110,8 +121,8 @@ public class AuteurController {
                     deleteIcon.setId(""+(i-1));
                     i++;
                     id.setStyle(" -fx-text-fill: white;");
-                    
-    if((i%2)!=0)    {       
+                           
+  
          
     id.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-border-radius: 10;-fx-font-weight: bold;" );
     nom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
@@ -120,7 +131,7 @@ public class AuteurController {
    
     supCol.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
     deleteIcon.setStyle("-fx-background-color:transparent ");
-    Image image  = new Image(getClass().getResource("/com/example/icons/delete-noir.png").toExternalForm());
+    Image image  = new Image(getClass().getResource("/com/example/icons/delete-asfar.png").toExternalForm());
     
     ImageView imageView = new ImageView(image);
     imageView.setFitWidth(19);
@@ -130,25 +141,9 @@ public class AuteurController {
     
     
     
-    }
     
-    else{
-        
-        id.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-border-radius: 10;-fx-font-weight: bold;" ); 
-        nom.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-font-weight: bold;" );
-    prenom.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-font-weight: bold;" );
-    bio .setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-font-weight: bold;" );
-    supCol.setStyle("-fx-background-color:#E38B29;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #E38B29;-fx-font-weight: bold;" );
     
-    deleteIcon.setStyle("-fx-background-color:transparent ");
-    Image image  = new Image(getClass().getResource("/com/example/icons/delete-asfar.png").toExternalForm());
-
-    ImageView imageView = new ImageView(image);
-    imageView.setFitWidth(19);
-    imageView.setFitHeight(19);
-    
-     deleteIcon.setGraphic(imageView); 
-    }
+   
    
     deleteIcon.setOnMouseClicked((MouseEvent event) -> {
         Character b= deleteIcon.getId().charAt(0);
@@ -206,7 +201,35 @@ public class AuteurController {
      this.loadData();
      
      
-    }}
+    }
+   
+    @FXML
+    public void addaut(){
+        Stage stage =new Stage();
+        Scene scene4=null ;
+        try {
+            scene4 = new Scene(App.loadFXML("addauteur"));
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+         
+       
+          stage.setScene(scene4);
+          stage.setResizable(false);
+         stage.initStyle(StageStyle.UNDECORATED);
+          stage.show();
+        
+    }
+    @FXML
+    public void refresh() throws SQLException{
+        ObservableList<Auteur> e=Modele_auteur.load();
+        
+        tableetu.setItems(e);
+    }
+    
+}
 
 
 

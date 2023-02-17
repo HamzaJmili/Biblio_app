@@ -14,13 +14,13 @@
    <children>
          <Label fx:id="label" layoutX="157.0" layoutY="47.0" styleClass="outline" text="Liste des auteur" />
        <AnchorPane layoutX="-17.0" minHeight="0.0" minWidth="0.0" prefHeight="138.0" prefWidth="163.0" style="-fx-background-color:#222222;" />
-         <TableView fx:id="tableetu" cacheShape="false" centerShape="false" layoutX="115.0" layoutY="138.0" prefHeight="491.0" prefWidth="934.0" scaleShape="false" style="-fx-background-radius: 14 14 0 0;" stylesheets="@style.css">
+         <TableView fx:id="tableetu" cacheShape="false" centerShape="false" layoutX="115.0" layoutY="138.0" prefHeight="491.0" prefWidth="903.0" scaleShape="false" style="-fx-background-radius: 14 14 0 0;" stylesheets="@style.css">
            <columns>
              <TableColumn fx:id="id" editable="false" prefWidth="120.79998779296875" sortable="false" />
                <TableColumn fx:id="prenom" editable="false" minWidth="0.0" prefWidth="143.20001220703125" sortable="false" />
              <TableColumn fx:id="nom" editable="false" prefWidth="160.800048828125" sortable="false" />
                <TableColumn fx:id="bio" editable="false" prefWidth="402.39996337890625" sortable="false" />
-               <TableColumn fx:id="supCol" prefWidth="129.60009765625" />
+               <TableColumn fx:id="supCol" prefWidth="73.39990234375" />
            </columns>
          </TableView>
          <Pane layoutX="115.0" layoutY="136.0" prefHeight="26.0" prefWidth="121.0" style="-fx-background-color: #222222;">
@@ -52,7 +52,7 @@
          </Pane>
          <Pane layoutX="942.0" layoutY="136.0" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #222222;">
             <children>
-               <Label layoutX="20.0" layoutY="5.0" text="SUPPRIMER" textFill="#f49e61">
+               <Label layoutX="8.0" layoutY="5.0" text="SUPPRIMER" textFill="#f49e61">
                   <font>
                      <Font name="System Bold Italic" size="12.0" />
                   </font>
@@ -68,11 +68,12 @@
                </Label>
             </children>
          </Pane>
-         <Button fx:id="addaut" layoutX="990.0" layoutY="73.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="51.0" style="-fx-background-color: transparent;" textFill="#1e1c1b">
+         <Button fx:id="addaut" layoutX="990.0" layoutY="73.0" mnemonicParsing="false" onAction="#addaut" prefHeight="45.0" prefWidth="51.0" style="-fx-background-color: transparent;" textFill="#1e1c1b">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
+         <Button fx:id="refresh" layoutX="942.0" layoutY="79.0" mnemonicParsing="false" onAction="#refresh" prefHeight="45.0" prefWidth="52.0" style="-fx-background-color: transparent;" />
    </children>
 </Pane>
 
