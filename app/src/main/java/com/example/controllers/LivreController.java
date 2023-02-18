@@ -184,7 +184,7 @@ public class LivreController {
     //    }
     Vector<Livre> liste_of_livres = Modele_livre.getLivres();
     // //     Pane p = new Pane();
-    System.out.println(nb_of_livre);
+    
     
     while(nb_of_livre!=liste_of_livres.size()){ 
         
@@ -196,7 +196,7 @@ public class LivreController {
        
         for (int j = 0; j < 4 && nb_of_livre!=liste_of_livres.size() ; j++) {
             
-            System.out.println(j);
+            
             AnchorPane carteoflivre = new AnchorPane();
             carteoflivre.setPrefWidth(260);
             Insets margins = new Insets(10, 5, 25, 5);

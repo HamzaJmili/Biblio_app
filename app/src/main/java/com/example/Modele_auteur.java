@@ -11,8 +11,8 @@ public class Modele_auteur {
     public static int countauteur() {
       
         try {
-          Statement s=conn.getStatement();
-          ResultSet r=s.executeQuery("select count(*) from auteur");
+          
+          ResultSet r=GetStetment.statement.executeQuery("select count(*) from auteur");
           
             while (r.next()) {
               
@@ -51,7 +51,7 @@ public class Modele_auteur {
             
           } 
           public static void insert_into_auteur(String nom,String prenom,String bioo) throws SQLException{
-            Connection con=conn.getConnection();
+            Connection con=conn.Connection();
             String sql = "insert into auteur(nom_auteur,prenom_auteur,bio_auteur) values(?,?,?)";
             
             try (PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -63,7 +63,7 @@ public class Modele_auteur {
           
           }}
           public static void DELETE_FROM_auteur(int Id_auteur) throws SQLException{
-            Connection con=conn.getConnection();
+            Connection con=conn.Connection();
             String sql = "DELETE FROM auteur WHERE ID_AUTEUR = ?";
             
             PreparedStatement stmt = con.prepareStatement(sql);

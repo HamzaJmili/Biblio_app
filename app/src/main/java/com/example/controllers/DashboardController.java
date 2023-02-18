@@ -1,5 +1,7 @@
 package com.example.controllers;
 
+import java.sql.SQLException;
+
 import com.example.Modele_auteur;
 import com.example.Modele_etudiant;
 import com.example.Modele_livre;
@@ -22,7 +24,7 @@ public class DashboardController {
     @FXML 
     Label label;
     @FXML
-    protected void initialize (){
+    protected void initialize () throws SQLException{
         
         label.getStyleClass().add("outline");
        leftbarController.button_selected='D';

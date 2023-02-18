@@ -12,6 +12,8 @@ ALTER TABLE reserve  ADD CONSTRAINT fk_4 FOREIGN KEY (cne) REFERENCES etudiant(c
  ALTER TABLE reserve  ADD CONSTRAINT fk_5 FOREIGN KEY (id_livre) REFERENCES livre(id_livre);
  create sequence idlivre start with 1 increment by 1 ;
 
+ insert into livre values (4,'ilias','ilias','ilias',2,1800);
+
  CREATE TRIGGER livre_trg
    BEFORE INSERT ON livre
     FOR EACH ROW

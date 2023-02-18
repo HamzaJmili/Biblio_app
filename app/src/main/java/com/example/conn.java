@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class conn {
     public static Statement getStatement() {
+        
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection c=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "pfe", "1234");
@@ -18,7 +19,7 @@ public class conn {
         return null;
     }
    
-    public static Connection getConnection() {
+    public static Connection Connection() {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection c=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "pfe", "1234");
