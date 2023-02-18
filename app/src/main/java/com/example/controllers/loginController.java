@@ -2,6 +2,8 @@ package com.example.controllers;
 import java.io.IOException;
 import java.sql.SQLException;
 
+
+
 import com.example.App;
 import com.example.Etudiant;
 import com.example.Modele_admin;
@@ -130,7 +132,7 @@ public class loginController  {
              if (!password_text_field.getText().isEmpty())
              utilisateur=Modele_etudiant.checkEtudiant(email.getText(),password_text_field.getText());
         }
-     System.out.println("jjjjjjj");
+        
         return utilisateur ;
 
    }
@@ -139,7 +141,7 @@ public class loginController  {
     if (verifierEtulisateur()==null){
         incorrect_mdps.setVisible(true);
     }
-    else {
+    else if(isadmin==true) {
         User user=this.verifierEtulisateur();
         Session.nom_utiliasteur=user.getNom_user();
         Session.prenom_utiliasteur=user.getPrenom_user();
@@ -151,6 +153,21 @@ public class loginController  {
       Scene scene2 = new Scene(App.loadFXML("dashboard"));
        
      
+        stage2.setScene(scene2);
+        stage2.setResizable(false);
+        
+        stage2.show();
+    }
+    else {
+        User user=this.verifierEtulisateur();
+        Session.nom_utiliasteur=user.getNom_user();
+        Session.prenom_utiliasteur=user.getPrenom_user();
+        Session.email_utiliasteur=user.getEmail_user();
+      
+        
+        ((Stage) closeButton.getScene().getWindow()).close();
+      Stage stage2 =new Stage();
+      Scene scene2 = new Scene(App.loadFXML("leftbarEtudiant"));
         stage2.setScene(scene2);
         stage2.setResizable(false);
         
