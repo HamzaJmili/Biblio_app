@@ -10,8 +10,8 @@ public class Modele_tag {
     public static int counttag() {
       
         try {
-          Statement s=conn.getStatement();
-          ResultSet r=s.executeQuery("select count(*) from tag");
+        
+          ResultSet r=  GetStetment.statement.executeQuery("select count(*) from tag");
           
             while (r.next()) {
               
