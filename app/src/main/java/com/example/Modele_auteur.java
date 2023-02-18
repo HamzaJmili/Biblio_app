@@ -1,4 +1,6 @@
 package com.example;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,4 +50,24 @@ public class Modele_auteur {
             return st ;
             
           } 
+          public static void insert_into_auteur(String nom,String prenom,String bioo) throws SQLException{
+            Connection con=conn.getConnection();
+            String sql = "insert into auteur(nom_auteur,prenom_auteur,bio_auteur) values(?,?,?)";
+            
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+          stmt.setString(1, nom);
+          stmt.setString(2, prenom);
+          stmt.setString(3, bioo);
+          
+                    stmt.executeQuery();   
+          
+          }}
+          public static void DELETE_FROM_auteur(int Id_auteur) throws SQLException{
+            Connection con=conn.getConnection();
+            String sql = "DELETE FROM auteur WHERE ID_AUTEUR = ?";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+          stmt.setInt(1,Id_auteur );
+                    stmt.executeQuery();
+          }
 }

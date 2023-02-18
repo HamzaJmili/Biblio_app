@@ -6,11 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.example.App;
+import com.example.Modele_auteur;
 import com.example.conn;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -26,24 +28,19 @@ public class AddauteurController {
      @FXML
      TextField prenom;
      @FXML
-     TextField bio;
+     TextArea bioo;
+     @FXML
+     protected void initialize () throws SQLException{
+        bioo.setStyle("-fx-control-inner-background: #222222;");}
      @FXML
      public void valider() throws IOException, SQLException{
-        Connection con=conn.getConnection();
-        String sql = "insert into auteur(nom_auteur,prenom_auteur,bio_auteur) values(?,?,?)";
-        
-        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-     stmt.setString(1, nom.getText());
-     stmt.setString(2, prenom.getText());
-     stmt.setString(3, bio.getText());
-    
-                stmt.executeQuery();   
+        Modele_auteur.insert_into_auteur(nom.getText(), prenom.getText(),  bioo.getText());
                 ((Stage) annuler.getScene().getWindow()).close(); 
                
         
     }
  
      }
-    }
+    
 
 

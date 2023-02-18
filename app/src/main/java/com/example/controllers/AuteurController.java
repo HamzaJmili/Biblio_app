@@ -150,28 +150,21 @@ public class AuteurController {
        
         int a=Character.getNumericValue(b);
         Auteur er= tableetu.getItems().get(a);
-      Connection con=conn.getConnection();
-      String sql = "DELETE FROM auteur WHERE ID_AUTEUR = ?";
-      
-      try (PreparedStatement stmt = con.prepareStatement(sql)) {
-    stmt.setInt(1,er.getId_auteur() );
-              stmt.executeQuery();
-             
-              leftbarController.button_selected='U';
-              App.setRoot(addaut.getScene(), "listeauteur");
-              
-             
-              
-            
-} catch (SQLException e) {
-    System.out.println("errrrr");
-    e.printStackTrace();
-} catch (IOException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-
+        
+        try {
+            Modele_auteur.DELETE_FROM_auteur(er.getId_auteur());
+        } catch (SQLException e) {
+            System.out.println("error in database ");
+            e.printStackTrace();
+        }
     
+        leftbarController.button_selected='U';
+        try {
+            App.setRoot(addaut.getScene(), "listeauteur");
+        } catch (IOException e) {
+            System.out.println("error in change interface");
+            e.printStackTrace();
+        }
         
         
        

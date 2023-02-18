@@ -8,12 +8,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color:#222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.AuteurController">
+<AnchorPane prefHeight="680.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.AuteurController">
  <fx:include source="leftbar.fxml" />
-  <Pane fx:id="root" layoutX="207.0" prefHeight="711.0" prefWidth="1094.0" style="-fx-background-color:#222222;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <Pane fx:id="root" layoutX="210.0" prefHeight="711.0" prefWidth="1091.0" style="-fx-background-color: #333231;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
          <Label fx:id="label" layoutX="157.0" layoutY="47.0" styleClass="outline" text="Liste des auteur" />
-       <AnchorPane layoutX="-17.0" minHeight="0.0" minWidth="0.0" prefHeight="138.0" prefWidth="163.0" style="-fx-background-color:#222222;" />
          <TableView fx:id="tableetu" cacheShape="false" centerShape="false" layoutX="115.0" layoutY="138.0" prefHeight="491.0" prefWidth="903.0" scaleShape="false" style="-fx-background-radius: 14 14 0 0;" stylesheets="@style.css">
            <columns>
              <TableColumn fx:id="id" editable="false" prefWidth="120.79998779296875" sortable="false" />
@@ -50,7 +49,7 @@
                </Label>
             </children>
          </Pane>
-         <Pane layoutX="942.0" layoutY="136.0" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #222222;">
+         <Pane layoutX="942.0" layoutY="136.0" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: #222222;">
             <children>
                <Label layoutX="8.0" layoutY="5.0" text="SUPPRIMER" textFill="#f49e61">
                   <font>
