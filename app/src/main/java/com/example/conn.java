@@ -30,5 +30,8 @@ public class conn {
         }
         return null;
     }
+    public static void closeConnection (Connection conx) throws SQLException{
+        conx.close();
+    }
    
 }
