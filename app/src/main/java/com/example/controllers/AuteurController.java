@@ -28,6 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -198,6 +199,7 @@ public class AuteurController {
    
     @FXML
     public void addaut(){
+
         Stage stage =new Stage();
         Scene scene4=null ;
         try {
@@ -212,6 +214,7 @@ public class AuteurController {
           stage.setScene(scene4);
           stage.setResizable(false);
          stage.initStyle(StageStyle.UNDECORATED);
+         stage.initModality(Modality.APPLICATION_MODAL);
           stage.show();
         
     }
