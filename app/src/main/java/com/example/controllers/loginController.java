@@ -167,7 +167,7 @@ public class loginController  {
         
         ((Stage) closeButton.getScene().getWindow()).close();
       Stage stage2 =new Stage();
-      Scene scene2 = new Scene(App.loadFXML("leftbarEtudiant"));
+      Scene scene2 = new Scene(App.loadFXML("ListOfBooksStudent"));
         stage2.setScene(scene2);
         stage2.setResizable(false);
         
