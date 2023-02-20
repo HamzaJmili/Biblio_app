@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="700.8" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ListOfBooksStudent">
+<AnchorPane maxHeight="706.0" prefHeight="706.0" prefWidth="1298.0" style="-fx-background-color:  #333231;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ListOfBooksStudent">
   <fx:include source="leftbarEtudiant.fxml" />
   
-   <ScrollPane layoutX="211.0" layoutY="176.0" prefHeight="527.0" prefWidth="1092.0" style="-fx-background-color: black ;">
+   <ScrollPane layoutX="209.0" layoutY="123.0" prefHeight="584.0" prefWidth="1094.0" style="-fx-background-color: #333231;">
       <content>
-         <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1074.0" style="-fx-background-color: black;">
+         <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1074.0" style="-fx-background-color:  #333231 ;">
             <children>
               
                
@@ -19,10 +20,12 @@
          </VBox>
       </content>
    </ScrollPane>
-   <Label fx:id="label" layoutX="286.0" layoutY="80.0" style="-fx-region-border: black;" styleClass="outline" text="Liste des livres" textFill="#dc972f">
-      <font>
-         <Font name="System Bold Italic" size="26.0" />
-      </font></Label>
+   <TextField layoutX="570.0" layoutY="60.0" prefHeight="34.0" prefWidth="324.0" />
+   <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="860.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../icons/rechercher.png" />
+      </image>
+   </ImageView>
    
 
   
