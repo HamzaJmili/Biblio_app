@@ -1,0 +1,196 @@
+package com.example.controllers;
+
+import java.sql.SQLException;
+import java.util.Vector;
+
+import com.example.App;
+import com.example.Auteur;
+import com.example.Livre;
+import com.example.Modele_auteur;
+import com.example.Modele_livre;
+
+
+import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Line;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
+public class ListOfBooksStudent {
+    public static int numcarte=4 ;
+    int nb_of_livre =0 ;
+
+    @FXML
+    Pane carte_etudiant;
+   
+    @FXML 
+    VBox boxOfStudent ;
+    @FXML
+    void initialize () throws SQLException{
+       
+        boxOfStudent.setPrefHeight(0);
+       
+        
+        add_etudiant();
+       
+    }
+     void add_etudiant() throws SQLException{
+     
+    
+    Vector<Livre> liste_of_livres = Modele_livre.getLivres();
+   
+    
+    
+    while(nb_of_livre!=liste_of_livres.size()){ 
+        
+        boxOfStudent.setPrefHeight(boxOfStudent.getPrefHeight()+170);
+        HBox hBox = new HBox();
+       
+        
+        hBox .setPrefHeight(300); //440
+       
+        for (int j = 0; j <  6 && nb_of_livre!=liste_of_livres.size() ; j++) {
+            
+            
+            AnchorPane carteoflivre = new AnchorPane();
+            carteoflivre.setPrefWidth(150); //170 143
+            Insets margins = new Insets(5,14,14,15);
+            Pane imagelayout = new Pane();
+            imagelayout.setPrefSize(107, 150);
+            imagelayout.setStyle("-fx-background-color:#222222;");
+            imagelayout.setLayoutX(20);
+            imagelayout.setLayoutY(10);
+
+
+            
+            
+            try {
+                Image image = new Image(getClass().getResource("/com/example/books_cover/cover.jpg").toExternalForm());
+                ImageView imageView = new ImageView(image);
+                imageView.setFitHeight(150);
+                imageView.setFitWidth(107);
+                imageView.setLayoutX(1);
+                imageView.setLayoutY(1);
+                
+                
+                imagelayout.getChildren().add(imageView);
+            
+            } catch (Exception e) {
+               System.out.println("ilias");
+            }
+           
+
+           Label book_name = new Label(liste_of_livres.get(nb_of_livre).getTitre());
+
+    //                 //location of label in pane
+                book_name.setLayoutX(8);
+                book_name.setLayoutY(160);
+        
+    //                 //add style for label
+                book_name.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                book_name.getStyleClass().add("textofcarte");
+                book_name.setAlignment(Pos.CENTER);
+                book_name.setPrefWidth(120);
+
+                
+                        // add label for name of writer
+                        Label writer = new Label(Modele_auteur.getWriterName(liste_of_livres.get(nb_of_livre).getId_auteur()));
+                        //location of label in pane
+                writer.setLayoutX(8);
+                writer.setLayoutY(184);
+
+                                        //add style for label
+                writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                writer.getStyleClass().add("writer_name");
+                
+                
+                        // add label for Page
+                //         Label page = new Label("Pages : "+liste_of_livres.get(nb_of_livre).getNombre_pages());
+                //         //location of label in pane
+                // page.setLayoutX(8);
+                // page.setLayoutY(255);
+
+
+
+                //                         //add style for Page
+                // page.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                // page.getStyleClass().add("page_label");
+
+           
+  
+                  // set the hight of button
+        
+                        //add button voir
+                  Button button_voir = new Button("Voir");
+                  //the position if button in pane
+                  button_voir.setLayoutX(27);
+                  button_voir.setLayoutY(200);
+  
+                  // set the hight of button
+                  button_voir.setPrefSize(80, 30);
+                //add image trash to button
+                Image eyeicon1  = new Image(getClass().getResource("/com/example/icons/green_eye.png").toExternalForm());
+                ImageView eyeiconview1 = new ImageView(eyeicon1);
+                eyeiconview1.setFitHeight(17);
+                eyeiconview1.setFitWidth(17);
+                button_voir.setGraphic(eyeiconview1);
+
+                        //add style for button
+                        button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                        button_voir.getStyleClass().add("voir");
+                        button_voir.toBack();
+                
+            
+            
+                   //set style to pane
+                   carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                   carteoflivre.getStyleClass().add("carte_livre");
+
+                   // add action to trash button 
+
+        
+                    
+                  
+                   
+                   // add compnents to livre carte
+                   carteoflivre.getChildren().add(imagelayout);
+                   carteoflivre.getChildren().add(book_name);
+                   carteoflivre.getChildren().add(writer);
+                   carteoflivre.getChildren().add(button_voir);
+
+
+          
+                
+            hBox.getChildren().add(carteoflivre);
+            
+            HBox.setMargin(carteoflivre, margins);
+            nb_of_livre++;
+        }
+
+        boxOfStudent.getChildren().add(hBox);
+        
+    }
+    
+    
+    
+             
+     }
+}
+
+

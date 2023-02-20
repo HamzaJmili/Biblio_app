@@ -8,7 +8,11 @@
 
 .carte_livre{
     -fx-background-color : #ffffff;
-    -fx-background-radius: 5px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 1px 1px 1px 1px;
+     -fx-border-radius: 10px; 
+    -fx-border-style: solid;
+    -fx-border-color: #E38B29; 
     -fx-effect: dropshadow(three-pass-box, rgba(65, 65, 65, 0.8), 10, 0, 0, 0);
 
 }
@@ -16,9 +20,10 @@
     -fx-text-fill:#000000;
     -fx-font-weight: bold;
     -fx-font-size: 15px ;
-   
+
    
 }
+
 .page_label{
     -fx-text-fill:#1d5e21;
     -fx-font-style:italic;

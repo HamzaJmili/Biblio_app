@@ -74,8 +74,6 @@ public class App extends Application {
         launch();
     }
 
-    public static void setRoot(String string) {
-        
-    }
+    
 
 }
