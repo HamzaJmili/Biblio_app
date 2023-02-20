@@ -12,8 +12,8 @@ public class Modele_etudiant {
     public static User checkEtudiant(String email,String mot_de_pass) {
       
       try {
-        Statement s=conn.getStatement();
-        ResultSet r=s.executeQuery("select * from etudiant where EMAIL_ETUDIANT='"+email+"' and MDP_ETUDIANT='"+mot_de_pass+"'");
+     
+        ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant where EMAIL_ETUDIANT='"+email+"' and MDP_ETUDIANT='"+mot_de_pass+"'");
         
           while (r.next()) {
             User e=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
@@ -31,8 +31,8 @@ public class Modele_etudiant {
         public static int countetu() {
       
           try {
-            Statement s=conn.getStatement();
-            ResultSet r=s.executeQuery("select count(*) from etudiant");
+           
+            ResultSet r=  GetStetment.statement.executeQuery("select count(*) from etudiant");
             
               while (r.next()) {
                 
@@ -49,9 +49,8 @@ public class Modele_etudiant {
             }
             public static  ObservableList<Etudiant> load() throws SQLException{
               ObservableList<Etudiant> e=FXCollections.observableArrayList();
-              
-              Statement s=conn.getStatement();
-              ResultSet r=s.executeQuery("select * from etudiant");
+             
+              ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant");
               while (r.next()) {
                 Etudiant etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
                 e.add(etu);
@@ -61,8 +60,8 @@ public class Modele_etudiant {
             public static  Etudiant getProfileEtudiant( String cneEtudiant)  {
               Etudiant etu=null;
               try {
-                Statement s=conn.getStatement();
-                ResultSet r=s.executeQuery("select * from etudiant  where cne='"+cneEtudiant+"'");
+               
+                ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant  where cne='"+cneEtudiant+"'");
                
                 while(r.next()){
                   etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
