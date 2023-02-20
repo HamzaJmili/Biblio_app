@@ -153,6 +153,7 @@ public class AuteurController {
         Auteur er= tableetu.getItems().get(a);
         
         try {
+            System.out.println(1234);
             Modele_auteur.DELETE_FROM_auteur(er.getId_auteur());
         } catch (SQLException e) {
             System.out.println("error in database ");
@@ -162,6 +163,7 @@ public class AuteurController {
         leftbarController.button_selected='U';
         try {
             App.setRoot(addaut.getScene(), "listeauteur");
+            System.out.println(12345);
         } catch (IOException e) {
             System.out.println("error in change interface");
             e.printStackTrace();
