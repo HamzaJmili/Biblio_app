@@ -32,7 +32,8 @@ import javafx.scene.shape.Line;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
-public class ListOfBooksStudent {
+public class ListOfBooksStudentController {
+    public static int id ;
     public static int numcarte=4 ;
     int nb_of_livre =0 ;
 
@@ -137,10 +138,11 @@ public class ListOfBooksStudent {
                   // set the hight of button
         
                         //add button voir
-                  Button button_voir = new Button("Voir");
+               Button button_voir = new Button("Voir");
                   //the position if button in pane
                   button_voir.setLayoutX(27);
                   button_voir.setLayoutY(200);
+                
   
                   // set the hight of button
                   button_voir.setPrefSize(80, 30);
@@ -155,6 +157,14 @@ public class ListOfBooksStudent {
                         button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                         button_voir.getStyleClass().add("voir");
                         button_voir.toBack();
+                        button_voir.setOnMouseClicked((MouseEvent event)->{
+                          try { App.setRoot(button_voir.getScene(), "BookProfile");
+                        }  
+                        catch( Exception e) {
+                         System.out.println(e.getMessage());
+                         e.printStackTrace();
+                        }
+                        } );
                 
             
             
@@ -173,6 +183,7 @@ public class ListOfBooksStudent {
                    carteoflivre.getChildren().add(book_name);
                    carteoflivre.getChildren().add(writer);
                    carteoflivre.getChildren().add(button_voir);
+                  id=liste_of_livres.get(nb_of_livre).getId_livre();
 
 
           

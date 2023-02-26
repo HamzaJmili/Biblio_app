@@ -39,17 +39,6 @@ public class App extends Application {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         
         scene = new Scene(loadFXML("login_inter")); //, 1300, 700 
         stage.setScene(scene);

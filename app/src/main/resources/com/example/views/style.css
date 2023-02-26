@@ -135,4 +135,6 @@
 }
 
 
-
+#textarea{
+    -fx-background-color: transparent ;
+}
