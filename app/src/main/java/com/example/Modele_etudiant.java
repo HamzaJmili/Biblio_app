@@ -10,14 +10,16 @@ import javafx.collections.ObservableList;
 
 public class Modele_etudiant {
     public static User checkEtudiant(String email,String mot_de_pass) {
-      
-      try {
      
-        ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant where EMAIL_ETUDIANT='"+email+"' and MDP_ETUDIANT='"+mot_de_pass+"'");
+      try {
+        System.out.println("kk");
+        ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant where EMAIL_ETUDIANT='"+email+"'");
         
           while (r.next()) {
+            if(PasswordCrypter.checkPassword(mot_de_pass,r.getString("MDP_ETUDIANT"))==true){
+              
             User e=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
-            return e;
+            return e;}
           }
           return null;
               
@@ -76,6 +78,50 @@ public class Modele_etudiant {
            return etu;
            
           }
-        
+          public static void changemotdepass(String nv_pass) {
+           
+            try {
+            
+              String query = "UPDATE etudiant SET MDP_ETUDIANT='"+nv_pass+"' where EMAIL_ETUDIANT='"+Session.email_utiliasteur+"' and NOM_ETUDIANT='"+Session.nom_utiliasteur+"' and  PRENOM_ETUDIANT='"+Session.prenom_utiliasteur+"'";
+              
+             GetStetment.statement.executeUpdate(query);}
+             catch (SQLException e) {
+              System.out.println(e.getSQLState()+"\n"+e.getMessage());
+              e.printStackTrace();
+            }
+          }
+        public static Etudiant getetuparemail(String email){
+          Etudiant etu=null;
+          try {
+           
+            ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant  where EMAIL_ETUDIANT='"+email+"'");
+           
+            while(r.next()){
+              etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
+              
+            }
+        } 
+        catch (Exception e) {
+          // TODO: handle exception
+        } 
+        return etu;
+        }
+        public static String getoldpass(String email,String nom,String prenom){
+         String mdps=null;
+          try {
+           
+            ResultSet r=  GetStetment.statement.executeQuery("select MDP_ETUDIANT from etudiant  where EMAIL_ETUDIANT='"+email+"' and NOM_ETUDIANT='"+nom+"' and  PRENOM_ETUDIANT='"+prenom+"' ");
+           
+            while(r.next()){
+             mdps=r.getString("MDP_ETUDIANT");
+              
+            }
+        } 
+        catch (Exception e) {
+          // TODO: handle exception
+        } 
+        return mdps;
+        }
+       
     }
 

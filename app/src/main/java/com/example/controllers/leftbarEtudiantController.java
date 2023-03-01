@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Vector;
 
@@ -32,7 +33,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
 public class leftbarEtudiantController {
-  
+    @FXML
+    Button Parametres;
+    @FXML
+    void gotoparam() throws IOException{
+       
+     
+         App.setRoot(Parametres.getScene(),"param");
+}
 }
 
 
