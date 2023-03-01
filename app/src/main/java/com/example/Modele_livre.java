@@ -52,5 +52,11 @@ public class Modele_livre {
       return true;
       
     }
-
+   public static Livre getBook( int Id_livre ) throws SQLException{
+    Livre L= null;
+    ResultSet s=GetStetment.statement.executeQuery("select * from livre where id_livre='"+Id_livre+"'");
+    while(s.next())
+     L = new Livre(s.getInt(1), s.getString(2), s.getString(3), s.getString(4), s.getInt(5),s.getInt(6));
+    return L;
+    }
 }
