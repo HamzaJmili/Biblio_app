@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="706.0" prefHeight="706.0" prefWidth="1298.0" style="-fx-background-color:  #333231;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ListOfBooksStudentController">
+  <fx:include source="leftbarEtudiant.fxml" />
+  
+   <ScrollPane layoutX="209.0" layoutY="123.0" prefHeight="584.0" prefWidth="1094.0" style="-fx-background-color: #333231;">
+      <content>
+         <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1074.0" style="-fx-background-color:  #333231 ;">
+            <children>
+              
+               
+            </children>
+         </VBox>
+      </content>
+   </ScrollPane>
+   <TextField layoutX="570.0" layoutY="60.0" prefHeight="34.0" prefWidth="324.0" />
+   <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="860.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../icons/rechercher.png" />
+      </image>
+   </ImageView>
+   
+
+  
+  </AnchorPane>

@@ -29,9 +29,12 @@ public class AddauteurController {
      TextField prenom;
      @FXML
      TextArea bioo;
+     Button b;
      @FXML
      protected void initialize () throws SQLException{
-        bioo.setStyle("-fx-control-inner-background: #222222;");}
+        bioo.setStyle("-fx-control-inner-background: #222222;");
+      Button b=  annuler;
+    }
      @FXML
      public void valider() throws IOException, SQLException{
         Modele_auteur.insert_into_auteur(nom.getText(), prenom.getText(),  bioo.getText());

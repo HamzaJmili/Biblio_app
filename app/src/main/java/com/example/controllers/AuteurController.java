@@ -28,6 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -152,6 +153,7 @@ public class AuteurController {
         Auteur er= tableetu.getItems().get(a);
         
         try {
+            System.out.println(1234);
             Modele_auteur.DELETE_FROM_auteur(er.getId_auteur());
         } catch (SQLException e) {
             System.out.println("error in database ");
@@ -161,6 +163,7 @@ public class AuteurController {
         leftbarController.button_selected='U';
         try {
             App.setRoot(addaut.getScene(), "listeauteur");
+            System.out.println(12345);
         } catch (IOException e) {
             System.out.println("error in change interface");
             e.printStackTrace();
@@ -198,6 +201,7 @@ public class AuteurController {
    
     @FXML
     public void addaut(){
+
         Stage stage =new Stage();
         Scene scene4=null ;
         try {
@@ -212,6 +216,7 @@ public class AuteurController {
           stage.setScene(scene4);
           stage.setResizable(false);
          stage.initStyle(StageStyle.UNDECORATED);
+         stage.initModality(Modality.APPLICATION_MODAL);
           stage.show();
         
     }
