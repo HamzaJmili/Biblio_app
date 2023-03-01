@@ -24,6 +24,16 @@ ALTER TABLE reserve  ADD CONSTRAINT fk_4 FOREIGN KEY (cne) REFERENCES etudiant(c
     END;
     /
 
+     CREATE TRIGGER tag_trg
+   BEFORE INSERT ON tag
+    FOR EACH ROW
+    BEGIN
+      SELECT idtag.NEXTVAL
+      INTO :new.id_tag
+      FROM dual;         
+    END;
+    /
+
 
 
 CREATE TRIGGER auteur_trg
