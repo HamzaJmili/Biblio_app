@@ -45,6 +45,7 @@ public class App extends Application {
        
         
           stage.initStyle(StageStyle.UNDECORATED);
+       
         stage.show();
         // }
     

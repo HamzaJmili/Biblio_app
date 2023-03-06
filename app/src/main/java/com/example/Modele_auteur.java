@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 
 import javafx.collections.FXCollections;
@@ -35,10 +36,19 @@ public class Modele_auteur {
             ResultSet r=GetStetment.statement.executeQuery("select * from auteur");
             while (r.next()) {
               Auteur aut=new Auteur(r.getInt("ID_AUTEUR"), r.getString("NOM_AUTEUR"), r.getString("PRENOM_AUTEUR"), r.getString("BIO_AUTEUR"));
-              System.out.println(aut.getBio_auteur()+"   jjjjhhhhjjjjj");
+            
               e.add(aut);
             }
             return e;
+          }
+          public static Vector<Auteur> getAuteur () throws SQLException{
+            Vector<Auteur> listeofwriter = new Vector<>();
+            ResultSet r=GetStetment.statement.executeQuery("select * from auteur");
+            while(r.next()){
+              Auteur aut=new Auteur(r.getInt("ID_AUTEUR"), r.getString("NOM_AUTEUR"), r.getString("PRENOM_AUTEUR"), r.getString("BIO_AUTEUR"));
+              listeofwriter.add(aut);
+            }
+            return listeofwriter ;
           }
       
           public static String getWriterName(int id ) throws SQLException{
