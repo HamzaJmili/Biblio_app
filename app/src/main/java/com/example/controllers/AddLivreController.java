@@ -1,5 +1,5 @@
 package com.example.controllers;
-
+import javafx.stage.Stage;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,6 +23,8 @@ import javafx.stage.FileChooser;
 
 public class AddLivreController {
     public static int id_couverture ;
+    @FXML
+    Button annuler;
     @FXML
     TextField titre;
     @FXML
@@ -95,7 +97,9 @@ public class AddLivreController {
             
             
         }
-        
-
     }
+    @FXML
+    public void annuler(){
+        ((Stage) annuler.getScene().getWindow()).close();
+     }
 }
