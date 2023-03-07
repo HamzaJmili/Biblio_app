@@ -102,14 +102,7 @@ public class AuteurController {
                 
                 //that cell created only on non-empty rows
                 if (empty) {
-                    setGraphic(null);
-                    id.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-border-radius: 10;-fx-font-weight: bold;" );
-                    nom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
-                    prenom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
-                   bio.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
-                   
-                    supCol.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
-                   
+                 
     
                 } else {
     
@@ -124,13 +117,7 @@ public class AuteurController {
                     id.setStyle(" -fx-text-fill: white;");
                            
   
-         
-    id.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-border-radius: 10;-fx-font-weight: bold;" );
-    nom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
-    prenom.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
-   bio.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;-fx-font-weight: bold;" );
-   
-    supCol.setStyle("-fx-background-color:#222222;-fx-text-fill: white;-fx-alignment: center;-fx-border-color: #222222;" );
+
     deleteIcon.setStyle("-fx-background-color:transparent ");
     Image image  = new Image(getClass().getResource("/com/example/icons/delete-asfar.png").toExternalForm());
     
