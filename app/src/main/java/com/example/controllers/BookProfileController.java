@@ -12,11 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 public class BookProfileController {
     @FXML ImageView couverture ;
     @FXML Label  title ;
-    @FXML TextArea description ;
+    @FXML Text description ;
     @FXML Label nom_auteur ;
     @FXML Label  nb_pages;
    
@@ -27,7 +28,7 @@ public class BookProfileController {
         description.setText(L.getDescription());
         nom_auteur.setText(Modele_auteur.getWriterName(L.getId_auteur()));
         nb_pages.setText(""+L.getNombre_pages());
-        Image image = new Image(getClass().getResource("/com/example/books_cover/cover.jpg").toExternalForm());
+        Image image = new Image(getClass().getResource("/com/example/books_cover/2.jpg").toExternalForm());
         couverture.setImage(image);
        
         // Image image = new Image("file:/path/to/"+L.getCouverture());
