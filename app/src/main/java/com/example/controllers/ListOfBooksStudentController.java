@@ -211,6 +211,9 @@ public class ListOfBooksStudentController {
                     carteoflivre.setOnMouseExited(e ->{
                         carteoflivre.setCursor(Cursor.DEFAULT);
                 });
+                carteoflivre.setOnMouseClicked(e -> {
+                    System.out.println("clicked");
+                });
                
                   id=liste_of_livres.get(nb_of_livre).getId_livre();
 
