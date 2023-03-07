@@ -14,6 +14,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -75,8 +76,11 @@ public class ListOfBooksStudentController {
             Pane imagelayout = new Pane();
             imagelayout.setPrefSize(135, 195);
             imagelayout.setStyle("-fx-background-color:#222222;");
-            imagelayout.setLayoutX(20);
+            imagelayout.setLayoutX(25);
             imagelayout.setLayoutY(10);
+            imagelayout.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+            imagelayout.getStyleClass().add("imagelayout_etudiant");
+            
 
 
             
@@ -88,8 +92,24 @@ public class ListOfBooksStudentController {
                 imageView.setFitWidth(135);
                 imageView.setLayoutX(0);
                 imageView.setLayoutY(0);
+                imagelayout.setOnMouseEntered(e -> {
+                    imageView.setFitHeight(201);
+                    imageView.setFitWidth(139.5);
+                    imagelayout.setLayoutX(23);
+                    imagelayout.setLayoutY(8);
+                    imagelayout.setCursor(Cursor.HAND);
+                    
+                });
+                imagelayout.setOnMouseExited(e ->{
+                imageView.setFitHeight(195);
+                imageView.setFitWidth(135);
+                imagelayout.setLayoutX(25);
+                imagelayout.setLayoutY(9);
+                imagelayout.setCursor(Cursor.DEFAULT);
+                });
+               
                 
-                
+
                 imagelayout.getChildren().add(imageView);
             
             } catch (Exception e) {
@@ -113,11 +133,13 @@ public class ListOfBooksStudentController {
                         Label writer = new Label(Modele_auteur.getWriterName(liste_of_livres.get(nb_of_livre).getId_auteur()));
                         //location of label in pane
                 writer.setLayoutX(10);
-                writer.setLayoutY(230);
+                writer.setLayoutY(229);
+                
 
                                         //add style for label
                 writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                 writer.getStyleClass().add("writer_name");
+                
                 
                 
                         // add label for Page
@@ -152,7 +174,7 @@ public class ListOfBooksStudentController {
                 eyeiconview1.setFitWidth(17);
                 button_voir.setGraphic(eyeiconview1);
 
-                        //add style for button
+                        // add style for button
                         button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                         button_voir.getStyleClass().add("voir");
                         button_voir.toBack();
@@ -182,6 +204,14 @@ public class ListOfBooksStudentController {
                    carteoflivre.getChildren().add(book_name);
                    carteoflivre.getChildren().add(writer);
                    carteoflivre.getChildren().add(button_voir);
+                carteoflivre.setOnMouseEntered(e -> {
+                    carteoflivre.setCursor(Cursor.HAND);
+                    
+                });
+                    carteoflivre.setOnMouseExited(e ->{
+                        carteoflivre.setCursor(Cursor.DEFAULT);
+                });
+               
                   id=liste_of_livres.get(nb_of_livre).getId_livre();
 
 
