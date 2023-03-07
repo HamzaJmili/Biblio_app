@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Vector;
 
@@ -203,6 +204,8 @@ public class ListOfBooksStudentController {
                    carteoflivre.getChildren().add(imagelayout);
                    carteoflivre.getChildren().add(book_name);
                    carteoflivre.getChildren().add(writer);
+                   carteoflivre.setId(""+liste_of_livres.get(nb_of_livre).getId_livre());
+
                 //    carteoflivre.getChildren().add(button_voir);
                 carteoflivre.setOnMouseEntered(e -> {
                     carteoflivre.setCursor(Cursor.HAND);
@@ -212,10 +215,18 @@ public class ListOfBooksStudentController {
                         carteoflivre.setCursor(Cursor.DEFAULT);
                 });
                 carteoflivre.setOnMouseClicked(e -> {
+                    id=Integer.parseInt(carteoflivre.getId());
+                    try {
+                        App.setRoot(carteoflivre.getScene(),"BookProfile");
+                    } catch (IOException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
                     System.out.println("clicked");
                 });
                
-                  id=liste_of_livres.get(nb_of_livre).getId_livre();
+                
+
 
 
           
