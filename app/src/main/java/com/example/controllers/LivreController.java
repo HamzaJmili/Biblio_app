@@ -30,7 +30,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -200,7 +202,7 @@ public class LivreController {
                                         Modele_livre.deletelivre(button_trash.getId());
                                         App.setRoot(button_trash.getScene(), "Livre");
                                     } catch (Exception e) {
-                                        
+                                        System.out.println("error");
                                     }
                                 }
                             });
@@ -241,6 +243,8 @@ public class LivreController {
 
         Stage stage = new Stage();
         stage.setScene(new Scene(App.loadFXML("addLivre")));
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
      }
 }
