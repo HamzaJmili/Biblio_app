@@ -38,7 +38,7 @@
                </children></AnchorPane>
             <AnchorPane prefHeight="335.0" prefWidth="210.0">
                <children>
-                  <Button fx:id="dashboard" graphicTextGap="0.0" layoutX="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Dashboard" textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="livre" graphicTextGap="0.0" layoutX="5.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Livre" textFill="WHITE" textOverrun="CLIP" onAction="#gotolivre">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
@@ -133,7 +133,7 @@
                         <Font size="8.0" />
                      </font>
                   </Label>
-                  <Button alignment="TOP_RIGHT" cacheShape="false" centerShape="false" focusTraversable="false" graphicTextGap="0.0" layoutX="5.0" layoutY="146.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" scaleShape="false" styleClass="besoin_aide" text="Besoin d'aide ?" textAlignment="RIGHT" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                  <Button alignment="TOP_RIGHT" cacheShape="false" centerShape="false" focusTraversable="false" graphicTextGap="0.0" layoutX="5.0" layoutY="146.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" scaleShape="false" styleClass="besoin_aide" text="Besoin d'aide ?" textAlignment="RIGHT" textFill="WHITE" textOverrun="CLIP" wrapText="true" onAction="#gotoaide">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -159,10 +159,10 @@
                <menus>
                   <Menu styleClass="menu_bar">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Profile" />
-                        <MenuItem mnemonicParsing="false" text="Parametres" />
-                        <MenuItem mnemonicParsing="false" text="Deconnexion" />
-                        <MenuItem mnemonicParsing="false" text="Aide" />
+                        <MenuItem mnemonicParsing="false" text="Profile" onAction="#gotocmpt" />
+                        <MenuItem mnemonicParsing="false" text="Parametres" onAction="#gotoparam" />
+                        <MenuItem mnemonicParsing="false" text="Deconnexion" onAction="#decon" />
+                        <MenuItem mnemonicParsing="false" text="Aide" onAction="#gotoaide" />
                      </items>
                      <graphic>
                         <Label fx:id="nom_utilisateur" alignment="CENTER" prefHeight="36.0" prefWidth="39.0" styleClass="menu_title" text="A" textAlignment="CENTER" textFill="WHITE">
