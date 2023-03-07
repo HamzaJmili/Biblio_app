@@ -28,7 +28,7 @@ public class BookProfileController {
         description.setText(L.getDescription());
         nom_auteur.setText(Modele_auteur.getWriterName(L.getId_auteur()));
         nb_pages.setText(""+L.getNombre_pages());
-        Image image = new Image(getClass().getResource("/com/example/books_cover/2.jpg").toExternalForm());
+        Image image = new Image(getClass().getResource("/com/example/books_cover/"+L.getCouverture()).toExternalForm());
         couverture.setImage(image);
        
         // Image image = new Image("file:/path/to/"+L.getCouverture());
