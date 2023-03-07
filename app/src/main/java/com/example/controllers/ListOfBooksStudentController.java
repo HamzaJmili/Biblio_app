@@ -175,17 +175,17 @@ public class ListOfBooksStudentController {
                 button_voir.setGraphic(eyeiconview1);
 
                         // add style for button
-                        button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                        button_voir.getStyleClass().add("voir");
-                        button_voir.toBack();
-                        button_voir.setOnMouseClicked((MouseEvent event)->{
-                          try { App.setRoot(button_voir.getScene(), "BookProfile");
-                        }  
-                        catch( Exception e) {
-                         System.out.println(e.getMessage());
-                         e.printStackTrace();
-                        }
-                        } );
+                        // button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                        // button_voir.getStyleClass().add("voir");
+                        // button_voir.toBack();
+                        // button_voir.setOnMouseClicked((MouseEvent event)->{
+                        //   try { App.setRoot(button_voir.getScene(), "BookProfile");
+                        // }  
+                        // catch( Exception e) {
+                        //  System.out.println(e.getMessage());
+                        //  e.printStackTrace();
+                        // }
+                        // } );
                 
             
             
@@ -203,7 +203,7 @@ public class ListOfBooksStudentController {
                    carteoflivre.getChildren().add(imagelayout);
                    carteoflivre.getChildren().add(book_name);
                    carteoflivre.getChildren().add(writer);
-                   carteoflivre.getChildren().add(button_voir);
+                //    carteoflivre.getChildren().add(button_voir);
                 carteoflivre.setOnMouseEntered(e -> {
                     carteoflivre.setCursor(Cursor.HAND);
                     
