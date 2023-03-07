@@ -13,19 +13,21 @@
     -fx-effect: dropshadow(three-pass-box, rgba(65, 65, 65, 0.8), 10, 0, 0, 0);
 
 }
+
 .textofcarte{
-    -fx-text-fill:#1a1770;
-    -fx-font-size: 12px ;
+    -fx-text-fill:#322e92;
+    -fx-font-size: 13px ;
 
    
 }
-.textofcarte:hover{
-    -fx-border-style: solid;
-    -fx-border-width: 0 0 1 0; /* top right bottom left */
-    -fx-border-color: black;
-
-   
+.imagelayout_etudiant{
+    -fx-background-color: transparent;
+    -fx-effect: dropshadow(three-pass-box, rgba(117, 117, 117, 0.8), 5, 0, 0, 0);
 }
+.imagelayout_etudiant:hover{
+    -fx-effect: dropshadow(three-pass-box, rgba(42, 41, 41, 0.8), 15, 0, 0, 0);
+}
+
 
 .textofcarte_admin{
     -fx-text-fill:#000000;
