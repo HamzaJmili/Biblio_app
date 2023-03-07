@@ -12,7 +12,7 @@
   
    <ScrollPane layoutX="211.0" layoutY="176.0" prefHeight="527.0" prefWidth="1092.0" style="-fx-background-color: #DDDDDD;">
       <content>
-         <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1074.0" style="-fx-background-color: #DDDDDD;">
+         <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1075.0" style="-fx-background-color: #DDDDDD;">
             <children>
               
                
@@ -24,7 +24,10 @@
       <font>
          <Font name="System Bold Italic" size="35.0" />
       </font></Label>
-   <Button layoutX="1140.0" layoutY="97.0" onAction="#addbook" mnemonicParsing="false" text="Add Livre" />
+   <Button layoutX="1065.0" layoutY="101.0" mnemonicParsing="false" onAction="#addbook" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #302f2f;" text="+  Ajouter un livre" textFill="#c1bfbf">
+      <font>
+         <Font name="System Bold Italic" size="13.0" />
+      </font></Button>
    
 
   

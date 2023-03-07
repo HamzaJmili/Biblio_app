@@ -66,14 +66,14 @@ public class ListOfBooksStudentController {
         
         hBox .setPrefHeight(300); //440
        
-        for (int j = 0; j <  6 && nb_of_livre!=liste_of_livres.size() ; j++) {
+        for (int j = 0; j <  5 && nb_of_livre!=liste_of_livres.size() ; j++) {
             
             
             AnchorPane carteoflivre = new AnchorPane();
-            carteoflivre.setPrefWidth(150); //170 143
-            Insets margins = new Insets(5,14,14,15);
+            carteoflivre.setPrefWidth(165); //170 143
+            Insets margins = new Insets(5,14,14,35);
             Pane imagelayout = new Pane();
-            imagelayout.setPrefSize(107, 150);
+            imagelayout.setPrefSize(135, 195);
             imagelayout.setStyle("-fx-background-color:#222222;");
             imagelayout.setLayoutX(20);
             imagelayout.setLayoutY(10);
@@ -82,12 +82,12 @@ public class ListOfBooksStudentController {
             
             
             try {
-                Image image = new Image(getClass().getResource("/com/example/books_cover/cover.jpg").toExternalForm());
+                Image image = new Image(getClass().getResource("/com/example/books_cover/"+liste_of_livres.elementAt(nb_of_livre).getCouverture()).toExternalForm());
                 ImageView imageView = new ImageView(image);
-                imageView.setFitHeight(150);
-                imageView.setFitWidth(107);
-                imageView.setLayoutX(1);
-                imageView.setLayoutY(1);
+                imageView.setFitHeight(195);
+                imageView.setFitWidth(135);
+                imageView.setLayoutX(0);
+                imageView.setLayoutY(0);
                 
                 
                 imagelayout.getChildren().add(imageView);
@@ -101,20 +101,19 @@ public class ListOfBooksStudentController {
 
     //                 //location of label in pane
                 book_name.setLayoutX(8);
-                book_name.setLayoutY(160);
+                book_name.setLayoutY(210);
         
     //                 //add style for label
                 book_name.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                 book_name.getStyleClass().add("textofcarte");
-                book_name.setAlignment(Pos.CENTER);
                 book_name.setPrefWidth(120);
 
                 
                         // add label for name of writer
                         Label writer = new Label(Modele_auteur.getWriterName(liste_of_livres.get(nb_of_livre).getId_auteur()));
                         //location of label in pane
-                writer.setLayoutX(8);
-                writer.setLayoutY(184);
+                writer.setLayoutX(10);
+                writer.setLayoutY(230);
 
                                         //add style for label
                 writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
@@ -141,7 +140,7 @@ public class ListOfBooksStudentController {
                Button button_voir = new Button("Voir");
                   //the position if button in pane
                   button_voir.setLayoutX(27);
-                  button_voir.setLayoutY(200);
+                  button_voir.setLayoutY(250);
                 
   
                   // set the hight of button

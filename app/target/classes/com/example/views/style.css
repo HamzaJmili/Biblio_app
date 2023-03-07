@@ -6,22 +6,32 @@
     -fx-background-color:#E38B29; 
 }
 
-.carte_livre{
+
+.carte_livre_admin{
     -fx-background-color : white;
-    -fx-background-radius: 10px;
-    -fx-border-width: 1px 1px 1px 1px;
-     -fx-border-radius: 10px; 
-    -fx-border-style: solid;
-    -fx-border-color: #E38B29; 
+    -fx-background-radius: 3px;
     -fx-effect: dropshadow(three-pass-box, rgba(65, 65, 65, 0.8), 10, 0, 0, 0);
 
 }
 .textofcarte{
+    -fx-text-fill:#1a1770;
+    -fx-font-size: 12px ;
+
+   
+}
+.textofcarte:hover{
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1 0; /* top right bottom left */
+    -fx-border-color: black;
+
+   
+}
+
+.textofcarte_admin{
     -fx-text-fill:#000000;
     -fx-font-weight: bold;
     -fx-font-size: 15px ;
 
-   
 }
 
 .page_label{
@@ -31,6 +41,12 @@
     -fx-font-weight:bold; 
 }
 .writer_name{
+    -fx-text-fill:#000000;
+    -fx-font-style:italic;
+    -fx-font-size:10px;
+    
+}
+.writer_name_admin{
     -fx-text-fill:#797979;
     -fx-font-style:italic;
     -fx-font-size:11px;

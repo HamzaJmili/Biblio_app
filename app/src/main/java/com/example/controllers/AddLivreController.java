@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import com.example.Auteur;
+import com.example.Model_livreAvoirTag;
 import com.example.Modele_auteur;
 import com.example.Modele_livre;
 import com.example.Modele_tag;
@@ -37,6 +38,8 @@ public class AddLivreController {
     File selectedfile =null;
     @FXML
     ComboBox<String> comboBox ;
+    @FXML
+    Label selected_cover;
     @FXML 
     void initialize() throws SQLException{
         id_couverture=Modele_livre.selectMaxId();
@@ -54,6 +57,9 @@ public class AddLivreController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("selectez le couverture de livre");
          selectedfile = fileChooser.showOpenDialog(upload.getScene().getWindow());
+         // set the name of the image in the inferface 
+         selected_cover.setText(selectedfile.getName()+" ✔");
+        
          
          }
        
@@ -68,6 +74,7 @@ public class AddLivreController {
         // get the extention of the image
         int dotindex = selectedfile.getName().lastIndexOf(".");
          String extention = selectedfile.getName().substring(dotindex+1);
+         
          // get the path where the app is install
          String s = System.getProperty("user.dir");
          String path = s.toString()+"/app/src/main/resources/com/example/books_cover/"+id_couverture+"."+extention;
@@ -75,14 +82,18 @@ public class AddLivreController {
          //rename the image and replace it
         selectedfile.renameTo(f); 
           // add the books in the books database  
-          System.out.println(f.getName());
-          Vector liste_des_id= Modele_tag.addtags(tags.getText().toUpperCase());
+          Vector<Integer> liste_des_id= Modele_tag.addtags(tags.getText().toUpperCase());
+          
         int id_livre =Modele_livre.addLivre(1, titre.getText(), description.getText(), f.getName(), Integer.parseInt(comboBox.getSelectionModel().selectedItemProperty().getValue().split("-")[0]),Integer.parseInt(pages.getText()) );
-
+        for (Integer id_tag : liste_des_id) {
+               if(Model_livreAvoirTag.insertIntoAvoir(id_livre, id_tag));
+        }
         (AddLivreController.id_couverture)++;
     }
         else{
             incorrect_champs.setVisible(true);
+            
+            
         }
         
 

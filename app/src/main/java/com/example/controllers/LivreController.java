@@ -60,18 +60,18 @@ public class LivreController {
     
     while(nb_of_livre!=liste_of_livres.size()){ 
         
-        boxOfStudent.setPrefHeight(boxOfStudent.getPrefHeight()+170);
+        boxOfStudent.setPrefHeight(boxOfStudent.getPrefHeight()+145);
         HBox hBox = new HBox();
        
         
-        hBox .setPrefHeight(170);
+        hBox .setPrefHeight(145);
        
         for (int j = 0; j < 4 && nb_of_livre!=liste_of_livres.size() ; j++) {
             
             
             AnchorPane carteoflivre = new AnchorPane();
             carteoflivre.setPrefWidth(260);
-            Insets margins = new Insets(10, 5, 25, 5);
+            Insets margins = new Insets(10, 1, 5, 5.5);
             Pane imagelayout = new Pane();
             imagelayout.setPrefSize(76.888, 111.1);
             imagelayout.setStyle("-fx-background-color:#222222;");
@@ -105,7 +105,7 @@ public class LivreController {
         
     //                 //add style for label
                 book_name.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                book_name.getStyleClass().add("textofcarte");
+                book_name.getStyleClass().add("textofcarte_admin");
 
                 
                         // add label for name of writer
@@ -116,7 +116,7 @@ public class LivreController {
 
                                         //add style for label
                 writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                writer.getStyleClass().add("writer_name");
+                writer.getStyleClass().add("writer_name_admin");
                 
                 
                         // add label for Page
@@ -177,7 +177,7 @@ public class LivreController {
             
                    //set style to pane
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                   carteoflivre.getStyleClass().add("carte_livre");
+                   carteoflivre.getStyleClass().add("carte_livre_admin");
 
                    // add action to trash button 
 

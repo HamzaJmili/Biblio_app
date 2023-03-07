@@ -29,7 +29,8 @@ public class Modele_tag {
           if(id_tag==-1){
         GetStetment.statement.executeQuery("insert into tag values(1,'"+iterable_element+"')");
         ResultSet s = GetStetment.statement.executeQuery("select id_tag from tag where nom_tag ='"+iterable_element+"'");
-        liste_des_id.add(s.getInt(1));}
+        while(s.next()) {
+        liste_des_id.add(s.getInt(1));}}
         else{
           liste_des_id.add(id_tag);
         }

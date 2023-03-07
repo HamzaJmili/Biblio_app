@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="706.0" prefHeight="706.0" prefWidth="1298.0" style="-fx-background-color:  #333231;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ListOfBooksStudentController">
+<AnchorPane maxHeight="706.0" prefHeight="662.0" prefWidth="1303.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ListOfBooksStudentController">
   <fx:include source="leftbarEtudiant.fxml" />
   
-   <ScrollPane layoutX="209.0" layoutY="123.0" prefHeight="584.0" prefWidth="1094.0" style="-fx-background-color: #333231;">
+   <ScrollPane layoutX="209.0" layoutY="144.0" prefHeight="561.0" prefWidth="1094.0">
       <content>
-         <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1074.0" style="-fx-background-color:  #333231 ;">
+         <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1074.0">
             <children>
               
                
