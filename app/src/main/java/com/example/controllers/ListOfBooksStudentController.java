@@ -38,10 +38,10 @@ public class ListOfBooksStudentController {
     public static int id ;
     public static int numcarte=4 ;
     int nb_of_livre =0 ;
-
+    @FXML
+    Pane BackIcon ;
     @FXML
     Pane carte_etudiant;
-   
     @FXML 
     VBox boxOfStudent ;
     @FXML
@@ -53,6 +53,7 @@ public class ListOfBooksStudentController {
         add_etudiant();
        
     }
+    
      void add_etudiant() throws SQLException{
      
     
@@ -84,7 +85,7 @@ public class ListOfBooksStudentController {
             
 
 
-            
+            carteoflivre.setId(""+liste_of_livres.get(nb_of_livre).getId_livre());
             
             try {
                 Image image = new Image(getClass().getResource("/com/example/books_cover/"+liste_of_livres.elementAt(nb_of_livre).getCouverture()).toExternalForm());
@@ -107,6 +108,16 @@ public class ListOfBooksStudentController {
                 imagelayout.setLayoutX(25);
                 imagelayout.setLayoutY(9);
                 imagelayout.setCursor(Cursor.DEFAULT);
+                });
+                imagelayout.setOnMouseClicked(e -> {
+                    id=Integer.parseInt(carteoflivre.getId());
+                    try {
+                        App.setRoot(carteoflivre.getScene(),"BookProfile");
+                    } catch (IOException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                    System.out.println("clicked");
                 });
                 
                
@@ -195,7 +206,13 @@ public class ListOfBooksStudentController {
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                    carteoflivre.getStyleClass().add("carte_livre");
 
-                   // add action to trash button 
+                   // add heart button
+                   Image heartimage  = new Image(getClass().getResource("/com/example/icons/love.png").toExternalForm());
+                    ImageView heartimageview = new ImageView(heartimage);
+                    heartimageview.setFitHeight(17);
+                    heartimageview.setFitWidth(17);
+                    heartimageview.setLayoutY(218);
+                    heartimageview.setLayoutX(140);
 
         
                     
@@ -205,42 +222,17 @@ public class ListOfBooksStudentController {
                    carteoflivre.getChildren().add(imagelayout);
                    carteoflivre.getChildren().add(book_name);
                    carteoflivre.getChildren().add(writer);
-                   carteoflivre.setId(""+liste_of_livres.get(nb_of_livre).getId_livre());
+                   carteoflivre.getChildren().add(heartimageview);
 
-                //    carteoflivre.getChildren().add(button_voir);
-                carteoflivre.setOnMouseEntered(e -> {
-                    carteoflivre.setCursor(Cursor.HAND);
+                    hBox.getChildren().add(carteoflivre);
                     
-                });
-                    carteoflivre.setOnMouseExited(e ->{
-                        carteoflivre.setCursor(Cursor.DEFAULT);
-                });
-                carteoflivre.setOnMouseClicked(e -> {
-                    id=Integer.parseInt(carteoflivre.getId());
-                    try {
-                        App.setRoot(carteoflivre.getScene(),"BookProfile");
-                    } catch (IOException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
-                    }
-                    System.out.println("clicked");
-                });
-               
+                    HBox.setMargin(carteoflivre, margins);
+                    nb_of_livre++;
+                }
+
+                boxOfStudent.getChildren().add(hBox);
                 
-
-
-
-          
-                
-            hBox.getChildren().add(carteoflivre);
-            
-            HBox.setMargin(carteoflivre, margins);
-            nb_of_livre++;
-        }
-
-        boxOfStudent.getChildren().add(hBox);
-        
-    }
+            }
     
     
     
