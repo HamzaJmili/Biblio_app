@@ -40,6 +40,8 @@ public class leftbarEtudiantController {
     @FXML
     Button Parametres;
     @FXML
+    Button Acceuil;
+    @FXML
     void gotoparam() throws IOException{
        
      
@@ -82,6 +84,13 @@ void gotoaide() throws IOException{
      
     App.setRoot(Parametres.getScene(),"aide");
 }
+@FXML
+void gotoAcceuil() throws IOException{
+       
+     
+    App.setRoot(Acceuil.getScene(),"ListOfBooksStudent");
+}
+
 }
 
 
