@@ -2,6 +2,7 @@ package com.example.controllers;
 
 import java.sql.SQLException;
 
+import com.example.App;
 import com.example.Livre;
 import com.example.Modele_auteur;
 import com.example.Modele_livre;
@@ -20,6 +21,8 @@ public class BookProfileController {
     @FXML Text description ;
     @FXML Label nom_auteur ;
     @FXML Label  nb_pages;
+    @FXML  Button  BackIcon;
+   
    
     @FXML
     void initialize ()  throws SQLException{
@@ -35,6 +38,17 @@ public class BookProfileController {
         // couverture.setImage(image);
 
 
+    }
+    //method to back to previous page ( List of books for student)
+    @FXML 
+    void BacktoPreviousScene(){
+       
+       try {
+        App.setRoot(BackIcon.getScene(),"ListOfBooksStudent");
+
+       } catch (Exception e) {
+        // TODO: handle exception
+       } 
     }
 }
 

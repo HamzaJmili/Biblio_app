@@ -13,9 +13,9 @@
   <fx:include source="leftbarEtudiant.fxml" />
   <Pane fx:id="root" layoutX="209.0" layoutY="44.0" prefHeight="659.0" prefWidth="1094.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-         <ImageView fitHeight="688.0" fitWidth="1151.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="677.0" fitWidth="1094.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../background/84db801a9183c0b35c771c06378585b8.jpg" />
+               <Image url="@../background/library9.png" />
             </image>
          </ImageView>
       <Pane layoutX="49.0" layoutY="119.0" prefHeight="88.0" prefWidth="761.0" stylesheets="@style.css">

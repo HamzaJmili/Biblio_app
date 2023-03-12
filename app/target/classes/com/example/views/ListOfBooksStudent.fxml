@@ -26,11 +26,6 @@
          <Image url="@../icons/rechercher.png" />
       </image>
    </ImageView>
-   <ImageView fx:id="BackIcon" fitHeight="43.0" fitWidth="41.0" layoutX="220.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../icons/fleche-gauche.png" />
-      </image>
-   </ImageView>
    
 
   

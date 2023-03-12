@@ -17,6 +17,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,21 +39,26 @@ public class ListOfBooksStudentController {
     public static int id ;
     public static int numcarte=4 ;
     int nb_of_livre =0 ;
-    @FXML
-    ImageView BackIcon ;
+    // @FXML
+    // ImageView BackIcon ;
     @FXML
     Pane carte_etudiant;
     @FXML 
     VBox boxOfStudent ;
+    // @FXML ImageView back ;
+   
+ 
+    
     @FXML
     void initialize () throws SQLException{
        
-        boxOfStudent.setPrefHeight(0);
-       
+   
         
         add_etudiant();
        
     }
+
+   
     
      void add_etudiant() throws SQLException{
      

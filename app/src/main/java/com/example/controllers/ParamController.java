@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 public class ParamController {
     @FXML
     Button button;
-    @FXML
+    @FXML 
+    Button  BackIcon;
+    @FXML  
     public void gotocmpt() throws IOException{
         Stage stage2 =new Stage();
         Scene scene2 = new Scene(App.loadFXML("inform"));
@@ -35,5 +37,17 @@ public class ParamController {
             stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
+         //method to back to previous page ( List of books for student)
+    @FXML 
+    void BacktoPreviousScene(){
+       
+       try {
+        App.setRoot(BackIcon.getScene(),"param");
+
+       } catch (Exception e) {
+        // TODO: handle exception
+       } 
     }
+}
+    
 
