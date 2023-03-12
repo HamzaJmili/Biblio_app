@@ -122,6 +122,21 @@ public class Modele_etudiant {
         } 
         return mdps;
         }
-       
+        public static String getcneetudiant(String email,String nom,String prenom){
+          String cne=null;
+           try {
+            
+             ResultSet r=  GetStetment.statement.executeQuery("select cne from etudiant  where EMAIL_ETUDIANT='"+email+"' and NOM_ETUDIANT='"+nom+"' and  PRENOM_ETUDIANT='"+prenom+"' ");
+            
+             while(r.next()){
+              cne=r.getString("cne");
+               
+             }
+         } 
+         catch (Exception e) {
+           // TODO: handle exception
+         } 
+         return cne;
+         }
     }
 

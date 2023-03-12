@@ -45,6 +45,7 @@ CREATE TRIGGER auteur_trg
      FROM dual;
    END;
    /
+<<<<<<< HEAD
 
  
     create table favoris (id number , id_etudiant number , id_livre number );
@@ -63,3 +64,28 @@ CREATE TRIGGER auteur_trg
      FROM dual;
    END;
    /
+=======
+   CREATE TABLE reserve (
+  id_reserve NUMBER(10) PRIMARY KEY,
+  CNE VARCHAR2(20) NOT NULL,
+  ID_LIVRE NUMBER(38) NOT NULL,
+  DATE_DEBUT DATE,
+  DATE_FIN DATE,
+  CONSTRAINT fk_reserve_etudiant FOREIGN KEY (CNE)
+    REFERENCES etudiant (CNE),
+  CONSTRAINT fk_reserve_livre FOREIGN KEY (ID_LIVRE)
+    REFERENCES livre (ID_LIVRE)
+);
+ALTER TABLE reserve ADD reserve_now VARCHAR2(3) NOT NULL;
+create sequence reserve_sequence start with 1 increment by 1;
+ create sequence idtag start with 1 increment by 1 ;
+  CREATE TRIGGER reserve_trg
+   BEFORE INSERT ON reserve
+    FOR EACH ROW
+    BEGIN
+      SELECT reserve_sequence.nextval
+      INTO :new.ID_RESERVE
+      FROM dual;         
+    END;
+    /
+>>>>>>> 18e6ec0c033e66887cf0dd73eeffb9e67054c388

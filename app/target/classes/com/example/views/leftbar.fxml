@@ -183,7 +183,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="209.0" prefWidth="210.0">
                <children>
-                  <Button graphicTextGap="0.0" layoutX="3.0" layoutY="63.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Parametres" textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="Parametres" graphicTextGap="0.0" layoutX="3.0" layoutY="63.0" mnemonicParsing="false" prefHeight="31.0" onAction="#gotoparam" prefWidth="200.0" styleClass="buttonn" text="  Parametres" textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
@@ -236,9 +236,9 @@
                   <Menu  styleClass="menu_bar">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Profile" />
-                        <MenuItem mnemonicParsing="false" text="Parametres" />
-                        <MenuItem mnemonicParsing="false" text="Deconnexion" />
-                        <MenuItem mnemonicParsing="false" text="Aide" />
+                        <MenuItem mnemonicParsing="false" onAction="#gotoparam" text="Parametres" />
+                        <MenuItem onAction="#decon" mnemonicParsing="false" text="Deconnexion" />
+                        <MenuItem mnemonicParsing="false" onAction="#gotoaide" text="Aide" />
                      </items>
                      <graphic>
                         <Label fx:id="nom_utilisateur" alignment="CENTER" prefHeight="36.0" prefWidth="39.0" styleClass="menu_title" text="A" textAlignment="CENTER" textFill="WHITE">
