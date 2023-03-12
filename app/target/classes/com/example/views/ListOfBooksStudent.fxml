@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="706.0" prefHeight="662.0" prefWidth="1303.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ListOfBooksStudentController">
   <fx:include source="leftbarEtudiant.fxml" />
   
-   <ScrollPane layoutX="211.0" layoutY="144.0" prefHeight="561.0" prefWidth="1092.0">
+   <ScrollPane layoutX="211.0" layoutY="105.0" prefHeight="601.0" prefWidth="1092.0">
       <content>
          <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1068.0">
             <children>
@@ -20,8 +20,8 @@
          </VBox>
       </content>
    </ScrollPane>
-   <TextField layoutX="570.0" layoutY="60.0" prefHeight="34.0" prefWidth="324.0" />
-   <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="860.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+   <TextField layoutX="894.0" layoutY="60.0" prefHeight="34.0" prefWidth="324.0" promptText="Chercher " style="-fx-background-radius: 20px;" />
+   <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="1184.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../icons/rechercher.png" />
       </image>

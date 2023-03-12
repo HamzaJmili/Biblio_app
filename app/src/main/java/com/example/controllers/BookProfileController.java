@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import com.example.App;
@@ -8,12 +9,16 @@ import com.example.Modele_auteur;
 import com.example.Modele_livre;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class BookProfileController {
     @FXML ImageView couverture ;
@@ -31,7 +36,7 @@ public class BookProfileController {
         description.setText(L.getDescription());
         nom_auteur.setText(Modele_auteur.getWriterName(L.getId_auteur()));
         nb_pages.setText(""+L.getNombre_pages());
-        Image image = new Image(getClass().getResource("/com/example/books_cover/2.jpg").toExternalForm());
+        Image image = new Image(getClass().getResource("/com/example/books_cover/"+L.getCouverture()).toExternalForm());
         couverture.setImage(image);
        
         // Image image = new Image("file:/path/to/"+L.getCouverture());
@@ -39,6 +44,7 @@ public class BookProfileController {
 
 
     }
+<<<<<<< HEAD
     //method to back to previous page ( List of books for student)
     @FXML 
     void BacktoPreviousScene(){
@@ -51,4 +57,28 @@ public class BookProfileController {
        } 
     }
 }
+=======
+    @FXML
+    public void reserver(){
+        Stage stage =new Stage();
+        Scene scene4=null ;
+        try {
+            scene4 = new Scene(App.loadFXML("reserver"));
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+         
+       
+          stage.setScene(scene4);
+          stage.setResizable(false);
+         stage.initStyle(StageStyle.UNDECORATED);
+         stage.initModality(Modality.APPLICATION_MODAL);
+          stage.show();
+        
+    }
+    }
+
+>>>>>>> 2922d5425c64b8718996271ee2d7cd8999427e0e
 
