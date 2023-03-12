@@ -7,9 +7,10 @@ import java.util.Vector;
 import com.example.App;
 import com.example.Auteur;
 import com.example.Livre;
+import com.example.Model_favoris;
 import com.example.Modele_auteur;
 import com.example.Modele_livre;
-
+import com.example.Session;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -70,8 +71,19 @@ public class ListOfBooksStudentController {
         hBox .setPrefHeight(300); //440
        
         for (int j = 0; j <  5 && nb_of_livre!=liste_of_livres.size() ; j++) {
-            
-            
+            ImageView heartimageview;
+            ImageView heartimageredview;
+            Label book_name = new Label(liste_of_livres.get(nb_of_livre).getTitre());
+
+            //                 //location of label in pane
+                        book_name.setLayoutX(8);
+                        book_name.setLayoutY(210);
+                
+            //                 //add style for label
+                        book_name.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                        book_name.getStyleClass().add("textofcarte");
+                        book_name.setPrefWidth(120);
+        
             AnchorPane carteoflivre = new AnchorPane();
             carteoflivre.setPrefWidth(165); //170 143
             Insets margins = new Insets(5,14,14,35);
@@ -130,17 +142,7 @@ public class ListOfBooksStudentController {
             }
            
 
-           Label book_name = new Label(liste_of_livres.get(nb_of_livre).getTitre());
-
-    //                 //location of label in pane
-                book_name.setLayoutX(8);
-                book_name.setLayoutY(210);
         
-    //                 //add style for label
-                book_name.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                book_name.getStyleClass().add("textofcarte");
-                book_name.setPrefWidth(120);
-
                 
                         // add label for name of writer
                         Label writer = new Label(Modele_auteur.getWriterName(liste_of_livres.get(nb_of_livre).getId_auteur()));
@@ -206,13 +208,36 @@ public class ListOfBooksStudentController {
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                    carteoflivre.getStyleClass().add("carte_livre");
 
-                   // add heart button
+                //    add heart button
                    Image heartimage  = new Image(getClass().getResource("/com/example/icons/love.png").toExternalForm());
-                    ImageView heartimageview = new ImageView(heartimage);
-                    heartimageview.setFitHeight(17);
-                    heartimageview.setFitWidth(17);
-                    heartimageview.setLayoutY(218);
-                    heartimageview.setLayoutX(140);
+                     heartimageview = new ImageView(heartimage);
+                    heartimageview.setFitHeight(18);
+                    heartimageview.setFitWidth(18);
+                    heartimageview.setLayoutY(216);
+                    heartimageview.setLayoutX(146);
+                    
+
+                    Image heartimagered  = new Image(getClass().getResource("/com/example/icons/lover.png").toExternalForm());
+                     heartimageredview = new ImageView(heartimagered );
+                    heartimageredview.setFitHeight(18);
+                    heartimageredview.setFitWidth(18);
+                    heartimageredview.setLayoutY(216);
+                    heartimageredview.setLayoutX(146);
+                    heartimageredview.setVisible(false);
+
+                    heartimageview.setOnMouseClicked(e ->{
+                        heartimageview.setVisible(false);
+                        System.out.println(Session.id_utiliasteur);
+                        Model_favoris.setFavoris(Integer.parseInt(carteoflivre.getId()) ,Session.id_utiliasteur);
+                        heartimageredview.setVisible(true);
+                    });
+                    heartimageredview.setOnMouseClicked(e ->{
+                        heartimageview.setVisible(true);
+                        heartimageredview.setVisible(false);
+                        
+                    });
+
+                    
 
         
                     
@@ -222,6 +247,7 @@ public class ListOfBooksStudentController {
                    carteoflivre.getChildren().add(imagelayout);
                    carteoflivre.getChildren().add(book_name);
                    carteoflivre.getChildren().add(writer);
+                   carteoflivre.getChildren().add(heartimageredview);
                    carteoflivre.getChildren().add(heartimageview);
 
                     hBox.getChildren().add(carteoflivre);
@@ -233,6 +259,7 @@ public class ListOfBooksStudentController {
                 boxOfStudent.getChildren().add(hBox);
                 
             }
+
     
     
     
