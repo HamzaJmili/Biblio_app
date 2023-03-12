@@ -160,6 +160,7 @@ public class loginController  {
     }
     else {
         User user=this.verifierEtulisateur();
+        Session.id_utiliasteur=Modele_etudiant.getcneetudiant(user.getEmail_user(), user.getNom_user(), user.getPrenom_user());
         Session.nom_utiliasteur=user.getNom_user();
         Session.prenom_utiliasteur=user.getPrenom_user();
         Session.email_utiliasteur=user.getEmail_user();

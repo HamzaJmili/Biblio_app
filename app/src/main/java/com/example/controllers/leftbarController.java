@@ -7,9 +7,11 @@ import com.example.Session;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class leftbarController {
     @FXML
@@ -18,6 +20,8 @@ public class leftbarController {
     Button dashboard;
     @FXML
     Button admin;
+    @FXML
+    Button Parametres;
     public static char  button_selected ;
     @FXML
     Button etudiants;
@@ -82,13 +86,38 @@ public class leftbarController {
         e.printStackTrace();    }     
     
 }
+@FXML
+void gotoaide() throws IOException{
+       
+     
+    App.setRoot(Parametres.getScene(),"aide");
+}
 @FXML 
 void gotoAuteurs() throws IOException{
     
     leftbarController.button_selected='U';
     App.setRoot(dashboard.getScene(),"listeauteur");
 }
-
-
+@FXML
+void decon() throws IOException{
+    Session.email_utiliasteur=null;
+    Session.id_utiliasteur=null;
+    Session.nom_utiliasteur=null;
+    Session.prenom_utiliasteur=null;
+    ((Stage)  Parametres.getScene().getWindow()).close();
+    Stage stage2 =new Stage();
+    Scene scene2 = new Scene(App.loadFXML("login_inter"));
+      stage2.setScene(scene2);
+      stage2.setResizable(false);
+      stage2.initStyle(StageStyle.UNDECORATED);
+      stage2.show();
+   
+}
+@FXML
+void gotoparam() throws IOException{
+   
+ 
+     App.setRoot(Parametres.getScene(),"param");
+}
 
 }

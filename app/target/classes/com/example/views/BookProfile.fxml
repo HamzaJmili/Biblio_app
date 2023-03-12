@@ -37,7 +37,7 @@
                <Font name="System Bold Italic" size="18.0" />
             </font>
          </Label>
-         <Button fx:id="reserver" layoutX="312.0" layoutY="640.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="208.0" style="-fx-background-color: #40bf32; -fx-background-radius: 18px;" text="   Réserver" textFill="#4a4848">
+         <Button fx:id="reserver" layoutX="312.0" layoutY="640.0" mnemonicParsing="false" onAction="#reserver" prefHeight="57.0" prefWidth="208.0" style="-fx-background-color: #40bf32; -fx-background-radius: 18px;" text="   Réserver" textFill="#4a4848">
             <font>
                <Font name="System Bold" size="21.0" />
             </font>

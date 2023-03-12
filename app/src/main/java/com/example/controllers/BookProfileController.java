@@ -1,18 +1,24 @@
 package com.example.controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
+import com.example.App;
 import com.example.Livre;
 import com.example.Modele_auteur;
 import com.example.Modele_livre;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class BookProfileController {
     @FXML ImageView couverture ;
@@ -36,5 +42,26 @@ public class BookProfileController {
 
 
     }
-}
+    @FXML
+    public void reserver(){
+        Stage stage =new Stage();
+        Scene scene4=null ;
+        try {
+            scene4 = new Scene(App.loadFXML("reserver"));
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+         
+       
+          stage.setScene(scene4);
+          stage.setResizable(false);
+         stage.initStyle(StageStyle.UNDECORATED);
+         stage.initModality(Modality.APPLICATION_MODAL);
+          stage.show();
+        
+    }
+    }
+
 
