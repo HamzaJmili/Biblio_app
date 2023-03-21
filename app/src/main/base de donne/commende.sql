@@ -36,13 +36,13 @@ create sequence idtag start with 1 increment by 1 ;
 
 
 
-CREATE TRIGGER auteur_trg
-    BEFORE INSERT ON auteur
-    FOR EACH ROW
+CREATE TRIGGER exemplaire_m
+    BEFORE INSERT ON reserve
+    
     BEGIN
-      SELECT idauteur.NEXTVAL
-     INTO :new.id_auteur
-     FROM dual;
+      update livre
+    set  new:EXEMPLAIRE= old:EXEMPLAIRE-1
+    where livre.id_livre=reserve.id_livre;
    END;
    /
 <<<<<<< HEAD

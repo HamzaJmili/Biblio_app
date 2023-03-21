@@ -35,7 +35,7 @@ public class Modele_livre {
             ResultSet r = GetStetment.statement.executeQuery("select * from livre");
             Vector<Livre> listeoflivres = new Vector<>();
             while (r.next()) {
-              Livre livre = new Livre(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getInt(5),r.getInt(6));
+              Livre livre = new Livre(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getInt(5),r.getInt(6),r.getInt(7));
               listeoflivres.add(livre);
             }
             return listeoflivres;
@@ -56,7 +56,7 @@ public class Modele_livre {
     Livre L= null;
     ResultSet s=GetStetment.statement.executeQuery("select * from livre where id_livre='"+Id_livre+"'");
     while(s.next())
-     L = new Livre(s.getInt(1), s.getString(2), s.getString(3), s.getString(4), s.getInt(5),s.getInt(6));
+     L = new Livre(s.getInt(1), s.getString(2), s.getString(3), s.getString(4), s.getInt(5),s.getInt(6),s.getInt(7));
     return L;
     }
 

@@ -26,6 +26,7 @@ public class BookProfileController {
     @FXML Label nom_auteur ;
     @FXML Label  nb_pages;
     @FXML  Button  BackIcon;
+    @FXML  Button  reserver;
    
    
     @FXML
@@ -37,7 +38,9 @@ public class BookProfileController {
         nb_pages.setText(""+L.getNombre_pages());
         Image image = new Image(getClass().getResource("/com/example/books_cover/"+L.getCouverture()).toExternalForm());
         couverture.setImage(image);
-       
+       if(L.getExemplaire()==0){
+        reserver.setDisable(true);
+       }
         // Image image = new Image("file:/path/to/"+L.getCouverture());
         // couverture.setImage(image);
 
