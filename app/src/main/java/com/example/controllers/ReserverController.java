@@ -1,11 +1,9 @@
 package com.example.controllers;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 import com.example.Livre;
 import com.example.Modele_livre;
-import com.example.Modele_reserve;
 import com.example.Session;
 
 import javafx.fxml.FXML;

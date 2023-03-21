@@ -2,8 +2,6 @@ package com.example;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Vector;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,11 +14,11 @@ public class Modele_etudiant {
         ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant where EMAIL_ETUDIANT='"+email+"'");
         
           while (r.next()) {
-            if(PasswordCrypter.checkPassword(mot_de_pass,r.getString("MDP_ETUDIANT"))==true){
+            // if(PasswordCrypter.checkPassword(mot_de_pass,r.getString("MDP_ETUDIANT"))==true){
               
             User e=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
             return e;}
-          }
+          // }
           return null;
               
         } catch (SQLException e) {

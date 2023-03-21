@@ -1,21 +1,13 @@
 package com.example.controllers;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import com.example.App;
 import com.example.Modele_auteur;
-import com.example.conn;
-
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 public class AddauteurController {
     @FXML
     Button  annuler;

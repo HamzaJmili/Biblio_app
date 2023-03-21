@@ -6,8 +6,6 @@ import com.example.Modele_auteur;
 import com.example.Modele_etudiant;
 import com.example.Modele_livre;
 import com.example.Modele_tag;
-import com.example.Session;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;

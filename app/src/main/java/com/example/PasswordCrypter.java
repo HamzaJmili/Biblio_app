@@ -1,11 +1,8 @@
 package com.example;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+
 import java.util.Arrays;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 
 public class PasswordCrypter {
     

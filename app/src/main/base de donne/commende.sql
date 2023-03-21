@@ -52,7 +52,8 @@ CREATE TRIGGER auteur_trg
      alter table favoris modify id number primary key;
       alter table favoris modify id_etudiant VARCHAR2(20) ;
        alter table favoris add constraint foreign_id_etudiant foreign key ( id_etudiant ) references etudiant (CNE) ;
-    alter table favoris add constraint foreign_id_books foreign key ( id_livre ) references livre (id_livre)
+    alter table favoris add constraint foreign_id_books foreign key ( id_livre ) references livre (id_livre) on delete cascade;
+  alter table favoris modify constraint foreign_id_books foreign key ( id_livre ) references livre (id_livre) on delete cascade;
  create sequence idtag start with 1 increment by 1 ;
   create sequence idfavoris start with 1 increment by 1 ;
   CREATE TRIGGER favoris_trg

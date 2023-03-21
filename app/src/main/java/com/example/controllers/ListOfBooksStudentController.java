@@ -5,35 +5,22 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import com.example.App;
-import com.example.Auteur;
 import com.example.Livre;
 import com.example.Model_favoris;
 import com.example.Modele_auteur;
 import com.example.Modele_livre;
 import com.example.Session;
-
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Line;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+
 
 public class ListOfBooksStudentController {
     public static int id ;
@@ -59,6 +46,7 @@ public class ListOfBooksStudentController {
      
     
     Vector<Livre> liste_of_livres = Modele_livre.getLivres();
+    Vector <Integer> id_livre_favoris = Model_favoris.allfavoris(Session.id_utiliasteur);
    
     
     
@@ -173,22 +161,7 @@ public class ListOfBooksStudentController {
   
                   // set the hight of button
         
-                        //add button voir
-               Button button_voir = new Button("Voir");
-                  //the position if button in pane
-                  button_voir.setLayoutX(27);
-                  button_voir.setLayoutY(250);
-                
-  
-                  // set the hight of button
-                  button_voir.setPrefSize(80, 30);
-                //add image trash to button
-                Image eyeicon1  = new Image(getClass().getResource("/com/example/icons/green_eye.png").toExternalForm());
-                ImageView eyeiconview1 = new ImageView(eyeicon1);
-                eyeiconview1.setFitHeight(17);
-                eyeiconview1.setFitWidth(17);
-                button_voir.setGraphic(eyeiconview1);
-
+              
                         // add style for button
                         // button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                         // button_voir.getStyleClass().add("voir");
@@ -223,16 +196,24 @@ public class ListOfBooksStudentController {
                     heartimageredview.setFitWidth(18);
                     heartimageredview.setLayoutY(216);
                     heartimageredview.setLayoutX(146);
-                    heartimageredview.setVisible(false);
+                    Integer id_livre = new Integer(liste_of_livres.elementAt(nb_of_livre).getId_livre());
+                    if(id_livre_favoris.indexOf(id_livre)==-1){
+                        heartimageredview.setVisible(false);
+
+                    }else{
+                        heartimageview.setVisible(false);
+                    }
+                   
 
                     heartimageview.setOnMouseClicked(e ->{
                         heartimageview.setVisible(false);
-                        System.out.println(Session.id_utiliasteur);
+                        
                         Model_favoris.setFavoris(Integer.parseInt(carteoflivre.getId()) ,Session.id_utiliasteur);
                         heartimageredview.setVisible(true);
                     });
                     heartimageredview.setOnMouseClicked(e ->{
                         heartimageview.setVisible(true);
+                        Model_favoris.deleteFavoris(Integer.parseInt(carteoflivre.getId()), Session.id_utiliasteur);
                         heartimageredview.setVisible(false);
                         
                     });

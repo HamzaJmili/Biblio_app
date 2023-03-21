@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import com.example.App;
 import com.example.Etudiant;
 import com.example.Modele_etudiant;
-
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -25,7 +23,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 import java.io.IOException;
-import java.sql.*;
+
 
 public class EtudiantsController {
     @FXML
