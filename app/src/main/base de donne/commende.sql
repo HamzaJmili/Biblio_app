@@ -93,7 +93,11 @@ create sequence reserve_sequence start with 1 increment by 1;
     CREATE OR REPLACE TRIGGER trg_update_exemplaire
   AFTER INSERT ON reserve
    FOR EACH ROW
+<<<<<<< HEAD
   BEGIN
+=======
+   BEGIN
+>>>>>>> origin
   UPDATE livre
     SET exemplaire = exemplaire - 1
 WHERE ID_LIVRE = :NEW.ID_LIVRE;
