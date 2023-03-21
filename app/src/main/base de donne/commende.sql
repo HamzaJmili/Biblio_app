@@ -65,7 +65,7 @@ CREATE TRIGGER auteur_trg
      FROM dual;
    END;
    /
-=======
+
    CREATE TABLE reserve (
   id_reserve NUMBER(10) PRIMARY KEY,
   CNE VARCHAR2(20) NOT NULL,
@@ -89,4 +89,4 @@ create sequence reserve_sequence start with 1 increment by 1;
       FROM dual;         
     END;
     /
->>>>>>> 18e6ec0c033e66887cf0dd73eeffb9e67054c388
+
