@@ -23,6 +23,7 @@ import javafx.scene.layout.VBox;
 
 
 public class ListOfBooksStudentController {
+  
     public static int id ;
     public static int numcarte=4 ;
     int nb_of_livre =0 ;
@@ -48,9 +49,14 @@ public class ListOfBooksStudentController {
    
     
      void add_etudiant() throws SQLException{
+        Vector<Livre> liste_of_livres=null;
      
-    
-    Vector<Livre> liste_of_livres = Modele_livre.getLivres();
+    if (leftbarEtudiantController.isfavoris==false){
+    liste_of_livres = Modele_livre.getLivres();
+    }
+    else{
+        liste_of_livres = Model_favoris.getLivres_favoris(Session.id_utiliasteur);
+    }
     Vector <Integer> id_livre_favoris = Model_favoris.allfavoris(Session.id_utiliasteur);
    
     
