@@ -13,6 +13,13 @@ import com.example.Session;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
+<<<<<<< HEAD
+=======
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+>>>>>>> 0fa5426678a338290b0230e6b953f83cc8274fda
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,21 +33,26 @@ public class ListOfBooksStudentController {
     public static int id ;
     public static int numcarte=4 ;
     int nb_of_livre =0 ;
-    @FXML
-    ImageView BackIcon ;
+    // @FXML
+    // ImageView BackIcon ;
     @FXML
     Pane carte_etudiant;
     @FXML 
     VBox boxOfStudent ;
+    // @FXML ImageView back ;
+   
+ 
+    
     @FXML
     void initialize () throws SQLException{
        
-        boxOfStudent.setPrefHeight(0);
-       
+   
         
         add_etudiant();
        
     }
+
+   
     
      void add_etudiant() throws SQLException{
      

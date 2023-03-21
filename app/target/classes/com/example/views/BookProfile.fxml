@@ -12,7 +12,7 @@
   <fx:include source="leftbarEtudiant.fxml" />
    <AnchorPane layoutX="212.0" layoutY="-2.0" prefHeight="710.0" prefWidth="1091.0" style="-fx-background-color: #73A398A;">
       <children>
-         <ImageView fx:id="couverture" fitHeight="554.0" fitWidth="411.0" layoutX="8.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" style="visibility: white;" />
+         <ImageView fx:id="couverture" fitHeight="500.0" fitWidth="355.0" layoutX="52.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" style="visibility: white;" />
          <Label fx:id="title" alignment="CENTER" layoutX="548.0" layoutY="70.0" prefHeight="48.0" prefWidth="435.0" style="-fx-background-color: transparent;" text="TITLE " textFill="#e8dede">
             <font>
                <Font name="System Bold Italic" size="22.0" />
@@ -57,6 +57,15 @@
                <Font name="System Bold" size="18.0" />
             </font>
          </Text>
+         <Button fx:id="BackIcon" layoutX="10.0" layoutY="5.0" onAction="#BacktoPreviousScene" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: transparent;">
+            <graphic>
+               <ImageView fitHeight="34.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/fleche-gauche.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
       </children>
    </AnchorPane>
    
