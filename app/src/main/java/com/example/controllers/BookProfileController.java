@@ -10,6 +10,7 @@ import com.example.Modele_livre;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,7 +43,7 @@ public class BookProfileController {
 
 
     }
-<<<<<<< HEAD
+
     //method to back to previous page ( List of books for student)
     @FXML 
     void BacktoPreviousScene(){
@@ -54,8 +55,8 @@ public class BookProfileController {
         // TODO: handle exception
        } 
     }
-}
-=======
+
+
     @FXML
     public void reserver(){
         Stage stage =new Stage();
@@ -75,8 +76,6 @@ public class BookProfileController {
          stage.initModality(Modality.APPLICATION_MODAL);
           stage.show();
         
-    }
-    }
+    }}
 
->>>>>>> 2922d5425c64b8718996271ee2d7cd8999427e0e
 

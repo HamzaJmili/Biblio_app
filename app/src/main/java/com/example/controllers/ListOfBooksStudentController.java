@@ -13,13 +13,11 @@ import com.example.Session;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
-<<<<<<< HEAD
-=======
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
->>>>>>> 0fa5426678a338290b0230e6b953f83cc8274fda
+
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
