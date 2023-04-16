@@ -31,6 +31,8 @@ public class AddLivreController {
     @FXML
     TextArea description ;
     @FXML
+    TextField exemplaire ;
+    @FXML
     TextArea tags ;
     @FXML
     Button upload ;
@@ -83,7 +85,7 @@ public class AddLivreController {
           // add the books in the books database  
           Vector<Integer> liste_des_id= Modele_tag.addtags(tags.getText().toUpperCase());
           
-        int id_livre =Modele_livre.addLivre(1, titre.getText(), description.getText(), f.getName(), Integer.parseInt(comboBox.getSelectionModel().selectedItemProperty().getValue().split("-")[0]),Integer.parseInt(pages.getText()) );
+        int id_livre =Modele_livre.addLivre(1, titre.getText(), description.getText(), f.getName(), Integer.parseInt(comboBox.getSelectionModel().selectedItemProperty().getValue().split("-")[0]),Integer.parseInt(pages.getText()),Integer.parseInt(exemplaire.getText()) );
         for (Integer id_tag : liste_des_id) {
                if(Model_livreAvoirTag.insertIntoAvoir(id_livre, id_tag));
         }
