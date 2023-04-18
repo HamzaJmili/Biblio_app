@@ -27,13 +27,13 @@ public class ListOfBooksStudentController {
     public static int id ;
     public static int numcarte=4 ;
     int nb_of_livre =0 ;
-    // @FXML
-    // ImageView BackIcon ;
+    @FXML
+    Label page;
     @FXML
     Pane carte_etudiant;
     @FXML 
     VBox boxOfStudent ;
-    // @FXML ImageView back ;
+    
    
  
     
@@ -53,11 +53,14 @@ public class ListOfBooksStudentController {
      
     if (leftbarEtudiantController.isfavoris==false && leftbarEtudiantController.livre_emprunte==false ){
     liste_of_livres = Modele_livre.getLivres();
+    page.setText("-Acceuil-");
     }
     else if (leftbarEtudiantController.isfavoris==true){
         liste_of_livres = Model_favoris.getLivres_favoris(Session.id_utiliasteur);
+        page.setText("-Favoris-");
     }else if (leftbarEtudiantController.livre_emprunte==true){
         liste_of_livres = Modele_livre.getLivresEmpruntee(Session.id_utiliasteur);
+        page.setText("-Livres empruntees-");
     }
     Vector <Integer> id_livre_favoris = Model_favoris.allfavoris(Session.id_utiliasteur);
    

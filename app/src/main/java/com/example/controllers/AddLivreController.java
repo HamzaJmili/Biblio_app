@@ -90,6 +90,7 @@ public class AddLivreController {
                if(Model_livreAvoirTag.insertIntoAvoir(id_livre, id_tag));
         }
         (AddLivreController.id_couverture)++;
+        ((Stage) annuler.getScene().getWindow()).close();
     }
         else{
             incorrect_champs.setVisible(true);
