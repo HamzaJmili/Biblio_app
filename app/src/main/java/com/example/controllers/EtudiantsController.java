@@ -9,10 +9,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -43,6 +46,9 @@ public class EtudiantsController {
     TableColumn<Etudiant,String> tel;
     @FXML
     private TableColumn<Etudiant, String> profile;
+   
+    @FXML TextField find_field;
+    public static String cni =null;
     Etudiant Etudiant = null ;
     public static String s =null ;
     public void loadData() throws SQLException{
@@ -175,6 +181,32 @@ imageView.setFitHeight(30);
  
  
 }
+@FXML 
+public void find(){
+s=find_field.getText();
+Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
+if(etu==null){
+Alert a=new Alert(AlertType.ERROR);
+a.setContentText("il n'a pas un etudiant avec ce cne");
+
+a.show();
+}else{
+Stage stage =new Stage();
+Scene scene4=null ;
+try {
+    scene4 = new Scene(App.loadFXML("EtudiantProfil"));
+
+} catch (IOException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+ 
+
+  stage.setScene(scene4);
+  stage.setResizable(false);
+ stage.initStyle(StageStyle.UNDECORATED);
+  stage.show();
+}}
 
 }
     

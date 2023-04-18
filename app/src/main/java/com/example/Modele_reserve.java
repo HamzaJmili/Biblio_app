@@ -1,7 +1,12 @@
 package com.example;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.*;
+
+
 import com.example.controllers.ListOfBooksStudentController;
 
 public class Modele_reserve {
@@ -13,5 +18,26 @@ public class Modele_reserve {
           return 1;
           
         }
+        public static List<Map<String, Object>> getReservedBooks(String cne ) throws SQLException {
+          List<Map<String, Object>> reservedBooks = new ArrayList<>();
+      
+          try (
+               ResultSet r = GetStetment.statement.executeQuery("SELECT id_livre, date_Debut, date_fin FROM reserve WHERE cne = '"+cne+"'")) {
+      
+              while (r.next()) {
+                  String  id = r.getString("id_livre");
+
+                  String startDate = r.getString("date_Debut");
+                  String endDate = r.getString("date_fin");
+                  Map<String, Object> reservedBook = new HashMap<>();
+                  reservedBook.put("titre",id);
+                  reservedBook.put("startDate", startDate);
+                  reservedBook.put("endDate", endDate);
+                  reservedBooks.add(reservedBook);
+              }
+          }
+          return reservedBooks;
+      }
+      
         
 }
