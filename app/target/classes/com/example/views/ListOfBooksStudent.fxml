@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="706.0" prefHeight="662.0" prefWidth="1303.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ListOfBooksStudentController">
   <fx:include source="leftbarEtudiant.fxml" />
   
-   <ScrollPane layoutX="211.0" layoutY="105.0" prefHeight="601.0" prefWidth="1092.0">
+   <ScrollPane layoutX="211.0" layoutY="105.0" prefHeight="597.0" prefWidth="1092.0">
       <content>
          <VBox fx:id="boxOfStudent" prefHeight="190.0" prefWidth="1068.0">
             <children>

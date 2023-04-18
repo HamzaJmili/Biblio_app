@@ -51,11 +51,13 @@ public class ListOfBooksStudentController {
      void add_etudiant() throws SQLException{
         Vector<Livre> liste_of_livres=null;
      
-    if (leftbarEtudiantController.isfavoris==false){
+    if (leftbarEtudiantController.isfavoris==false && leftbarEtudiantController.livre_emprunte==false ){
     liste_of_livres = Modele_livre.getLivres();
     }
-    else{
+    else if (leftbarEtudiantController.isfavoris==true){
         liste_of_livres = Model_favoris.getLivres_favoris(Session.id_utiliasteur);
+    }else if (leftbarEtudiantController.livre_emprunte==true){
+        liste_of_livres = Modele_livre.getLivresEmpruntee(Session.id_utiliasteur);
     }
     Vector <Integer> id_livre_favoris = Model_favoris.allfavoris(Session.id_utiliasteur);
    

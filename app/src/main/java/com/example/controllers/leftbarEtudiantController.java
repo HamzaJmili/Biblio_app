@@ -12,6 +12,7 @@ import javafx.stage.StageStyle;
 
 public class leftbarEtudiantController {
     public static boolean isfavoris=false ;
+    public static boolean livre_emprunte = false;
     @FXML
     Button Parametres;
     @FXML
@@ -63,11 +64,19 @@ void gotoaide() throws IOException{
 void gotoAcceuil() throws IOException{
        
      leftbarEtudiantController.isfavoris=false;
+     leftbarEtudiantController.livre_emprunte=false;
     App.setRoot(Acceuil.getScene(),"ListOfBooksStudent");
 }
 @FXML 
 void gotofavoris () throws IOException{
     leftbarEtudiantController.isfavoris=true;
+    leftbarEtudiantController.livre_emprunte=false;
+    App.setRoot(Acceuil.getScene(),"ListOfBooksStudent");
+}
+@FXML
+void gotolivresEnpruntes () throws IOException{
+    leftbarEtudiantController.isfavoris=false;
+    leftbarEtudiantController.livre_emprunte=true;
     App.setRoot(Acceuil.getScene(),"ListOfBooksStudent");
 }
 

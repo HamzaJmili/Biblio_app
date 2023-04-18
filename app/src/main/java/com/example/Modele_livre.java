@@ -40,6 +40,15 @@ public class Modele_livre {
             }
             return listeoflivres;
           }
+          public static Vector<Livre> getLivresEmpruntee (String cne) throws SQLException{
+            ResultSet r  = GetStetment.statement.executeQuery("select * from livre where id_livre in (select id_livre from reserve where CNE ='"+cne+"')");
+            Vector<Livre> listeoflivres = new Vector<>();
+            while (r.next()) {
+              Livre livre = new Livre(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getInt(5),r.getInt(6),r.getInt(7));
+              listeoflivres.add(livre);
+            }
+            return listeoflivres;
+          }
           
     public static boolean deletelivre(String idlivre) throws SQLException{
       GetStetment.statement.executeUpdate("delete from livre  where id_livre = '"+idlivre+"'");

@@ -71,7 +71,7 @@
                         <Insets />
                      </opaqueInsets>
                   </Button>
-                  <Button fx:id="auteurs" graphicTextGap="0.0" layoutY="221.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="210.0" styleClass="buttonn" text="           Livres Empruntés" textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="auteurs" graphicTextGap="0.0" layoutY="221.0" mnemonicParsing="false" onAction="#gotolivresEnpruntes" prefHeight="31.0" prefWidth="210.0" styleClass="buttonn" text="           Livres Empruntés" textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="50.0" top="2.0" />
                      </padding>
