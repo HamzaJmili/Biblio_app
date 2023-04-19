@@ -47,6 +47,7 @@ public class EtudiantProfilController {
     Label nomprenometudiant ;
     @FXML
     Label cne ;
+    int i , j ;
      @FXML
     public  TableView<Map<String, Object>> listeLivres;
     @FXML
@@ -59,7 +60,7 @@ public class EtudiantProfilController {
     public void loadData2() throws SQLException {
         List<Map<String, Object>> reservedBooksList = Modele_reserve.getReservedBooks(EtudiantsController.s);
         ObservableList<Map<String, Object>> reservedBooks = FXCollections.observableArrayList(reservedBooksList);
-        
+         i++ ;
         listeLivres.setItems(reservedBooks);
     }
     @FXML
@@ -71,7 +72,7 @@ public class EtudiantProfilController {
        email.setText(etu.getEmail_user());
        telephone.setText(etu.getTelephone());
        nomprenometudiant.setText((etu.getNom_user()+" "+etu.getPrenom_user()).toUpperCase());
-       totalLivresEmprt.setText("  5 Livre(s)");}
+       totalLivresEmprt.setText(Modele_reserve.nb_livres_emp+" 2 Livre(s) ");}
        else{
         Etudiant etu=Modele_etudiant.getetuparemail(Session.email_utiliasteur);
         cne.setText(etu.getCne());
@@ -79,12 +80,12 @@ public class EtudiantProfilController {
        email.setText(etu.getEmail_user());
        telephone.setText(etu.getTelephone());
        nomprenometudiant.setText((etu.getNom_user()+" "+etu.getPrenom_user()).toUpperCase());
-       totalLivresEmprt.setText(" 5 Livre(s)");}
+       totalLivresEmprt.setText(Modele_reserve.nb_livres_emp+" 2 Livre(s) ");}
       
        titreLivre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get("titre").toString()));
 date_debut.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get("startDate").toString()));
 date_fin.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get("endDate").toString()));
-
+       j++;
        this.loadData2();       
        
        }

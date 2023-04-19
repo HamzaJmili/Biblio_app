@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -47,7 +43,7 @@
                         <Insets right="60.0" top="2.0" />
                      </padding>
                      <font>
-                        <Font size="11.0" />
+                        <Font size="16.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -89,12 +85,12 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button graphicTextGap="0.0" layoutX="4.0" layoutY="120.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" onAction="#gotoListeEtudiants" fx:id="etudiants" text="  Etudiants" textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="etudiants" graphicTextGap="0.0" layoutX="4.0" layoutY="120.0" mnemonicParsing="false" onAction="#gotoListeEtudiants" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Etudiants" textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
                      <font>
-                        <Font size="11.0" />
+                        <Font size="16.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -115,12 +111,12 @@
                         <Font size="8.0" />
                      </font>
                   </Label>
-                  <Button  fx:id="livres" onAction="#gotoLivres" graphicTextGap="0.0" layoutX="4.0" layoutY="226.0"  mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Livres   " textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="livres" graphicTextGap="0.0" layoutX="4.0" layoutY="226.0" mnemonicParsing="false" onAction="#gotoLivres" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Livres   " textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
                      <font>
-                        <Font size="11.0" />
+                        <Font size="16.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -136,12 +132,12 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="auteurs" onAction="#gotoAuteurs" graphicTextGap="0.0" layoutX="4.0" layoutY="263.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Auteurs " textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="auteurs" graphicTextGap="0.0" layoutX="4.0" layoutY="263.0" mnemonicParsing="false" onAction="#gotoAuteurs" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Auteurs " textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="50.0" top="2.0" />
                      </padding>
                      <font>
-                        <Font size="11.0" />
+                        <Font size="16.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -157,38 +153,17 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button graphicTextGap="0.0" layoutX="4.0" layoutY="300.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="   Tags     " textFill="WHITE" textOverrun="CLIP">
-                     <padding>
-                        <Insets right="60.0" top="2.0" />
-                     </padding>
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/hashtag.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                  
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="209.0" prefWidth="210.0">
                <children>
-                  <Button fx:id="Parametres" graphicTextGap="0.0" layoutX="3.0" layoutY="63.0" mnemonicParsing="false" prefHeight="31.0" onAction="#gotoparam" prefWidth="200.0" styleClass="buttonn" text="  Parametres" textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="Parametres" graphicTextGap="0.0" layoutX="3.0" layoutY="63.0" mnemonicParsing="false" onAction="#gotoparam" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Parametres" textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
                      <font>
-                        <Font size="11.0" />
+                        <Font size="16.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -232,12 +207,12 @@
                </children>
             </AnchorPane>
             <MenuBar prefHeight="54.0" prefWidth="1083.0" styleClass="menu" useSystemMenuBar="true">
-               <menus >
-                  <Menu  styleClass="menu_bar">
+               <menus>
+                  <Menu styleClass="menu_bar">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Profile" />
                         <MenuItem mnemonicParsing="false" onAction="#gotoparam" text="Parametres" />
-                        <MenuItem onAction="#decon" mnemonicParsing="false" text="Deconnexion" />
+                        <MenuItem mnemonicParsing="false" onAction="#decon" text="Deconnexion" />
                         <MenuItem mnemonicParsing="false" onAction="#gotoaide" text="Aide" />
                      </items>
                      <graphic>

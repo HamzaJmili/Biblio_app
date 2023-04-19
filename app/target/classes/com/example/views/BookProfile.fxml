@@ -12,32 +12,32 @@
   <fx:include source="leftbarEtudiant.fxml" />
    <AnchorPane layoutX="212.0" layoutY="-2.0" prefHeight="710.0" prefWidth="1091.0" style="-fx-background-color: #73A398A;">
       <children>
-         <ImageView fx:id="couverture" fitHeight="500.0" fitWidth="355.0" layoutX="52.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" style="visibility: white;" />
-         <Label fx:id="title" alignment="CENTER" layoutX="548.0" layoutY="70.0" prefHeight="48.0" prefWidth="435.0" style="-fx-background-color: transparent;" text="TITLE " textFill="#e8dede">
+         <ImageView fx:id="couverture" fitHeight="483.0" fitWidth="335.0" layoutX="72.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" style="visibility: white;" />
+         <Label fx:id="title" alignment="CENTER" layoutX="548.0" layoutY="70.0" prefHeight="48.0" prefWidth="435.0" style="-fx-background-color: transparent;" text="TITLE " textFill="#110101">
             <font>
-               <Font name="System Bold Italic" size="22.0" />
+               <Font name="System Bold Italic" size="25.0" />
             </font>
          </Label>
-         <Label layoutX="587.0" layoutY="155.0" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent;" text="Auteur :" textFill="#e8dede">
+         <Label layoutX="587.0" layoutY="155.0" prefHeight="48.0" prefWidth="78.0" style="-fx-background-color: transparent;" text="Auteur :" textFill="#110101">
             <font>
                <Font name="System Bold Italic" size="18.0" />
             </font>
          </Label>
-         <Label fx:id="nom_auteur" layoutX="705.0" layoutY="153.0" prefHeight="45.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="nom_auteur" textFill="#7c7878">
+         <Label fx:id="nom_auteur" layoutX="705.0" layoutY="153.0" prefHeight="45.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="nom_auteur" textFill="#6f6a6a">
             <font>
                <Font name="System Bold Italic" size="21.0" />
             </font></Label>
-         <Label layoutX="585.0" layoutY="255.0" prefHeight="49.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Pages :" textFill="#e8dede">
+         <Label layoutX="585.0" layoutY="255.0" prefHeight="49.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Pages :" textFill="#110101">
             <font>
                <Font name="System Bold Italic" size="18.0" />
             </font>
          </Label>
-         <Label layoutX="585.0" layoutY="335.0" prefHeight="45.0" prefWidth="128.0" style="-fx-background-color: transparent;" text="Description : " textFill="#e8dede">
+         <Label layoutX="581.0" layoutY="355.0" prefHeight="45.0" prefWidth="128.0" style="-fx-background-color: transparent;" text="Description : " textFill="#110101">
             <font>
                <Font name="System Bold Italic" size="18.0" />
             </font>
          </Label>
-         <Button fx:id="reserver" layoutX="312.0" layoutY="640.0" mnemonicParsing="false" onAction="#reserver" prefHeight="57.0" prefWidth="208.0" style="-fx-background-color: #40bf32; -fx-background-radius: 18px;" text="   Réserver" textFill="#4a4848">
+         <Button fx:id="reserver" layoutX="368.0" layoutY="620.0" mnemonicParsing="false" onAction="#reserver" prefHeight="37.0" prefWidth="184.0" style="-fx-background-color: #40bf32; -fx-background-radius: 18px;" text="   Réserver" textFill="#4a4848">
             <font>
                <Font name="System Bold" size="21.0" />
             </font>
@@ -47,17 +47,17 @@
                <Font name="System Bold Italic" size="21.0" />
             </font>
          </Label>
-         <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="320.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="376.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../../../../../../../../Users/soft/Downloads/reserve%20(2).png" />
             </image>
          </ImageView>
-         <Text fx:id="description" layoutX="596.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="desc" wrappingWidth="141.5">
+         <Text fx:id="description" layoutX="594.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="desc" wrappingWidth="141.5">
             <font>
                <Font name="System Bold" size="18.0" />
             </font>
          </Text>
-         <Button fx:id="BackIcon" layoutX="10.0" layoutY="5.0" onAction="#BacktoPreviousScene" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: transparent;">
+         <Button fx:id="BackIcon" layoutX="10.0" layoutY="5.0" mnemonicParsing="false" onAction="#BacktoPreviousScene" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: transparent;">
             <graphic>
                <ImageView fitHeight="34.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                   <image>

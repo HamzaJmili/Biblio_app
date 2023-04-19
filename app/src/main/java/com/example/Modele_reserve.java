@@ -10,7 +10,9 @@ import java.util.*;
 import com.example.controllers.ListOfBooksStudentController;
 
 public class Modele_reserve {
-    
+
+    public  static int nb_livres_emp = 0  ;
+
         public static int addLivre (LocalDate fin) throws SQLException{
             LocalDate currentDate = LocalDate.now();
           GetStetment.statement.executeQuery("insert into reserve values (1,'"+Session.id_utiliasteur+"','"+ListOfBooksStudentController.id+"',TO_DATE('"+currentDate+"', 'YYYY-MM-DD'),TO_DATE('"+fin+"', 'YYYY-MM-DD'),'yes')");
@@ -25,17 +27,23 @@ public class Modele_reserve {
                ResultSet r = GetStetment.statement.executeQuery("SELECT id_livre, date_Debut, date_fin FROM reserve WHERE cne = '"+cne+"'")) {
       
               while (r.next()) {
-                  String  id = r.getString("id_livre");
-
-                  String startDate = r.getString("date_Debut");
+                  int  id = r.getInt("id_livre");
+                 
+                  // String id=Modele_livre.getBook(r.getInt("id_livre")).getTitre();               
+                 String startDate = r.getString("date_Debut");
                   String endDate = r.getString("date_fin");
+                  
                   Map<String, Object> reservedBook = new HashMap<>();
                   reservedBook.put("titre",id);
                   reservedBook.put("startDate", startDate);
                   reservedBook.put("endDate", endDate);
                   reservedBooks.add(reservedBook);
+                 
+
               }
+              Modele_reserve.nb_livres_emp = reservedBooks.size();
           }
+
           return reservedBooks;
       }
       
