@@ -105,4 +105,8 @@ WHERE ID_LIVRE = :NEW.ID_LIVRE;
 
    // new commande 5/1/2023 
    alter table livre add nb_like number(20) ;
+   alter table reserve drop constraint FK_RESERVE_LIVRE ;
+   alter table reserve add constraint fk_bookid_reserve foreign key ( id_livre ) references livre (id_livre) on delete cascade;
+   alter table avoir drop constraint FK_3 ;
+   ALTER TABLE avoir  ADD CONSTRAINT fk_3 FOREIGN KEY (id_livre) REFERENCES livre(id_livre) on delete cascade;
 
