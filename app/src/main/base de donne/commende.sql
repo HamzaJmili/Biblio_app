@@ -103,3 +103,6 @@ WHERE ID_LIVRE = :NEW.ID_LIVRE;
   /
    create view reserve_now_view as select * from reserve where RESERVE_NOW='yes';
 
+   // new commande 5/1/2023 
+   alter table livre add nb_like number(20) ;
+
