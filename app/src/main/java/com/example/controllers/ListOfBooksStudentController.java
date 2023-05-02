@@ -2,6 +2,8 @@ package com.example.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import com.example.App;
@@ -14,12 +16,16 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 
 public class ListOfBooksStudentController {
@@ -33,6 +39,9 @@ public class ListOfBooksStudentController {
     Pane carte_etudiant;
     @FXML 
     VBox boxOfStudent ;
+@FXML
+TextField chercher;
+public static String s;
     
    
  
@@ -45,15 +54,36 @@ public class ListOfBooksStudentController {
         add_etudiant();
        
     }
+    @FXML
+    public void cherche() throws IOException{  s=chercher.getText();
+        leftbarEtudiantController.isfavoris=false ;
+         leftbarEtudiantController.livre_emprunte=false;
+         leftbarEtudiantController.chercheLivres=true;
+         App.setRoot(page.getScene(),"ListOfBooksStudent");
+        
 
-   
+    }
+
+    public List<Livre> chercherLivre(String texteRecherche) throws SQLException {
+     
+        Vector<Livre> livres=null;
+        livres = Modele_livre.chercheLivres(texteRecherche);
+       
+        return livres;
+    }
     
      void add_etudiant() throws SQLException{
         Vector<Livre> liste_of_livres=null;
      
-    if (leftbarEtudiantController.isfavoris==false && leftbarEtudiantController.livre_emprunte==false ){
+    if (leftbarEtudiantController.isfavoris==false && leftbarEtudiantController.livre_emprunte==false &&  leftbarEtudiantController.chercheLivres==false ){
     liste_of_livres = Modele_livre.getLivres();
     page.setText("-Acceuil-");
+    }
+    else if (leftbarEtudiantController.chercheLivres==true){
+        
+        System.out.println("text"+s);
+        liste_of_livres =(Vector<Livre>) chercherLivre(s);
+        page.setText("-Acceuil-");
     }
     else if (leftbarEtudiantController.isfavoris==true){
         liste_of_livres = Model_favoris.getLivres_favoris(Session.id_utiliasteur);
@@ -159,39 +189,6 @@ public class ListOfBooksStudentController {
                 writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                 writer.getStyleClass().add("writer_name");
                 
-                
-                
-                        // add label for Page
-                //         Label page = new Label("Pages : "+liste_of_livres.get(nb_of_livre).getNombre_pages());
-                //         //location of label in pane
-                // page.setLayoutX(8);
-                // page.setLayoutY(255);
-
-
-
-                //                         //add style for Page
-                // page.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                // page.getStyleClass().add("page_label");
-
-           
-  
-                  // set the hight of button
-        
-              
-                        // add style for button
-                        // button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                        // button_voir.getStyleClass().add("voir");
-                        // button_voir.toBack();
-                        // button_voir.setOnMouseClicked((MouseEvent event)->{
-                        //   try { App.setRoot(button_voir.getScene(), "BookProfile");
-                        // }  
-                        // catch( Exception e) {
-                        //  System.out.println(e.getMessage());
-                        //  e.printStackTrace();
-                        // }
-                        // } );
-                
-            
             
                    //set style to pane
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
@@ -202,7 +199,7 @@ public class ListOfBooksStudentController {
                      heartimageview = new ImageView(heartimage);
                     heartimageview.setFitHeight(18);
                     heartimageview.setFitWidth(18);
-                    heartimageview.setLayoutY(216);
+                    heartimageview.setLayoutY(213);
                     heartimageview.setLayoutX(146);
                     
 
@@ -210,7 +207,7 @@ public class ListOfBooksStudentController {
                      heartimageredview = new ImageView(heartimagered );
                     heartimageredview.setFitHeight(18);
                     heartimageredview.setFitWidth(18);
-                    heartimageredview.setLayoutY(216);
+                    heartimageredview.setLayoutY(213);
                     heartimageredview.setLayoutX(146);
                     Integer id_livre = new Integer(liste_of_livres.elementAt(nb_of_livre).getId_livre());
                     if(id_livre_favoris.indexOf(id_livre)==-1){
@@ -219,16 +216,24 @@ public class ListOfBooksStudentController {
                     }else{
                         heartimageview.setVisible(false);
                     }
-                   
+                   int nb_like_int = Modele_livre.getlikes(liste_of_livres.elementAt(nb_of_livre).getId_livre());
+                    Label nb_like = new Label(Integer.toString(nb_like_int));
+                    nb_like.setLayoutY(230);
+                    nb_like.setLayoutX(150);
+                    nb_like.setTextFill(Color.web("#730404"));
+                    nb_like.setFont(Font.font("System", FontWeight.BOLD, 11));
 
                     heartimageview.setOnMouseClicked(e ->{
                         heartimageview.setVisible(false);
                         
+                        nb_like.setText(Integer.toString(Integer.parseInt(nb_like.getText())+1));
+
                         Model_favoris.setFavoris(Integer.parseInt(carteoflivre.getId()) ,Session.id_utiliasteur);
                         heartimageredview.setVisible(true);
                     });
                     heartimageredview.setOnMouseClicked(e ->{
                         heartimageview.setVisible(true);
+                        nb_like.setText(Integer.toString(Integer.parseInt(nb_like.getText())-1));
                         Model_favoris.deleteFavoris(Integer.parseInt(carteoflivre.getId()), Session.id_utiliasteur);
                         heartimageredview.setVisible(false);
                         
@@ -246,6 +251,8 @@ public class ListOfBooksStudentController {
                    carteoflivre.getChildren().add(writer);
                    carteoflivre.getChildren().add(heartimageredview);
                    carteoflivre.getChildren().add(heartimageview);
+                   carteoflivre.getChildren().add(nb_like);
+                   
 
                     hBox.getChildren().add(carteoflivre);
                     

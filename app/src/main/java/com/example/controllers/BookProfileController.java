@@ -2,18 +2,25 @@ package com.example.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Vector;
 
 import com.example.App;
+import com.example.Commentaire;
 import com.example.Livre;
 import com.example.Modele_auteur;
+import com.example.Modele_cmnt;
 import com.example.Modele_livre;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -27,7 +34,7 @@ public class BookProfileController {
     @FXML Label  nb_pages;
     @FXML  Button  BackIcon;
     @FXML  Button  reserver;
-   
+   @FXML    ScrollPane lst;
    
     @FXML
     void initialize ()  throws SQLException{
@@ -41,8 +48,33 @@ public class BookProfileController {
        if(L.getExemplaire()==0){
         reserver.setDisable(true);
        }
-        // Image image = new Image("file:/path/to/"+L.getCouverture());
-        // couverture.setImage(image);
+       
+       Vector<Commentaire> listeofcmnts =Modele_cmnt.getcmnts(L.getId_livre());
+       if(listeofcmnts.size()>0){
+       VBox commentBox = new VBox();
+commentBox.setSpacing(10);
+
+// Itérer sur la liste des commentaires pour créer un HBox pour chaque commentaire
+for (Commentaire commentaire : listeofcmnts) {
+   
+    
+
+    // Créer un Label pour afficher le texte du commentaire
+    Label texteLabel = new Label(commentaire.getContenu());
+
+    // Créer un HBox pour contenir les deux Labels
+    HBox commentaireBox = new HBox();
+    commentaireBox.getChildren().addAll(texteLabel);
+
+    // Ajouter le HBox du commentaire à la VBox de tous les commentaires
+    commentBox.getChildren().add(commentaireBox);
+}
+
+// Ajouter la VBox de tous les commentaires au ScrollPane
+lst.setContent(commentBox);}
+
+// Ajouter le ScrollPane à votre scène de profil de livre où vous le souhaitez
+       
 
 
     }

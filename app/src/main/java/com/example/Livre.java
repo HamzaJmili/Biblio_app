@@ -12,6 +12,8 @@ public class Livre {
 
 
 
+
+
 public int getExemplaire() {
     return exemplaire;
 }
@@ -36,6 +38,7 @@ public Livre(int id_livre, String titre, String description, String couverture, 
     this.id_auteur = id_auteur;
     this.nombre_pages=nombre_pages ;
     this.exemplaire=exemplaire;
+   
 
 }
 
