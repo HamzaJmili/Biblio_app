@@ -2,6 +2,8 @@ package com.example.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import com.example.App;
@@ -14,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -36,6 +39,9 @@ public class ListOfBooksStudentController {
     Pane carte_etudiant;
     @FXML 
     VBox boxOfStudent ;
+@FXML
+TextField chercher;
+public static String s;
     
    
  
@@ -48,15 +54,36 @@ public class ListOfBooksStudentController {
         add_etudiant();
        
     }
+    @FXML
+    public void cherche() throws IOException{  s=chercher.getText();
+        leftbarEtudiantController.isfavoris=false ;
+         leftbarEtudiantController.livre_emprunte=false;
+         leftbarEtudiantController.chercheLivres=true;
+         App.setRoot(page.getScene(),"ListOfBooksStudent");
+        
 
-   
+    }
+
+    public List<Livre> chercherLivre(String texteRecherche) throws SQLException {
+     
+        Vector<Livre> livres=null;
+        livres = Modele_livre.chercheLivres(texteRecherche);
+       
+        return livres;
+    }
     
      void add_etudiant() throws SQLException{
         Vector<Livre> liste_of_livres=null;
      
-    if (leftbarEtudiantController.isfavoris==false && leftbarEtudiantController.livre_emprunte==false ){
+    if (leftbarEtudiantController.isfavoris==false && leftbarEtudiantController.livre_emprunte==false &&  leftbarEtudiantController.chercheLivres==false ){
     liste_of_livres = Modele_livre.getLivres();
     page.setText("-Acceuil-");
+    }
+    else if (leftbarEtudiantController.chercheLivres==true){
+        
+        System.out.println("text"+s);
+        liste_of_livres =(Vector<Livre>) chercherLivre(s);
+        page.setText("-Acceuil-");
     }
     else if (leftbarEtudiantController.isfavoris==true){
         liste_of_livres = Model_favoris.getLivres_favoris(Session.id_utiliasteur);
