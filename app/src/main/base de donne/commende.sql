@@ -110,3 +110,6 @@ WHERE ID_LIVRE = :NEW.ID_LIVRE;
    alter table avoir drop constraint FK_3 ;
    ALTER TABLE avoir  ADD CONSTRAINT fk_3 FOREIGN KEY (id_livre) REFERENCES livre(id_livre) on delete cascade;
 
+  
+
+
