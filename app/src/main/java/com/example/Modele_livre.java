@@ -80,5 +80,12 @@ public class Modele_livre {
      L = new Livre(s.getInt(1), s.getString(2), s.getString(3), s.getString(4), s.getInt(5),s.getInt(6),s.getInt(7));
     return L;
     }
+    public static int getlikes(int id_livre) throws SQLException{
+      ResultSet s = GetStetment.statement.executeQuery("select count(*) from favoris where id_livre = "+id_livre);
+      s.next();
+    System.out.println(s.getInt(1));
+    return s.getInt(1);
 
-}
+    }
+
+} 

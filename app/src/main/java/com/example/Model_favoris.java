@@ -48,7 +48,7 @@ public class Model_favoris{
         ResultSet r = GetStetment.statement.executeQuery("select * from livre where id_livre in (select id_livre from favoris where ID_ETUDIANT ='"+cne_etudiant+"')");
         Vector<Livre> listeoflivres = new Vector<>();
         while (r.next()) {
-          Livre livre = new Livre(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getInt(5),r.getInt(6),r.getInt(7));
+          Livre livre = new Livre(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getInt(5),r.getInt(6),r.getInt(7) );
           listeoflivres.add(livre);
         }
         return listeoflivres;

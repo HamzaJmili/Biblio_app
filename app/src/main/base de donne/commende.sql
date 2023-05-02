@@ -131,3 +131,6 @@ WHERE ID_LIVRE = :NEW.ID_LIVRE;
 
 
 
+  
+
+

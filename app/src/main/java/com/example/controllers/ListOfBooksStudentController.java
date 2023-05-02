@@ -23,6 +23,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 
 public class ListOfBooksStudentController {
@@ -196,7 +199,7 @@ public static String s;
                      heartimageview = new ImageView(heartimage);
                     heartimageview.setFitHeight(18);
                     heartimageview.setFitWidth(18);
-                    heartimageview.setLayoutY(216);
+                    heartimageview.setLayoutY(213);
                     heartimageview.setLayoutX(146);
                     
 
@@ -204,7 +207,7 @@ public static String s;
                      heartimageredview = new ImageView(heartimagered );
                     heartimageredview.setFitHeight(18);
                     heartimageredview.setFitWidth(18);
-                    heartimageredview.setLayoutY(216);
+                    heartimageredview.setLayoutY(213);
                     heartimageredview.setLayoutX(146);
                     Integer id_livre = new Integer(liste_of_livres.elementAt(nb_of_livre).getId_livre());
                     if(id_livre_favoris.indexOf(id_livre)==-1){
@@ -213,16 +216,24 @@ public static String s;
                     }else{
                         heartimageview.setVisible(false);
                     }
-                   
+                   int nb_like_int = Modele_livre.getlikes(liste_of_livres.elementAt(nb_of_livre).getId_livre());
+                    Label nb_like = new Label(Integer.toString(nb_like_int));
+                    nb_like.setLayoutY(230);
+                    nb_like.setLayoutX(150);
+                    nb_like.setTextFill(Color.web("#730404"));
+                    nb_like.setFont(Font.font("System", FontWeight.BOLD, 11));
 
                     heartimageview.setOnMouseClicked(e ->{
                         heartimageview.setVisible(false);
                         
+                        nb_like.setText(Integer.toString(Integer.parseInt(nb_like.getText())+1));
+
                         Model_favoris.setFavoris(Integer.parseInt(carteoflivre.getId()) ,Session.id_utiliasteur);
                         heartimageredview.setVisible(true);
                     });
                     heartimageredview.setOnMouseClicked(e ->{
                         heartimageview.setVisible(true);
+                        nb_like.setText(Integer.toString(Integer.parseInt(nb_like.getText())-1));
                         Model_favoris.deleteFavoris(Integer.parseInt(carteoflivre.getId()), Session.id_utiliasteur);
                         heartimageredview.setVisible(false);
                         
@@ -240,6 +251,8 @@ public static String s;
                    carteoflivre.getChildren().add(writer);
                    carteoflivre.getChildren().add(heartimageredview);
                    carteoflivre.getChildren().add(heartimageview);
+                   carteoflivre.getChildren().add(nb_like);
+                   
 
                     hBox.getChildren().add(carteoflivre);
                     
