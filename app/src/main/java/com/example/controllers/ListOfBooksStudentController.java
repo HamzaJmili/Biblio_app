@@ -186,39 +186,6 @@ public static String s;
                 writer.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                 writer.getStyleClass().add("writer_name");
                 
-                
-                
-                        // add label for Page
-                //         Label page = new Label("Pages : "+liste_of_livres.get(nb_of_livre).getNombre_pages());
-                //         //location of label in pane
-                // page.setLayoutX(8);
-                // page.setLayoutY(255);
-
-
-
-                //                         //add style for Page
-                // page.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                // page.getStyleClass().add("page_label");
-
-           
-  
-                  // set the hight of button
-        
-              
-                        // add style for button
-                        // button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                        // button_voir.getStyleClass().add("voir");
-                        // button_voir.toBack();
-                        // button_voir.setOnMouseClicked((MouseEvent event)->{
-                        //   try { App.setRoot(button_voir.getScene(), "BookProfile");
-                        // }  
-                        // catch( Exception e) {
-                        //  System.out.println(e.getMessage());
-                        //  e.printStackTrace();
-                        // }
-                        // } );
-                
-            
             
                    //set style to pane
                    carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
