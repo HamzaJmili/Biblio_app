@@ -109,4 +109,25 @@ WHERE ID_LIVRE = :NEW.ID_LIVRE;
    alter table reserve add constraint fk_bookid_reserve foreign key ( id_livre ) references livre (id_livre) on delete cascade;
    alter table avoir drop constraint FK_3 ;
    ALTER TABLE avoir  ADD CONSTRAINT fk_3 FOREIGN KEY (id_livre) REFERENCES livre(id_livre) on delete cascade;
+    CREATE TABLE commentaire (
+     id_commentaire INTEGER PRIMARY KEY,
+      id_livre NUMBER ,
+   cne varchar(20) ,
+      contenu VARCHAR2(255)
+    );
+   ALTER TABLE commentaire
+     ADD CONSTRAINT fk_commentaire_livre
+      FOREIGN KEY (id_livre)
+      REFERENCES livre(id_livre)
+      ON DELETE CASCADE;
+
+
+
+ ALTER TABLE commentaire
+      ADD CONSTRAINT fk_commentaire_etudiant
+      FOREIGN KEY (cne)
+      REFERENCES etudiant(cne)
+      ON DELETE CASCADE;
+
+
 
