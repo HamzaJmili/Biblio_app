@@ -61,7 +61,7 @@ public class Modele_livre {
     return s.getInt(1);
     }
 
-   public static Livre getBook( int Id_livre ) throws SQLException{
+   public static Livre getBook( int Id_livre ) throws SQLException {
     Livre L= null;
     ResultSet s=GetStetment.statement.executeQuery("select * from livre where id_livre='"+Id_livre+"'");
     while(s.next())
