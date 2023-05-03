@@ -122,12 +122,13 @@ WHERE ID_LIVRE = :NEW.ID_LIVRE;
       ON DELETE CASCADE;
 
 
-   // new commande 5/3/2023
+   
  ALTER TABLE commentaire
       ADD CONSTRAINT fk_commentaire_etudiant
       FOREIGN KEY (cne)
       REFERENCES etudiant(cne)
       ON DELETE CASCADE;
+      // new commande 5/3/2023
       create sequence id_commentaire start with 1 increment by 1
 CREATE TRIGGER addcommentaire
    BEFORE INSERT ON commentaire

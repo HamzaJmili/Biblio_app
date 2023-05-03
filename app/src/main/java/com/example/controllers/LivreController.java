@@ -35,6 +35,7 @@ import javafx.stage.StageStyle;
 import javafx.scene.control.ButtonType;
 
 public class LivreController {
+    public static int id ;
     public static int numcarte=4 ;
     int nb_of_livre =0 ;
 
@@ -150,14 +151,16 @@ public class LivreController {
                         button_trash.getStyleClass().add("trash");
                         button_trash.toBack();
 
-                        // add id button trash is the id of the livre
+                        // add id button trash  & voir is the id of the livre
                         button_trash.setId(liste_of_livres.get(nb_of_livre).getId_livre()+"");
+                        
 
                         //add button voir
                   Button button_voir = new Button("Voir");
                   //the position if button in pane
                   button_voir.setLayoutX(179);
                   button_voir.setLayoutY(100);
+                  
   
                   // set the hight of button
                   button_voir.setPrefSize(80, 30);
@@ -167,11 +170,28 @@ public class LivreController {
                 trashimageview1.setFitHeight(17);
                 trashimageview1.setFitWidth(17);
                 button_voir.setGraphic(trashimageview1);
+                button_voir.setId(liste_of_livres.get(nb_of_livre).getId_livre()+"");
 
                         //add style for button
                         button_voir.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
                         button_voir.getStyleClass().add("voir");
                         button_voir.toBack();
+                        button_voir.setOnMouseClicked((MouseEvent event)->{
+                           
+                     
+                                        try {
+                                           
+                                            id =Integer.parseInt(button_voir.getId());
+            
+                                                App.setRoot(carteoflivre.getScene(),"BookProfileAdmin");
+                                         } catch (IOException e1) {
+                                               
+                                                e1.printStackTrace();
+                                            }
+                                            
+                                         
+                                    
+                                });
                 
             
             

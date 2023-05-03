@@ -26,7 +26,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class BookProfileController {
+public class BookProfileAdminController {
     @FXML ImageView couverture ;
     @FXML Label  title ;
     @FXML Text description ;
@@ -38,7 +38,7 @@ public class BookProfileController {
    
     @FXML
     void initialize ()  throws SQLException{
-       Livre L=Modele_livre.getBook(ListOfBooksStudentController.id);       
+       Livre L=Modele_livre.getBook(LivreController.id);       
         title.setText(L.getTitre());
         description.setText(L.getDescription());
         nom_auteur.setText(Modele_auteur.getWriterName(L.getId_auteur()));
