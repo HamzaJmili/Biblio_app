@@ -1,10 +1,26 @@
 package com.example;
 
+import java.time.LocalDate;
+
 public class Commentaire {
     private int  id_commentaire;
     private int id_livre;
     private String cne ;
     private String contenu;
+    private  LocalDate commentDate ;
+    public LocalDate getCommentDate() {
+        return commentDate;
+    }
+    public void setCommentDate(LocalDate commentDate) {
+        this.commentDate = commentDate;
+    }
+    public Commentaire(int id_commentaire, int id_livre, String cne, String contenu, LocalDate commentDate) {
+        this.id_commentaire = id_commentaire;
+        this.id_livre = id_livre;
+        this.cne = cne;
+        this.contenu = contenu;
+        this.commentDate = commentDate;
+    }
     public Commentaire(int id_commentaire, int id_livre, String cne, String contenu) {
         this.id_commentaire = id_commentaire;
         this.id_livre = id_livre;
