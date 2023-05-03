@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,8 +11,8 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="706.0" prefHeight="706.0" prefWidth="1298.0" style="-fx-background-color:  #333231;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.BookProfileAdminController"> <!-- -->
-  <fx:include source="leftbarEtudiant.fxml" />
-   <AnchorPane layoutX="212.0" layoutY="-2.0" prefHeight="710.0" prefWidth="1091.0" style="-fx-background-color: #73A398A;">
+  <fx:include source="leftbar.fxml" />
+   <AnchorPane layoutX="212.0" layoutY="-2.0" prefHeight="710.0" prefWidth="1091.0" style="-fx-background-color: white;">
       <children>
          <ImageView fx:id="couverture" fitHeight="500.0" fitWidth="355.0" layoutX="52.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" style="visibility: white;" />
          <Label fx:id="title" alignment="CENTER" layoutX="548.0" layoutY="70.0" prefHeight="48.0" prefWidth="435.0" style="-fx-background-color: transparent;" text="TITLE " textFill="#e8dede">
@@ -40,11 +39,6 @@
                <Font name="System Bold Italic" size="18.0" />
             </font>
          </Label>
-         <Button fx:id="reserver" layoutX="312.0" layoutY="640.0" mnemonicParsing="false"  prefHeight="57.0" prefWidth="208.0" style="-fx-background-color: #40bf32; -fx-background-radius: 18px;" text="   Réserver" textFill="#4a4848">
-            <font>
-               <Font name="System Bold" size="21.0" />
-            </font>
-         </Button>
          <Label fx:id="nb_pages" layoutX="688.0" layoutY="179.0" prefHeight="45.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="nb_pages" textFill="#40bf32">
             <font>
                <Font name="System Bold Italic" size="21.0" />
@@ -69,22 +63,16 @@
                </ImageView>
             </graphic>
          </Button>
-         <Label layoutX="569.0" layoutY="344.0" prefHeight="45.0" prefWidth="128.0" style="-fx-background-color: transparent;" text="commentaire:" textFill="#e8dede">
+         <Label layoutX="569.0" layoutY="357.0" prefHeight="45.0" prefWidth="128.0" style="-fx-background-color: transparent;" text="commentaire:" textFill="#e8dede">
             <font>
                <Font name="System Bold Italic" size="18.0" />
             </font>
          </Label>
-         <ScrollPane fx:id="lst" layoutX="562.0" layoutY="451.0" prefHeight="200.0" prefWidth="459.0">
+         <ScrollPane fx:id="lst" layoutX="562.0" layoutY="426.0" prefHeight="200.0" prefWidth="459.0">
             <content>
                <ScrollBar orientation="VERTICAL" prefHeight="201.0" prefWidth="14.0" />
             </content>
          </ScrollPane>
-         <TextField fx:id="comnt" layoutX="560.0" layoutY="384.0" prefHeight="38.0" prefWidth="402.0" promptText="ajouter un commentaire" style="-fx-background-radius: 30;" />
-         <Button fx:id="add" layoutX="971.0" layoutY="380.0" mnemonicParsing="false"  prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: #40bf32; -fx-background-radius: 18px;" text="+" textFill="#4a4848">
-            <font>
-               <Font name="System Bold" size="21.0" />
-            </font>
-         </Button>
       </children>
    </AnchorPane>
    
