@@ -24,19 +24,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.MapValueFactory;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class EtudiantProfilController {
+
     @FXML
     Label filiere ;
     @FXML
     Label email ;
     @FXML
     Label telephone ;
-    @FXML
-    Label totalLivresEmprt ;
     @FXML
     Label TitreLivreEmpt;
     @FXML
@@ -58,13 +55,16 @@ public class EtudiantProfilController {
     TableColumn<Map<String, Object>,String> date_fin;
 
     public void loadData2() throws SQLException {
+
         List<Map<String, Object>> reservedBooksList = Modele_reserve.getReservedBooks(EtudiantsController.s);
         ObservableList<Map<String, Object>> reservedBooks = FXCollections.observableArrayList(reservedBooksList);
          i++ ;
         listeLivres.setItems(reservedBooks);
     }
+  
     @FXML
    void initialize() throws SQLException { 
+    // List<Map<String, Object>> reservedBooksList33 = Modele_reserve.getReservedBooks(EtudiantsController.s);
     if(closeButton.getText().compareTo("X")==0){
        final Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
        cne.setText(etu.getCne());
@@ -72,7 +72,8 @@ public class EtudiantProfilController {
        email.setText(etu.getEmail_user());
        telephone.setText(etu.getTelephone());
        nomprenometudiant.setText((etu.getNom_user()+" "+etu.getPrenom_user()).toUpperCase());
-       totalLivresEmprt.setText(Modele_reserve.nb_livres_emp+" 2 Livre(s) ");}
+       TitreLivreEmpt.setText(""+Modele_reserve.getTitle(etu.getCne()));
+          }
        else{
         Etudiant etu=Modele_etudiant.getetuparemail(Session.email_utiliasteur);
         cne.setText(etu.getCne());
@@ -80,7 +81,8 @@ public class EtudiantProfilController {
        email.setText(etu.getEmail_user());
        telephone.setText(etu.getTelephone());
        nomprenometudiant.setText((etu.getNom_user()+" "+etu.getPrenom_user()).toUpperCase());
-       totalLivresEmprt.setText(Modele_reserve.nb_livres_emp+" 2 Livre(s) ");}
+       TitreLivreEmpt.setText(""+Modele_reserve.getTitle(etu.getCne()));
+     }
       
        titreLivre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get("titre").toString()));
 date_debut.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get("startDate").toString()));
@@ -103,6 +105,8 @@ date_fin.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getVa
     }
 
  static Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
+
+     
 
 
 }
