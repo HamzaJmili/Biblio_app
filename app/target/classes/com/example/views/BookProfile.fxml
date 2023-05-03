@@ -4,7 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.ScrollPane?>
+<<<<<<< HEAD
+=======
 <?import javafx.scene.control.TextField?>
+>>>>>>> 33c40f77da0db3fb94d4e854abbc2638c707ca15
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -74,11 +77,17 @@
                <Font name="System Bold Italic" size="18.0" />
             </font>
          </Label>
+<<<<<<< HEAD
+         <ScrollPane fx:id="lst" layoutX="560.0" layoutY="415.0" prefHeight="200.0" prefWidth="459.0">
+=======
          <ScrollPane fx:id="lst" layoutX="562.0" layoutY="451.0" prefHeight="200.0" prefWidth="459.0">
+>>>>>>> 33c40f77da0db3fb94d4e854abbc2638c707ca15
             <content>
                <ScrollBar orientation="VERTICAL" prefHeight="201.0" prefWidth="14.0" />
             </content>
          </ScrollPane>
+<<<<<<< HEAD
+=======
          <TextField fx:id="comnt" layoutX="560.0" layoutY="384.0" prefHeight="38.0" prefWidth="402.0" promptText="ajouter un commentaire" style="-fx-background-radius: 30;" />
          <ImageView fitHeight="42.0" fitWidth="30.0" layoutX="975.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -90,6 +99,7 @@
                <Font name="System Bold" size="21.0" />
             </font>
          </Button>
+>>>>>>> 33c40f77da0db3fb94d4e854abbc2638c707ca15
       </children>
    </AnchorPane>
    
