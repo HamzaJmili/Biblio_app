@@ -80,7 +80,12 @@
             </content>
          </ScrollPane>
          <TextField fx:id="comnt" layoutX="560.0" layoutY="384.0" prefHeight="38.0" prefWidth="402.0" promptText="ajouter un commentaire" style="-fx-background-radius: 30;" />
-         <Button fx:id="add" layoutX="971.0" layoutY="380.0" mnemonicParsing="false" onAction="#addcmnt" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: #40bf32; -fx-background-radius: 18px;" text="+" textFill="#4a4848">
+         <ImageView fitHeight="42.0" fitWidth="30.0" layoutX="975.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../../../../../../Downloads/send-message.png" />
+            </image>
+         </ImageView>
+         <Button fx:id="add" layoutX="975.0" layoutY="380.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-background-radius: 18px;" textFill="#4a4848">
             <font>
                <Font name="System Bold" size="21.0" />
             </font>
