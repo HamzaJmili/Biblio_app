@@ -50,6 +50,7 @@ public class BookProfileController {
        }
        
        Vector<Commentaire> listeofcmnts =Modele_cmnt.getcmnts(L.getId_livre());
+       //hhdhdhdhdhdh
        if(listeofcmnts!=null){
        if(listeofcmnts.size()>0){
        VBox commentBox = new VBox();
