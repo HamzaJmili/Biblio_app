@@ -12,12 +12,8 @@ import com.example.Livre;
 import com.example.Modele_auteur;
 import com.example.Modele_cmnt;
 import com.example.Modele_livre;
-<<<<<<< HEAD
 import com.example.Modele_reserve;
-=======
 import com.example.Session;
->>>>>>> 77e310ee4c8be8ce202e21c51127323969982407
-
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
