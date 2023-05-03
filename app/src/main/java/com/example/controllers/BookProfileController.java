@@ -50,6 +50,7 @@ public class BookProfileController {
        }
        
        Vector<Commentaire> listeofcmnts =Modele_cmnt.getcmnts(L.getId_livre());
+       if(listeofcmnts!=null){
        if(listeofcmnts.size()>0){
        VBox commentBox = new VBox();
 commentBox.setSpacing(10);
@@ -71,7 +72,7 @@ for (Commentaire commentaire : listeofcmnts) {
 }
 
 // Ajouter la VBox de tous les commentaires au ScrollPane
-lst.setContent(commentBox);}
+lst.setContent(commentBox);}}
 
 // Ajouter le ScrollPane à votre scène de profil de livre où vous le souhaitez
        

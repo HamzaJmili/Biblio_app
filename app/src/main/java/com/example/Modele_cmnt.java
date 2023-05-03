@@ -17,9 +17,16 @@ public  class Modele_cmnt {
          
           listeofcmnts.add( com);
         }
-        if(listeofcmnts.size()>0){
-        return listeofcmnts;}
-        return null;
+    
+        return listeofcmnts;
+    
+      }
+      public static void addLivre (int id_commentaire , int  id_livre , String cne , String contenu ) throws SQLException{
+    
+        GetStetment.statement.executeQuery("insert into commentaire values ("+id_commentaire+",'"+id_livre+"','"+cne+"','"+contenu+"");
+
+      
+        
       }
 
   }
