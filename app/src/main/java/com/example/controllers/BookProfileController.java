@@ -2,6 +2,8 @@ package com.example.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Vector;
 
 import com.example.App;
@@ -10,13 +12,18 @@ import com.example.Livre;
 import com.example.Modele_auteur;
 import com.example.Modele_cmnt;
 import com.example.Modele_livre;
+<<<<<<< HEAD
 import com.example.Modele_reserve;
+=======
+import com.example.Session;
+>>>>>>> 77e310ee4c8be8ce202e21c51127323969982407
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -35,11 +42,17 @@ public class BookProfileController {
     @FXML  Button  BackIcon;
     @FXML  Button  reserver;
    @FXML    ScrollPane lst;
-   
+   @FXML TextField comnt;
+   public int id_livre;
+   @FXML public void addcmnt() throws SQLException, IOException{
+Modele_cmnt.addLivre(1, id_livre, Session.id_utiliasteur, comnt.getText());
+App.setRoot(reserver.getScene(), "BookProfile");
+   }
     @FXML
     void initialize ()  throws SQLException{
        Livre L=Modele_livre.getBook(ListOfBooksStudentController.id);       
         title.setText(L.getTitre());
+        id_livre=L.getId_livre();
         description.setText(L.getDescription());
         nom_auteur.setText(Modele_auteur.getWriterName(L.getId_auteur()));
         nb_pages.setText(""+L.getNombre_pages());
@@ -59,10 +72,13 @@ commentBox.setSpacing(10);
 // Itérer sur la liste des commentaires pour créer un HBox pour chaque commentaire
 for (Commentaire commentaire : listeofcmnts) {
    
-    
-
-    // Créer un Label pour afficher le texte du commentaire
-    Label texteLabel = new Label(commentaire.getContenu());
+    LocalDate currentDate = LocalDate.now();
+    long daysBetween = ChronoUnit.DAYS.between(commentaire.getCommentDate(), currentDate);
+    Label texteLabel;
+    if(daysBetween==0){
+         texteLabel = new Label("aujourd'hui     "+commentaire.getContenu());
+    }else{
+texteLabel = new Label(daysBetween+"j     "+commentaire.getContenu());}
 
     // Créer un HBox pour contenir les deux Labels
     HBox commentaireBox = new HBox();
