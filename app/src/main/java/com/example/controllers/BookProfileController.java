@@ -23,6 +23,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -77,7 +78,7 @@ commentBox.getChildren().add(espc);
 // Itérer sur la liste des commentaires pour créer un HBox pour chaque commentaire
 for (Commentaire commentaire : listeofcmnts) {
    
-<<<<<<< HEAD
+
     
 
     // Créer un Label pour afficher le texte du commentaire
@@ -96,19 +97,19 @@ for (Commentaire commentaire : listeofcmnts) {
     texteLabel.setLayoutY(30);
     carteofcomment.getChildren().add(texteLabel);
     
-=======
+
     LocalDate currentDate = LocalDate.now();
     long daysBetween = ChronoUnit.DAYS.between(commentaire.getCommentDate(), currentDate);
-    Label texteLabel;
+    Label texteLabel1;
     if(daysBetween==0){
-         texteLabel = new Label("aujourd'hui     "+commentaire.getContenu());
+         texteLabel1 = new Label("aujourd'hui     "+commentaire.getContenu());
     }else{
 texteLabel = new Label(daysBetween+"j     "+commentaire.getContenu());}
 
     // Créer un HBox pour contenir les deux Labels
     HBox commentaireBox = new HBox();
     commentaireBox.getChildren().addAll(texteLabel);
->>>>>>> 1c44d88550835fc3269faef03467f025cd4e96f6
+
 
     // Ajouter le HBox du commentaire à la VBox de tous les commentaires
     
