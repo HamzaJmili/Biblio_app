@@ -82,7 +82,7 @@ for (Commentaire commentaire : listeofcmnts) {
     
 
     // Créer un Label pour afficher le texte du commentaire
-    Label texteLabel = new Label(commentaire.getContenu());
+    Label datecomment = new Label(commentaire.getContenu());
    
     System.out.println(commentaire.getContenu());
     // crere un pane pour un commentaire
@@ -93,23 +93,23 @@ for (Commentaire commentaire : listeofcmnts) {
     Insets margins = new Insets(0.01, 0, 0, 7);
     carteofcomment.setStyle("-fx-background-color:#FFFFFF;-fx-background-radius: 10px;-fx-effect: dropshadow(three-pass-box, rgba(117, 117, 117, 0.8), 5, 0, 0, 0);");
     commentBox.setMargin(carteofcomment, margins);
-    texteLabel.setLayoutX(50);
-    texteLabel.setLayoutY(30);
-    carteofcomment.getChildren().add(texteLabel);
+    datecomment.setLayoutX(50);
+    datecomment.setLayoutY(30);
+    carteofcomment.getChildren().add(datecomment);
     
 
     LocalDate currentDate = LocalDate.now();
     long daysBetween = ChronoUnit.DAYS.between(commentaire.getCommentDate(), currentDate);
     Label texteLabel1;
     if(daysBetween==0){
-         texteLabel1 = new Label("aujourd'hui     "+commentaire.getContenu());
+         texteLabel1 = new Label("aujourd'hui     ");
     }else{
-texteLabel = new Label(daysBetween+"j     "+commentaire.getContenu());}
+        datecomment = new Label(daysBetween+"j     ");}
 System.out.println(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
 
     // Créer un HBox pour contenir les deux Labels
     HBox commentaireBox = new HBox();
-    commentaireBox.getChildren().addAll(texteLabel);
+    commentaireBox.getChildren().addAll(datecomment);
 
 
     // Ajouter le HBox du commentaire à la VBox de tous les commentaires

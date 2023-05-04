@@ -39,17 +39,17 @@ public  class Modele_cmnt {
         
       }
       public static String selectaut (int id_commentaire) throws SQLException{
-       String nom=null;
+     
     
         ResultSet r= GetStetment.statement.executeQuery("select CNE from commentaire where id_commentaire='"+id_commentaire+"'");
         while (r.next()) {
           ResultSet r1= GetStetment.statement.executeQuery("select NOM_ETUDIANT, PRENOM_ETUDIANT from  etudiant where CNE='"+r.getString(1)+"'");
           while (r1.next()) {
-           nom= r1.getString(1)+" "+r1.getString(2);
-            System.out.println(nom);
+           return r1.getString(1)+" "+r1.getString(2);
+           
           }
         }
-      return nom;
+      return null;
         
       }
       
