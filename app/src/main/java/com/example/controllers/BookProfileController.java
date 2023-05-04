@@ -12,6 +12,7 @@ import com.example.Modele_cmnt;
 import com.example.Modele_livre;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,6 +39,7 @@ public class BookProfileController {
    
     @FXML
     void initialize ()  throws SQLException{
+       
        Livre L=Modele_livre.getBook(ListOfBooksStudentController.id);       
         title.setText(L.getTitre());
         description.setText(L.getDescription());
@@ -47,14 +49,21 @@ public class BookProfileController {
         couverture.setImage(image);
        if(L.getExemplaire()==0){
         reserver.setDisable(true);
+        
        }
        
        Vector<Commentaire> listeofcmnts =Modele_cmnt.getcmnts(L.getId_livre());
        //hhdhdhdhdhdh
+       if (listeofcmnts.size()<=0){
+        lst.setVisible(false);
+       }
        if(listeofcmnts!=null){
        if(listeofcmnts.size()>0){
+        
        VBox commentBox = new VBox();
 commentBox.setSpacing(10);
+Label espc = new Label("  ");
+commentBox.getChildren().add(espc);
 
 // Itérer sur la liste des commentaires pour créer un HBox pour chaque commentaire
 for (Commentaire commentaire : listeofcmnts) {
@@ -63,13 +72,26 @@ for (Commentaire commentaire : listeofcmnts) {
 
     // Créer un Label pour afficher le texte du commentaire
     Label texteLabel = new Label(commentaire.getContenu());
-
-    // Créer un HBox pour contenir les deux Labels
-    HBox commentaireBox = new HBox();
-    commentaireBox.getChildren().addAll(texteLabel);
+   
+    System.out.println(commentaire.getContenu());
+    // crere un pane pour un commentaire
+    AnchorPane carteofcomment = new AnchorPane();
+    
+    carteofcomment.setPrefHeight(70);
+    carteofcomment.setPrefWidth(365);
+    Insets margins = new Insets(0.01, 0, 0, 7);
+    carteofcomment.setStyle("-fx-background-color:#FFFFFF;-fx-background-radius: 10px;-fx-effect: dropshadow(three-pass-box, rgba(117, 117, 117, 0.8), 5, 0, 0, 0);");
+    commentBox.setMargin(carteofcomment, margins);
+    texteLabel.setLayoutX(50);
+    texteLabel.setLayoutY(30);
+    carteofcomment.getChildren().add(texteLabel);
+    
 
     // Ajouter le HBox du commentaire à la VBox de tous les commentaires
-    commentBox.getChildren().add(commentaireBox);
+    
+    commentBox.getChildren().add(carteofcomment);
+    commentBox.setStyle("-fx-background-color:#FFFFFF;");
+    commentBox.setPrefWidth(375);
 }
 
 // Ajouter la VBox de tous les commentaires au ScrollPane
