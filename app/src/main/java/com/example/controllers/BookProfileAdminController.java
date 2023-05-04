@@ -2,8 +2,6 @@ package com.example.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.Vector;
 
 import com.example.App;
@@ -13,14 +11,12 @@ import com.example.Modele_auteur;
 import com.example.Modele_cmnt;
 import com.example.Modele_livre;
 import com.example.Modele_reserve;
-import com.example.Session;
+
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -30,7 +26,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class BookProfileController {
+public class BookProfileAdminController {
     @FXML ImageView couverture ;
     @FXML Label  title ;
     @FXML Text description ;
@@ -39,18 +35,11 @@ public class BookProfileController {
     @FXML  Button  BackIcon;
     @FXML  Button  reserver;
    @FXML    ScrollPane lst;
-   @FXML TextField comnt;
-   public int id_livre;
-   @FXML public void addcmnt() throws SQLException, IOException{
-Modele_cmnt.addLivre(1, id_livre, Session.id_utiliasteur, comnt.getText());
-App.setRoot(reserver.getScene(), "BookProfile");
-   }
+   
     @FXML
     void initialize ()  throws SQLException{
-       
-       Livre L=Modele_livre.getBook(ListOfBooksStudentController.id);       
+       Livre L=Modele_livre.getBook(LivreController.id);       
         title.setText(L.getTitre());
-        id_livre=L.getId_livre();
         description.setText(L.getDescription());
         nom_auteur.setText(Modele_auteur.getWriterName(L.getId_auteur()));
         nb_pages.setText(""+L.getNombre_pages());
@@ -58,63 +47,29 @@ App.setRoot(reserver.getScene(), "BookProfile");
         couverture.setImage(image);
        if(L.getExemplaire()==0){
         reserver.setDisable(true);
-        
        }
        
        Vector<Commentaire> listeofcmnts =Modele_cmnt.getcmnts(L.getId_livre());
        //hhdhdhdhdhdh
-       if (listeofcmnts.size()<=0){
-        lst.setVisible(false);
-       }
        if(listeofcmnts!=null){
        if(listeofcmnts.size()>0){
-        
        VBox commentBox = new VBox();
 commentBox.setSpacing(10);
-Label espc = new Label("  ");
-commentBox.getChildren().add(espc);
 
 // Itérer sur la liste des commentaires pour créer un HBox pour chaque commentaire
 for (Commentaire commentaire : listeofcmnts) {
    
-<<<<<<< HEAD
     
 
     // Créer un Label pour afficher le texte du commentaire
     Label texteLabel = new Label(commentaire.getContenu());
-   
-    System.out.println(commentaire.getContenu());
-    // crere un pane pour un commentaire
-    AnchorPane carteofcomment = new AnchorPane();
-    
-    carteofcomment.setPrefHeight(70);
-    carteofcomment.setPrefWidth(365);
-    Insets margins = new Insets(0.01, 0, 0, 7);
-    carteofcomment.setStyle("-fx-background-color:#FFFFFF;-fx-background-radius: 10px;-fx-effect: dropshadow(three-pass-box, rgba(117, 117, 117, 0.8), 5, 0, 0, 0);");
-    commentBox.setMargin(carteofcomment, margins);
-    texteLabel.setLayoutX(50);
-    texteLabel.setLayoutY(30);
-    carteofcomment.getChildren().add(texteLabel);
-    
-=======
-    LocalDate currentDate = LocalDate.now();
-    long daysBetween = ChronoUnit.DAYS.between(commentaire.getCommentDate(), currentDate);
-    Label texteLabel;
-    if(daysBetween==0){
-         texteLabel = new Label("aujourd'hui     "+commentaire.getContenu());
-    }else{
-texteLabel = new Label(daysBetween+"j     "+commentaire.getContenu());}
 
     // Créer un HBox pour contenir les deux Labels
     HBox commentaireBox = new HBox();
     commentaireBox.getChildren().addAll(texteLabel);
->>>>>>> 1c44d88550835fc3269faef03467f025cd4e96f6
 
     // Ajouter le HBox du commentaire à la VBox de tous les commentaires
-    
-    commentBox.getChildren().add(carteofcomment);
-    commentBox.setStyle("-fx-background-color:#FFFFFF;");
-    commentBox.setPrefWidth(375);
+    commentBox.getChildren().add(commentaireBox);
 }
 
 // Ajouter la VBox de tous les commentaires au ScrollPane

@@ -85,7 +85,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="confirmation" layoutX="103.0" layoutY="104.0" onAction="#" mnemonicParsing="false" style="-fx-background-color: green; -fx-font-size: 13;" text="Confimer que Rendu" />
+                  <Button fx:id="confirmation" layoutX="103.0" layoutY="104.0" onAction="#confirmerLivreRendu" mnemonicParsing="false" style="-fx-background-color: green; -fx-font-size: 13;" text="Confimer que Rendu" />
                </children>
             </AnchorPane>
             <Label layoutX="143.0" layoutY="239.0" prefHeight="30.0" prefWidth="303.0" styleClass="titres" text="Livres empruntés par l'étudiant : ">

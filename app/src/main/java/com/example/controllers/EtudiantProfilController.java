@@ -8,13 +8,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-
 import com.example.Etudiant;
-import com.example.Livre;
 import com.example.Modele_etudiant;
 import com.example.Modele_reserve;
 import com.example.Session;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -106,7 +103,11 @@ date_fin.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getVa
 
  static Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
 
-     
+ @FXML 
+ public void confirmerLivreRendu() throws SQLException {
+    Modele_reserve.ConfirmerLivreRendu(etu.getCne()) ; 
+ }
+
 
 
 }

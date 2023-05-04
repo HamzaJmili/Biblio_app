@@ -70,6 +70,7 @@
                <ScrollBar orientation="VERTICAL" prefHeight="201.0" prefWidth="14.0" />
             </content>
          </ScrollPane>
+<<<<<<< HEAD
          <TextField fx:id="comnt" layoutX="568.0" layoutY="430.0" prefHeight="38.0" prefWidth="394.0" promptText="ajouter un commentaire" style="-fx-background-radius: 30;" />
          <ImageView fitHeight="42.0" fitWidth="30.0" layoutX="975.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -77,6 +78,10 @@
             </image>
          </ImageView>
          <Button fx:id="add" layoutX="975.0" layoutY="380.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-background-radius: 18px;" textFill="#4a4848">
+=======
+         <TextField fx:id="comnt" layoutX="560.0" layoutY="384.0" prefHeight="38.0" prefWidth="402.0" promptText="ajouter un commentaire" style="-fx-background-radius: 30;" />
+         <Button fx:id="reserver1" layoutX="974.0" layoutY="380.0" mnemonicParsing="false" onAction="#addcmnt" prefHeight="24.0" prefWidth="21.0" style="-fx-background-color: #40bf32; -fx-background-radius: 5px;" text="+" textFill="#4a4848">
+>>>>>>> 1c44d88550835fc3269faef03467f025cd4e96f6
             <font>
                <Font name="System Bold" size="21.0" />
             </font>

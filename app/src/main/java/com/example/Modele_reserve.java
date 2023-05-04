@@ -70,5 +70,10 @@ public class Modele_reserve {
 return   id==0 ? s : Modele_livre.getBook(id).getTitre() ;
   }
     
-        
+  
+  public static void ConfirmerLivreRendu(String cne ) throws SQLException {
+    ResultSet r = GetStetment.statement.executeQuery("update reserve set reserve_now='no' where cne='"+cne+"' ");
+ 
+
+}
 }
