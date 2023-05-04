@@ -80,12 +80,12 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="TitreLivreEmpt" layoutX="21.0" layoutY="63.0" prefHeight="27.0" prefWidth="303.0" text="Ancun livre emprunté" textFill="#807878">
+                  <Label fx:id="TitreLivreEmpt" layoutX="20.0" layoutY="46.0" prefHeight="27.0" prefWidth="303.0" text="Ancun livre emprunté" textFill="#807878">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="confirmation" layoutX="103.0" layoutY="104.0" onAction="#confirmerLivreRendu" mnemonicParsing="false" style="-fx-background-color: green; -fx-font-size: 13;" text="Confimer que Rendu" />
+                  <Button fx:id="confirmation" layoutX="103.0" layoutY="104.0" mnemonicParsing="false" onAction="#confirmerLivreRendu" style="-fx-background-color: #7DCE13; -fx-font-size: 13;" text="Confimer que Rendu" />
                </children>
             </AnchorPane>
             <Label layoutX="143.0" layoutY="239.0" prefHeight="30.0" prefWidth="303.0" styleClass="titres" text="Livres empruntés par l'étudiant : ">

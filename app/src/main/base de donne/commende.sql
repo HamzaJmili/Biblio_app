@@ -141,6 +141,19 @@ CREATE TRIGGER addcommentaire
     /
 
 
+
+  // New commandes 04/05/2023
   
+    CREATE OR REPLACE TRIGGER trg_update_exemplaire_plus
+  AFTER UPDATE OF reserve_now ON reserve
+   FOR EACH ROW
+
+   BEGIN
+
+  UPDATE livre
+    SET exemplaire = exemplaire+1
+WHERE ID_LIVRE = :OLD.ID_LIVRE;
+ END;
+  /
 
 
