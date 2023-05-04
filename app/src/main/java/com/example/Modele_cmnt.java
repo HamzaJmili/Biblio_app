@@ -23,7 +23,7 @@ public  class Modele_cmnt {
         return listeofcmnts;
     
       }
-      public static void addLivre (int id_commentaire , int  id_livre , String cne , String contenu ) throws SQLException{
+      public static void addcmnt (int id_commentaire , int  id_livre , String cne , String contenu ) throws SQLException{
         LocalDate currentDate = LocalDate.now();
     
         GetStetment.statement.executeQuery("insert into commentaire values ("+id_commentaire+","+id_livre+",'"+cne+"','"+contenu+"',TO_DATE('"+currentDate+"', 'YYYY-MM-DD'))");
@@ -31,5 +31,27 @@ public  class Modele_cmnt {
       
         
       }
+      public static void deletecmnt (int id_commentaire) throws SQLException{
+       
+    
+        GetStetment.statement.executeQuery("delete from commentaire where id_commentaire='"+id_commentaire+"'");
+      
+        
+      }
+      public static String selectaut (int id_commentaire) throws SQLException{
+     
+    
+        ResultSet r= GetStetment.statement.executeQuery("select CNE from commentaire where id_commentaire='"+id_commentaire+"'");
+        while (r.next()) {
+          ResultSet r1= GetStetment.statement.executeQuery("select NOM_ETUDIANT, PRENOM_ETUDIANT from  etudiant where CNE='"+r.getString(1)+"'");
+          while (r1.next()) {
+           return r1.getString(1)+" "+r1.getString(2);
+           
+          }
+        }
+      return null;
+        
+      }
+      
 
   }
