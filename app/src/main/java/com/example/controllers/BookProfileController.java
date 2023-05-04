@@ -41,7 +41,7 @@ public class BookProfileController {
    @FXML TextField comnt;
    public int id_livre;
    @FXML public void addcmnt() throws SQLException, IOException{
-Modele_cmnt.addLivre(1, id_livre, Session.id_utiliasteur, comnt.getText());
+Modele_cmnt.addcmnt(1, id_livre, Session.id_utiliasteur, comnt.getText());
 App.setRoot(reserver.getScene(), "BookProfile");
    }
     @FXML
@@ -75,6 +75,7 @@ for (Commentaire commentaire : listeofcmnts) {
          texteLabel = new Label("aujourd'hui     "+commentaire.getContenu());
     }else{
 texteLabel = new Label(daysBetween+"j     "+commentaire.getContenu());}
+System.out.println(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
 
     // Créer un HBox pour contenir les deux Labels
     HBox commentaireBox = new HBox();
