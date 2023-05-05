@@ -50,7 +50,7 @@ public class EtudiantProfilController {
     TableColumn<Map<String, Object>,String> date_debut;
     @FXML
     TableColumn<Map<String, Object>,String> date_fin;
-
+    final Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
     public void loadData2() throws SQLException {
 
         List<Map<String, Object>> reservedBooksList = Modele_reserve.getReservedBooks(EtudiantsController.s);
@@ -63,7 +63,7 @@ public class EtudiantProfilController {
    void initialize() throws SQLException { 
     // List<Map<String, Object>> reservedBooksList33 = Modele_reserve.getReservedBooks(EtudiantsController.s);
     if(closeButton.getText().compareTo("X")==0){
-       final Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
+      //  final Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
        cne.setText(etu.getCne());
        filiere.setText(etu.getFiliere().toUpperCase());
        email.setText(etu.getEmail_user());
@@ -101,11 +101,12 @@ date_fin.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getVa
        
     }
 
- static Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
+//  static Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
 
  @FXML 
  public void confirmerLivreRendu() throws SQLException {
     Modele_reserve.ConfirmerLivreRendu(etu.getCne()) ; 
+    System.out.println("Confirmer rendu livre : "+etu.getCne());
  }
 
 
