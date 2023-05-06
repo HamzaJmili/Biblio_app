@@ -25,7 +25,7 @@ public class Modele_reserve {
 
 
         public static List<Map<String, Object>> getReservedBooks(String cne ) throws SQLException {
-
+          
             
           List<Map<String, Object>> reservedBooks = new ArrayList<>();
           // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -44,6 +44,7 @@ public class Modele_reserve {
                   // id_current_book= now.isBefore(dateFin) ? id : 0  ;
                   // System.out.println(id_current_book);
                   Map<String, Object> reservedBook = new HashMap<>();
+                  // System.out.println(getTitre(id));
                   reservedBook.put("titre",id);
                   reservedBook.put("startDate", startDate);
                   reservedBook.put("endDate", endDate);
@@ -56,17 +57,20 @@ public class Modele_reserve {
 
           return reservedBooks;
       }
+
+
+
+
      // methode pour retourner le titre emprunter pour le momment par l'etudiant 
-    public static String getTitle(String cne ) throws SQLException {
+           public static String getTitle(String cne ) throws SQLException {
         int id=0 ;
-        System.out.println("gettitle cne entree "+cne);
+      
         String s= "Aucun livre emprunté pour le moment ";
     try ( ResultSet r= GetStetment.statement.executeQuery("SELECT id_livre FROM reserve_now_view WHERE cne = '"+cne+"'")) 
     
        {
     while(r.next()) {
-      System.out.println("test que boucle marche ");
-      System.out.println("get title id recuperer dans la base"+id);
+    
    id=r.getInt(1) ;
     }
     }
@@ -80,4 +84,41 @@ return   id==0 ? s : Modele_livre.getBook(id).getTitre() ;
  
 
 }
+
+//            public static String getTitre(int id ) throws SQLException{ 
+//   String titre=" " ;
+//   System.out.println(id);
+//    try {ResultSet r3 = GetStetment.statement.executeQuery("SELECT titre FROM livre WHERE id_livre = '"+id+"'"); 
+//   while(r3.next()){
+
+//      titre=r3.getString(1);
+//      System.out.println(titre);
+//   } } catch( Exception e ) {
+//     System.out.println("Erreur"+e);
+//   }
+//   return titre ;
+  
+
+// }
+public static String getTitre(Object object) throws SQLException {
+  String titre = "";
+  System.out.println(object);
+
+  try {
+    ResultSet r3 = GetStetment.statement.executeQuery("SELECT titre FROM livre WHERE id_livre = '" + object + "'");
+
+    if (r3 != null && !r3.isClosed()) {
+      while (r3.next()) {
+        titre = r3.getString(1);
+      
+      }
+      r3.close(); // close the result set after retrieving data
+    }
+  } catch (Exception e) {
+    System.out.println("Erreur" + e);
+  }
+
+  return titre;
+}
+
 }
