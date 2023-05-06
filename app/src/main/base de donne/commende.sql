@@ -140,7 +140,7 @@ CREATE TRIGGER addcommentaire
       FROM dual;         
     END;
     /
-
+ alter table commentaire add  comment_date date;
 
   
 
