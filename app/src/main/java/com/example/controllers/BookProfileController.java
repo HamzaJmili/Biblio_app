@@ -9,6 +9,7 @@ import java.util.Vector;
 import com.example.App;
 import com.example.Commentaire;
 import com.example.Livre;
+import com.example.Model_favoris;
 import com.example.Modele_auteur;
 import com.example.Modele_cmnt;
 import com.example.Modele_livre; 
@@ -24,6 +25,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -39,23 +41,50 @@ public class BookProfileController {
     @FXML  Button  BackIcon;
     @FXML  Button  reserver;
    @FXML    ScrollPane lst;
+   @FXML ImageView image ;
    @FXML TextField comnt;
+   @FXML ImageView heartimageview1 ;
+   @FXML ImageView heartimageredview1;
    public int id_livre;
    @FXML public void addcmnt() throws SQLException, IOException{
 Modele_cmnt.addcmnt(1, id_livre, Session.id_utiliasteur, comnt.getText());
 App.setRoot(reserver.getScene(), "BookProfile");
    }
+   
+  
     @FXML
     void initialize ()  throws SQLException{
-       
+        Vector <Integer> id_livre_favoris = Model_favoris.allfavoris(Session.id_utiliasteur);
+        if(id_livre_favoris.indexOf(ListOfBooksStudentController.id)==-1){
+            heartimageredview1.setVisible(false);
+
+        }else{
+            heartimageview1.setVisible(false);
+        }
+        heartimageview1.setOnMouseClicked(e ->{
+            heartimageview1.setVisible(false);
+            Model_favoris.setFavoris(ListOfBooksStudentController.id ,Session.id_utiliasteur);
+            heartimageredview1.setVisible(true);
+        });
+        heartimageredview1.setOnMouseClicked(e ->{
+            heartimageview1.setVisible(true);
+            Model_favoris.deleteFavoris(ListOfBooksStudentController.id, Session.id_utiliasteur);
+            heartimageredview1.setVisible(false);
+            
+        });
+        image.toBack();
+       lst.setStyle("-fx-background-color:#FFFFFF");
        Livre L=Modele_livre.getBook(ListOfBooksStudentController.id);       
         title.setText(L.getTitre());
         id_livre=L.getId_livre();
         description.setText(L.getDescription());
         nom_auteur.setText(Modele_auteur.getWriterName(L.getId_auteur()));
-        nb_pages.setText(""+L.getNombre_pages());
+        nom_auteur.toFront();
+        nb_pages.setText(L.getNombre_pages()+" "+"pages");
         Image image = new Image(getClass().getResource("/com/example/books_cover/"+L.getCouverture()).toExternalForm());
         couverture.setImage(image);
+        couverture.setStyle("-fx-effect: dropshadow(three-pass-box,rgba(0, 0, 0, 0.84), 7, 0, 0, 0);");
+        couverture.toFront();
        if(L.getExemplaire()==0){
         reserver.setDisable(true);
         
@@ -71,51 +100,56 @@ App.setRoot(reserver.getScene(), "BookProfile");
         
        VBox commentBox = new VBox();
 commentBox.setSpacing(10);
-Label espc = new Label("  ");
+Label espc = new Label("Commentaires :");
 commentBox.getChildren().add(espc);
 
 // Itérer sur la liste des commentaires pour créer un HBox pour chaque commentaire
 for (Commentaire commentaire : listeofcmnts) {
-   
+   Label commentairelabel=new Label(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
 
-    
+   // VBox v=new VBox();
+   Pane p=new Pane();
+    p.getChildren().add(commentairelabel);
 
     // Créer un Label pour afficher le texte du commentaire
-    Label datecomment = new Label(commentaire.getContenu());
+    
    
     System.out.println(commentaire.getContenu());
     // crere un pane pour un commentaire
     AnchorPane carteofcomment = new AnchorPane();
     
     carteofcomment.setPrefHeight(70);
-    carteofcomment.setPrefWidth(365);
+    carteofcomment.setPrefWidth(360);
     Insets margins = new Insets(0.01, 0, 0, 7);
     carteofcomment.setStyle("-fx-background-color:#FFFFFF;-fx-background-radius: 10px;-fx-effect: dropshadow(three-pass-box, rgba(117, 117, 117, 0.8), 5, 0, 0, 0);");
     commentBox.setMargin(carteofcomment, margins);
-    datecomment.setLayoutX(50);
-    datecomment.setLayoutY(30);
-    carteofcomment.getChildren().add(datecomment);
+   
     
-
+    
+    Label datecomment;
+    Label texteLabel1 = new Label("jdk");
     LocalDate currentDate = LocalDate.now();
     long daysBetween = ChronoUnit.DAYS.between(commentaire.getCommentDate(), currentDate);
-    Label texteLabel1;
+    
     if(daysBetween==0){
-         texteLabel1 = new Label("aujourd'hui     ");
+         datecomment = new Label("aujourd'hui     ");
     }else{
-        datecomment = new Label(daysBetween+"j     ");}
+        texteLabel1 = new Label(daysBetween+"j     ");}
+        p.getChildren().add(texteLabel1);
+        texteLabel1.setLayoutX(300);
+        texteLabel1.setLayoutY(70);
 System.out.println(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
 
     // Créer un HBox pour contenir les deux Labels
-    HBox commentaireBox = new HBox();
-    commentaireBox.getChildren().addAll(datecomment);
+
+carteofcomment.getChildren().addAll(p);
 
 
     // Ajouter le HBox du commentaire à la VBox de tous les commentaires
     
     commentBox.getChildren().add(carteofcomment);
     commentBox.setStyle("-fx-background-color:#FFFFFF;");
-    commentBox.setPrefWidth(375);
+    commentBox.setPrefWidth(365);
 }
 
 // Ajouter la VBox de tous les commentaires au ScrollPane
@@ -160,6 +194,7 @@ lst.setContent(commentBox);}}
           stage.show();
         
     }
+    
 
 
 

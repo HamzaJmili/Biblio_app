@@ -140,7 +140,7 @@ CREATE TRIGGER addcommentaire
       FROM dual;         
     END;
     /
-
+ alter table commentaire add  comment_date date;
 
 
   // New commandes 04/05/2023
