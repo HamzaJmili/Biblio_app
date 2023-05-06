@@ -126,7 +126,8 @@ for (Commentaire commentaire : listeofcmnts) {
    
     
     
-
+    Label datecomment;
+    Label texteLabel1 = new Label("jdk");
     LocalDate currentDate = LocalDate.now();
     long daysBetween = ChronoUnit.DAYS.between(commentaire.getCommentDate(), currentDate);
     
