@@ -59,10 +59,14 @@ public class Modele_reserve {
      // methode pour retourner le titre emprunter pour le momment par l'etudiant 
     public static String getTitle(String cne ) throws SQLException {
         int id=0 ;
+        System.out.println("gettitle cne entree "+cne);
         String s= "Aucun livre emprunté pour le moment ";
     try ( ResultSet r= GetStetment.statement.executeQuery("SELECT id_livre FROM reserve_now_view WHERE cne = '"+cne+"'")) 
+    
        {
     while(r.next()) {
+      System.out.println("test que boucle marche ");
+      System.out.println("get title id recuperer dans la base"+id);
    id=r.getInt(1) ;
     }
     }

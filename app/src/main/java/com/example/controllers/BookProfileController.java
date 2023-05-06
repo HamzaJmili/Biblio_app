@@ -12,20 +12,20 @@ import com.example.Livre;
 import com.example.Model_favoris;
 import com.example.Modele_auteur;
 import com.example.Modele_cmnt;
-import com.example.Modele_livre;
-import com.example.Modele_reserve;
+import com.example.Modele_livre; 
 import com.example.Session;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.Label; 
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -105,12 +105,14 @@ commentBox.getChildren().add(espc);
 
 // Itérer sur la liste des commentaires pour créer un HBox pour chaque commentaire
 for (Commentaire commentaire : listeofcmnts) {
-   
+   Label commentairelabel=new Label(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
 
-    
+   // VBox v=new VBox();
+   Pane p=new Pane();
+    p.getChildren().add(commentairelabel);
 
     // Créer un Label pour afficher le texte du commentaire
-    Label datecomment = new Label(commentaire.getContenu());
+    
    
     System.out.println(commentaire.getContenu());
     // crere un pane pour un commentaire
@@ -121,9 +123,8 @@ for (Commentaire commentaire : listeofcmnts) {
     Insets margins = new Insets(0.01, 0, 0, 7);
     carteofcomment.setStyle("-fx-background-color:#FFFFFF;-fx-background-radius: 10px;-fx-effect: dropshadow(three-pass-box, rgba(117, 117, 117, 0.8), 5, 0, 0, 0);");
     commentBox.setMargin(carteofcomment, margins);
-    datecomment.setLayoutX(50);
-    datecomment.setLayoutY(30);
-    carteofcomment.getChildren().add(datecomment);
+   
+    
     
 
     LocalDate currentDate = LocalDate.now();
@@ -132,12 +133,15 @@ for (Commentaire commentaire : listeofcmnts) {
     if(daysBetween==0){
          datecomment = new Label("aujourd'hui     ");
     }else{
-        datecomment = new Label(daysBetween+"j     ");}
+        texteLabel1 = new Label(daysBetween+"j     ");}
+        p.getChildren().add(texteLabel1);
+        texteLabel1.setLayoutX(300);
+        texteLabel1.setLayoutY(70);
 System.out.println(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
 
     // Créer un HBox pour contenir les deux Labels
-    HBox commentaireBox = new HBox();
-    commentaireBox.getChildren().addAll(datecomment);
+
+carteofcomment.getChildren().addAll(p);
 
 
     // Ajouter le HBox du commentaire à la VBox de tous les commentaires
