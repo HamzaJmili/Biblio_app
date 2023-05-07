@@ -46,5 +46,21 @@ public class Modele_tag {
       
       
       return s.getInt(1);
+    
+    }
+    public static String stringoftags (int id_livre) throws SQLException{
+      ResultSet s=GetStetment.statement.executeQuery("select ID_TAG from avoir where id_livre ='"+id_livre+"'");
+      String tags=null ;
+      while(s.next()) {
+        if (tags==null){
+          tags = s.getInt(1)+",";
+        }
+        else{
+          tags = tags+s.getInt(1)+",";
+        }
+        
+        }
+        System.out.println(tags);
+        return tags ;
     }
 }

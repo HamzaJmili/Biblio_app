@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public  class Modele_cmnt {
     public static Vector<Commentaire> getcmnts (int  id_livre) throws SQLException{
-        ResultSet r  = GetStetment.statement.executeQuery("select * from commentaire where  ID_LIVRE="+id_livre+"");
+        ResultSet r  = GetStetment.statement.executeQuery("select * from commentaire where  ID_LIVRE="+id_livre+"ORDER BY  COMMENT_DATE DESC");
         Vector<Commentaire> listeofcmnts = new Vector<>();
         while (r.next()) {
           LocalDate commentDate = r.getDate("COMMENT_DATE").toLocalDate();

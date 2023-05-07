@@ -12,7 +12,8 @@ import com.example.Livre;
 import com.example.Model_favoris;
 import com.example.Modele_auteur;
 import com.example.Modele_cmnt;
-import com.example.Modele_livre; 
+import com.example.Modele_livre;
+import com.example.Modele_tag;
 import com.example.Session;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -27,6 +28,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -40,15 +43,26 @@ public class BookProfileController {
     @FXML Label  nb_pages;
     @FXML  Button  BackIcon;
     @FXML  Button  reserver;
-   @FXML    ScrollPane lst;
+   
    @FXML ImageView image ;
    @FXML TextField comnt;
    @FXML ImageView heartimageview1 ;
    @FXML ImageView heartimageredview1;
+   @FXML VBox commentBox;
    public int id_livre;
    @FXML public void addcmnt() throws SQLException, IOException{
-Modele_cmnt.addcmnt(1, id_livre, Session.id_utiliasteur, comnt.getText());
-App.setRoot(reserver.getScene(), "BookProfile");
+    if(comnt.getText().length()!=0){
+        String escapedcommentaire = comnt.getText().replace("'", "''");
+        if (escapedcommentaire.length()>=1499){
+           escapedcommentaire = escapedcommentaire.substring(0,1448);
+        }
+        
+        
+        Modele_cmnt.addcmnt(1, id_livre, Session.id_utiliasteur,escapedcommentaire);
+       
+        App.setRoot(reserver.getScene(), "BookProfile");
+    }
+
    }
    
   
@@ -73,7 +87,7 @@ App.setRoot(reserver.getScene(), "BookProfile");
             
         });
         image.toBack();
-       lst.setStyle("-fx-background-color:#FFFFFF");
+      
        Livre L=Modele_livre.getBook(ListOfBooksStudentController.id);       
         title.setText(L.getTitre());
         id_livre=L.getId_livre();
@@ -92,24 +106,21 @@ App.setRoot(reserver.getScene(), "BookProfile");
        
        Vector<Commentaire> listeofcmnts =Modele_cmnt.getcmnts(L.getId_livre());
        //hhdhdhdhdhdh
-       if (listeofcmnts.size()<=0){
-        lst.setVisible(false);
-       }
+      
        if(listeofcmnts!=null){
        if(listeofcmnts.size()>0){
         
-       VBox commentBox = new VBox();
+       
 commentBox.setSpacing(10);
-Label espc = new Label("Commentaires :");
-commentBox.getChildren().add(espc);
+
 
 // Itérer sur la liste des commentaires pour créer un HBox pour chaque commentaire
 for (Commentaire commentaire : listeofcmnts) {
    Label commentairelabel=new Label(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
 
    // VBox v=new VBox();
-   Pane p=new Pane();
-    p.getChildren().add(commentairelabel);
+  
+  
 
     // Créer un Label pour afficher le texte du commentaire
     
@@ -121,41 +132,75 @@ for (Commentaire commentaire : listeofcmnts) {
     carteofcomment.setPrefHeight(70);
     carteofcomment.setPrefWidth(360);
     Insets margins = new Insets(0.01, 0, 0, 7);
-    carteofcomment.setStyle("-fx-background-color:#FFFFFF;-fx-background-radius: 10px;-fx-effect: dropshadow(three-pass-box, rgba(117, 117, 117, 0.8), 5, 0, 0, 0);");
+    carteofcomment.setStyle("-fx-border-width: 0.5px 0.5px 0.5px 0.5px;-fx-border-color: #D7D7D7; -fx-border-style: solid;-fx-border-radius: 10px;");
     commentBox.setMargin(carteofcomment, margins);
    
+    // add name of commentaire auteur
     
+    String auteur = Modele_cmnt.selectaut(commentaire.getId_commentaire());
+    Label commentaire_auteur = new Label(auteur);
+    if(Session.id_utiliasteur.equals(commentaire.getCne())){
+       commentaire_auteur.setText("Moi"+"     ");
+    }
+    
+    
+    
+    commentaire_auteur.setLayoutX(20);
+    commentaire_auteur.setLayoutY(10);
+    commentaire_auteur.setFont(Font.font("System", FontWeight.BOLD, 12));
+    carteofcomment.getChildren().add(commentaire_auteur);
+
+    // add content of commentaire 
+  Text commentaire_content = new Text(commentaire.getContenu()+"\n");
+    commentaire_content.setLayoutX(23);
+    commentaire_content.setLayoutY(45);
+    commentaire_content.setWrappingWidth(550.40008544921864);
+    
+    carteofcomment.getChildren().add(commentaire_content);
     
     Label datecomment;
     Label texteLabel1 = new Label("jdk");
     LocalDate currentDate = LocalDate.now();
     long daysBetween = ChronoUnit.DAYS.between(commentaire.getCommentDate(), currentDate);
+    Insets margin_comment = new Insets(0.01, 0, 0, 7);
+  
+    
     
     if(daysBetween==0){
-         datecomment = new Label("aujourd'hui     ");
+        texteLabel1 = new Label("  aujourd'hui     ");
     }else{
-        texteLabel1 = new Label(daysBetween+"j     ");}
-        p.getChildren().add(texteLabel1);
-        texteLabel1.setLayoutX(300);
-        texteLabel1.setLayoutY(70);
+        texteLabel1 = new Label("   "+daysBetween+" j     ");}
+        
+        
+        texteLabel1.setLayoutY(12);
+        texteLabel1.setLayoutX(commentaire_auteur.getText().length()*7+10);
+        texteLabel1.setFont(Font.font("System", FontWeight.NORMAL, 10));
+        carteofcomment.getChildren().add(texteLabel1);
+
+
+
 System.out.println(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
 
     // Créer un HBox pour contenir les deux Labels
 
-carteofcomment.getChildren().addAll(p);
+
 
 
     // Ajouter le HBox du commentaire à la VBox de tous les commentaires
     
     commentBox.getChildren().add(carteofcomment);
-    commentBox.setStyle("-fx-background-color:#FFFFFF;");
-    commentBox.setPrefWidth(365);
+    commentBox.setPrefHeight(commentBox.getPrefHeight()+77);
+    
+    
+    
 }
+commentBox.setPrefWidth(600);
 
 // Ajouter la VBox de tous les commentaires au ScrollPane
-lst.setContent(commentBox);}}
+}}
 
-// Ajouter le ScrollPane à votre scène de profil de livre où vous le souhaitez
+ // selecter les tags d'un commentaire 
+        tagsofbook(L.getId_livre());
        
 
 
@@ -193,6 +238,9 @@ lst.setContent(commentBox);}}
          stage.initModality(Modality.APPLICATION_MODAL);
           stage.show();
         
+    }
+    public static void tagsofbook (int id) throws SQLException{
+        String tags = Modele_tag.stringoftags(id);
     }
     
 
