@@ -1,9 +1,4 @@
 package com.example.controllers;
-
-
-
-
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -81,7 +76,15 @@ public class EtudiantProfilController {
        TitreLivreEmpt.setText(""+Modele_reserve.getTitle(etu.getCne()));
      }
       
-       titreLivre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get("titre").toString()));
+       titreLivre.setCellValueFactory(cellData -> {
+        try {
+          return new SimpleStringProperty(Modele_reserve.getTitre(cellData.getValue().get("titre")));
+        } catch (SQLException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+        return null;
+      });
 date_debut.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get("startDate").toString()));
 date_fin.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get("endDate").toString()));
        j++;

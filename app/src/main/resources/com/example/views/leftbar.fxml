@@ -28,7 +28,7 @@
    <children>
       <VBox prefHeight="600.0" prefWidth="47.0" style="-fx-background-color: #222222;">
          <children>
-            <AnchorPane prefHeight="163.0" prefWidth="210.0">
+            <AnchorPane prefHeight="213.0" prefWidth="243.0">
                <children>
                   <ImageView fitHeight="131.0" fitWidth="181.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,28 +64,7 @@
                         <Font size="8.0" />
                      </font>
                   </Label>
-                  <Button fx:id="admin" graphicTextGap="0.0" layoutX="5.0" layoutY="82.0" mnemonicParsing="false" onAction="#gotoadmin" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Admins   " textFill="WHITE" textOverrun="CLIP">
-                     <padding>
-                        <Insets right="60.0" top="2.0" />
-                     </padding>
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/admin.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="etudiants" graphicTextGap="0.0" layoutX="4.0" layoutY="120.0" mnemonicParsing="false" onAction="#gotoListeEtudiants" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Etudiants" textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="etudiants" graphicTextGap="0.0" layoutX="4.0" layoutY="101.0" mnemonicParsing="false" onAction="#gotoListeEtudiants" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Etudiants" textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
@@ -106,12 +85,12 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label layoutX="28.0" layoutY="194.0" prefWidth="57.0" text="LIVRES" textFill="#7e7d7d">
+                  <Label layoutX="24.0" layoutY="190.0" prefWidth="57.0" text="LIVRES" textFill="#7e7d7d">
                      <font>
                         <Font size="8.0" />
                      </font>
                   </Label>
-                  <Button fx:id="livres" graphicTextGap="0.0" layoutX="4.0" layoutY="226.0" mnemonicParsing="false" onAction="#gotoLivres" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Livres   " textFill="WHITE" textOverrun="CLIP">
+                  <Button fx:id="livres" graphicTextGap="0.0" layoutX="4.0" layoutY="215.0" mnemonicParsing="false" onAction="#gotoLivres" prefHeight="31.0" prefWidth="200.0" styleClass="buttonn" text="  Livres   " textFill="WHITE" textOverrun="CLIP">
                      <padding>
                         <Insets right="60.0" top="2.0" />
                      </padding>
@@ -192,7 +171,7 @@
                </children>
             </AnchorPane>
          </children></VBox>
-      <GridPane GridPane.columnIndex="1">
+      <GridPane prefHeight="703.0" prefWidth="1067.0" GridPane.columnIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -201,12 +180,12 @@
           <RowConstraints maxHeight="661.0000091552735" minHeight="10.0" prefHeight="658.6" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane layoutY="10.0" prefHeight="23.0" prefWidth="1091.0" style="-fx-background-color: #FFFFFF;">
+            <AnchorPane layoutY="10.0" prefHeight="48.0" prefWidth="1119.0" style="-fx-background-color: #FFFFFF;">
                <children>
                   <Circle fill="#084479" layoutX="1029.0" layoutY="67.0" radius="19.0" stroke="#084479" strokeType="INSIDE" AnchorPane.bottomAnchor="3.0" />
                </children>
             </AnchorPane>
-            <MenuBar prefHeight="54.0" prefWidth="1083.0" styleClass="menu" useSystemMenuBar="true">
+            <MenuBar prefHeight="44.0" prefWidth="1118.0" style="-fx-background-color: #222222;" styleClass="menu" useSystemMenuBar="true">
                <menus>
                   <Menu styleClass="menu_bar">
                      <items>

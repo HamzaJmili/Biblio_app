@@ -72,7 +72,7 @@ public class leftbarController {
     void gotoListeEtudiants() throws IOException{
        
          leftbarController.button_selected='E';
-         App.setRoot(dashboard.getScene(),"ListeEtudiants");
+         App.setRoot(dashboard.getScene(),"NewEtudiantslist");
 }
     @FXML
         void gotoLivres() throws IOException{
