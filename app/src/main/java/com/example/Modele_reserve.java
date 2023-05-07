@@ -121,4 +121,27 @@ public static String getTitre(Object object) throws SQLException {
   return titre;
 }
 
+
+
+public static  Etudiant getProfileEtudiant( String cneEtudiant)  {
+  Etudiant etu=null;
+  try {
+   
+    ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant  where cne='"+cneEtudiant+"'");
+   
+    while(r.next()){
+      etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
+      
+    }
+} 
+catch (Exception e) {
+  // TODO: handle exception
+} 
+ 
+  
+return etu;
+
+}
+
+
 }

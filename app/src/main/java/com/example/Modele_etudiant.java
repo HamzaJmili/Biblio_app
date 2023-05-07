@@ -2,6 +2,7 @@ package com.example;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,6 +58,8 @@ public class Modele_etudiant {
               }
               return e;
             }
+
+
             public static  Etudiant getProfileEtudiant( String cneEtudiant)  {
               Etudiant etu=null;
               try {
@@ -76,6 +79,7 @@ public class Modele_etudiant {
            return etu;
            
           }
+
           public static void changemotdepass(String nv_pass) {
            
             try {
@@ -136,5 +140,20 @@ public class Modele_etudiant {
          } 
          return cne;
          }
+
+
+
+
+
+         public static  Vector<Etudiant> getEdutiants() throws SQLException{
+          Vector<Etudiant> e = new Vector<Etudiant>() ;
+         
+          ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant");
+          while (r.next()) {
+            Etudiant etu=new Etudiant(r.getString("CNE"), r.getString("NOM_ETUDIANT"),r.getString("PRENOM_ETUDIANT"),r.getString("EMAIL_ETUDIANT"), r.getString("MDP_ETUDIANT"),r.getString("filiere"),r.getString("telephone"));
+            e.add(etu);
+          }
+          return e;
+        }
     }
 

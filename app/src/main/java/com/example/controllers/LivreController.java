@@ -105,8 +105,8 @@ public class LivreController {
                 book_name.setLayoutY(17);
         
     //                 //add style for label
-                book_name.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
-                book_name.getStyleClass().add("textofcarte_admin");
+               
+    
 
                 
                         // add label for name of writer
