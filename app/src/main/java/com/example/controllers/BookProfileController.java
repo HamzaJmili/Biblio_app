@@ -17,6 +17,7 @@ import com.example.Modele_tag;
 import com.example.Session;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label; 
@@ -28,6 +29,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -43,6 +45,7 @@ public class BookProfileController {
     @FXML Label  nb_pages;
     @FXML  Button  BackIcon;
     @FXML  Button  reserver;
+    @FXML HBox youlike;
    
    @FXML ImageView image ;
    @FXML TextField comnt;
@@ -125,7 +128,7 @@ for (Commentaire commentaire : listeofcmnts) {
     // Créer un Label pour afficher le texte du commentaire
     
    
-    System.out.println(commentaire.getContenu());
+ 
     // crere un pane pour un commentaire
     AnchorPane carteofcomment = new AnchorPane();
     
@@ -179,7 +182,7 @@ for (Commentaire commentaire : listeofcmnts) {
 
 
 
-System.out.println(Modele_cmnt.selectaut(commentaire.getId_commentaire()));
+
 
     // Créer un HBox pour contenir les deux Labels
 
@@ -200,7 +203,8 @@ commentBox.setPrefWidth(600);
 }}
 
  // selecter les tags d'un commentaire 
-        tagsofbook(L.getId_livre());
+       
+       addSugssetionBook(tagsofbook(L.getId_livre()),youlike,L.getId_livre());
        
 
 
@@ -239,13 +243,141 @@ commentBox.setPrefWidth(600);
           stage.show();
         
     }
-    public static void tagsofbook (int id) throws SQLException{
+    public static String tagsofbook (int id) throws SQLException{
         String tags = Modele_tag.stringoftags(id);
+        return tags;
+    }
+    public static void addSugssetionBook(String tagofbook ,HBox youlike,int id_livre  ) throws SQLException{
+        Vector<Livre> livres = Modele_livre.getLivres();
+      
+        
+        int notes = tagofbook.split(",").length ,nb_livre=0 ;
+        Vector <Integer> livre_afficher = new Vector<>();
+        
+        while(notes>0){
+            System.out.println(nb_livre+" size: "+livre_afficher.size());
+
+            
+         
+        for(int i = 0 ; i<livres.size()  && livre_afficher.size() < 4;i++){
+            int noteofthisbook = 0; 
+           
+            if(id_livre!=livres.get(i).getId_livre() ){
+                
+           Vector<String> tags = Modele_tag.vectoroftags(livres.get(i).getId_livre());
+           
+           for(int j =0;j< tags.size();j++){
+          
+            if(tagofbook.indexOf(tags.get(j))!=-1){
+                
+                noteofthisbook++;
+              
+              
+            }
+            if(noteofthisbook==notes  && livre_afficher.indexOf(livres.get(i).getId_livre())==-1 ){
+               
+                ++nb_livre;
+                livre_afficher.add(livres.get(i).getId_livre());
+                System.out.println(livres.get(i).getTitre());
+               
+                Label book_name = new Label(livres.get(i).getTitre());
+    
+                //                 //location of label in pane
+                            book_name.setLayoutX(20);
+                            book_name.setLayoutY(175);
+                    
+                //                 //add style for label
+                            book_name.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                            book_name.getStyleClass().add("textofcarte");
+                            book_name.setPrefWidth(120);
+            
+                AnchorPane carteoflivre = new AnchorPane();
+                carteoflivre.setPrefWidth(100); //170 143
+                Insets margins = new Insets(5,5,5,5);
+                Pane imagelayout = new Pane();
+                imagelayout.setPrefSize(110, 160);
+                imagelayout.setStyle("-fx-background-color:#222222;");
+                imagelayout.setLayoutX(25);
+                imagelayout.setLayoutY(10);
+                imagelayout.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                imagelayout.getStyleClass().add("imagelayout_etudiant");
+                
+    
+    
+                carteoflivre.setId(""+livres.get(i).getId_livre());
+                
+                try {
+                    Image image = new Image(App.class.getResource("/com/example/books_cover/"+livres.get(i).getCouverture()).toExternalForm());
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitHeight(160);
+                    imageView.setFitWidth(110);
+                    imageView.setLayoutX(0);
+                    imageView.setLayoutY(0);
+                    imagelayout.setOnMouseEntered(e -> {
+                        imageView.setFitHeight(165);
+                        imageView.setFitWidth(115);
+                        imagelayout.setLayoutX(23);
+                        imagelayout.setLayoutY(8);
+                        imagelayout.setCursor(Cursor.HAND);
+                        
+                    });
+                    imagelayout.setOnMouseExited(e ->{
+                    imageView.setFitHeight(160);
+                    imageView.setFitWidth(110);
+                    imagelayout.setLayoutX(25);
+                    imagelayout.setLayoutY(9);
+                    imagelayout.setCursor(Cursor.DEFAULT);
+                    });
+                   
+                    
+                   
+                    
+    
+                    imagelayout.getChildren().add(imageView);
+                
+                } catch (Exception e) {
+                  
+                }
+               
+    
+            
+                    
+                            
+                    
+    
+                                        
+                    
+                
+                       //set style to pane
+                       carteoflivre.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
+                       carteoflivre.getStyleClass().add("carte_livre");
+    
+                    
+                    
+                       // add compnents to livre carte
+                       carteoflivre.getChildren().add(imagelayout);
+                       carteoflivre.getChildren().add(book_name);
+                       youlike.getChildren().add(carteoflivre);
+                       
+    
+
+            }
+           }
+
+            
+            }
+            
+    
+        
+    }
+    --notes;
+System.out.println("apres while"+nb_livre+" size: "+livre_afficher.size());} 
+}
     }
     
 
 
 
-}
+
 
 

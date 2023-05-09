@@ -60,7 +60,18 @@ public class Modele_tag {
         }
         
         }
-        System.out.println(tags);
+        
         return tags ;
     }
+    public static Vector<String> vectoroftags (int id_livre) throws SQLException{
+      ResultSet s=GetStetment.statement.executeQuery("select ID_TAG from avoir where id_livre ='"+id_livre+"'");
+      Vector<String> tags = new Vector<>() ;
+      while(s.next()) {
+       
+        tags.add((s.getInt(1)+","));  
+       
+    }
+    return tags;
+
+  }
 }

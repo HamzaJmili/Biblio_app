@@ -11,7 +11,7 @@ public class Modele_etudiant {
     public static User checkEtudiant(String email,String mot_de_pass) {
      
       try {
-        System.out.println("kk");
+        
         ResultSet r=  GetStetment.statement.executeQuery("select * from etudiant where EMAIL_ETUDIANT='"+email+"'");
         
           while (r.next()) {
@@ -88,7 +88,7 @@ public class Modele_etudiant {
               
              GetStetment.statement.executeUpdate(query);}
              catch (SQLException e) {
-              System.out.println(e.getSQLState()+"\n"+e.getMessage());
+             
               e.printStackTrace();
             }
           }

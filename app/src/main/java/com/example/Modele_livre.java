@@ -5,13 +5,13 @@ import java.util.Vector;
 
 public class Modele_livre {
   public static int addLivre (int id_livre , String titre , String description , String couverture , int id_auteur , int nombre_de_page, int exemplaire) throws SQLException{
-    System.out.println("insert into livre values ("+id_livre+",'"+titre+"','"+description+"','"+couverture+"',"+id_auteur+","+nombre_de_page+","+exemplaire+")");
+   
     
     GetStetment.statement.executeQuery("insert into livre values ("+id_livre+",'"+titre+"','"+description+"','"+couverture+"',"+id_auteur+","+nombre_de_page+","+exemplaire+")");
 
     ResultSet s = GetStetment.statement.executeQuery("select ID_LIVRE from livre where couverture ='"+couverture+"'");
     s.next();
-    System.out.println(s.getInt(1));
+  
     return s.getInt(1);
     
   }
@@ -71,7 +71,7 @@ public class Modele_livre {
     public static int selectMaxId() throws SQLException{
       ResultSet s = GetStetment.statement.executeQuery("select MAX(id_livre) from livre");
       s.next();
-    System.out.println(s.getInt(1));
+   
     return s.getInt(1);
     }
 
@@ -85,7 +85,7 @@ public class Modele_livre {
     public static int getlikes(int id_livre) throws SQLException{
       ResultSet s = GetStetment.statement.executeQuery("select count(*) from favoris where id_livre = "+id_livre);
       s.next();
-    System.out.println(s.getInt(1));
+   
     return s.getInt(1);
 
     }
