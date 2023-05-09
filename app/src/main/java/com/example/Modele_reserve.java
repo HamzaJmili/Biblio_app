@@ -42,9 +42,9 @@ public class Modele_reserve {
                   // LocalDateTime dateFin = LocalDateTime.parse(endDate , formatter); // Convert "date_fin" string to LocalDateTime object
                   // LocalDateTime now = LocalDateTime.now();
                   // id_current_book= now.isBefore(dateFin) ? id : 0  ;
-                  // System.out.println(id_current_book);
+                 
                   Map<String, Object> reservedBook = new HashMap<>();
-                  // System.out.println(getTitre(id));
+                 
                   reservedBook.put("titre",id);
                   reservedBook.put("startDate", startDate);
                   reservedBook.put("endDate", endDate);
@@ -87,14 +87,14 @@ return   id==0 ? s : Modele_livre.getBook(id).getTitre() ;
 
 //            public static String getTitre(int id ) throws SQLException{ 
 //   String titre=" " ;
-//   System.out.println(id);
+//
 //    try {ResultSet r3 = GetStetment.statement.executeQuery("SELECT titre FROM livre WHERE id_livre = '"+id+"'"); 
 //   while(r3.next()){
 
 //      titre=r3.getString(1);
-//      System.out.println(titre);
+//      
 //   } } catch( Exception e ) {
-//     System.out.println("Erreur"+e);
+//    
 //   }
 //   return titre ;
   
@@ -115,7 +115,7 @@ public static String getTitre(Object object) throws SQLException {
       r3.close(); // close the result set after retrieving data
     }
   } catch (Exception e) {
-    System.out.println("Erreur" + e);
+   
   }
 
   return titre;

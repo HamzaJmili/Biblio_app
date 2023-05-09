@@ -84,8 +84,15 @@ public class AddLivreController {
         selectedfile.renameTo(f); 
           // add the books in the books database  
           Vector<Integer> liste_des_id= Modele_tag.addtags(tags.getText().toUpperCase());
+          String title_spaced = titre.getText().replace("'", "''");
+          String description_spaced = description.getText().replace("'", "''");
+          if (description_spaced.length()>=801){
+            description_spaced = description_spaced.substring(0,800);
+         }
           
-        int id_livre =Modele_livre.addLivre(1, titre.getText(), description.getText(), f.getName(), Integer.parseInt(comboBox.getSelectionModel().selectedItemProperty().getValue().split("-")[0]),Integer.parseInt(pages.getText()),Integer.parseInt(exemplaire.getText()) );
+        
+          
+        int id_livre =Modele_livre.addLivre(1, title_spaced, description_spaced, f.getName(), Integer.parseInt(comboBox.getSelectionModel().selectedItemProperty().getValue().split("-")[0]),Integer.parseInt(pages.getText()),Integer.parseInt(exemplaire.getText()) );
         for (Integer id_tag : liste_des_id) {
                if(Model_livreAvoirTag.insertIntoAvoir(id_livre, id_tag));
         }

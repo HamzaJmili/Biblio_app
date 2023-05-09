@@ -9,7 +9,7 @@ public class Model_livreAvoirTag {
         ResultSet r = GetStetment.statement.executeQuery("insert into avoir values ("+id_tag+","+id_livre+")");
         return true;
         }catch(SQLException e){
-            System.out.println("error inserting into avoir");
+         
             return false;
         }
     }
