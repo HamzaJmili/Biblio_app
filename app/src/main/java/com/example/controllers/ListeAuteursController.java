@@ -92,7 +92,7 @@ for(int i=0 ; i < auteurs.size() ; i++) {
                   
 
 
-    id.setText(""+auteurs.get(i).getId_auteur());
+    id.setText("id"+auteurs.get(i).getId_auteur());
     nom.setText(auteurs.get(i).getNom_auteur());
     prenom.setText(auteurs.get(i).getPrenom_auteur());
     bio.setText(auteurs.get(i).getBio_auteur());
