@@ -52,6 +52,11 @@ public  class Modele_cmnt {
       return null;
         
       }
+      public static void supprimer_commentaire(int id_commentaire) throws SQLException{
+        GetStetment.statement.executeQuery("delete from commentaire where ID_COMMENTAIRE = '"+id_commentaire+"'");
+        System.out.println("deleted");
+
+      }
       
 
   }

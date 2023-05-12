@@ -178,7 +178,30 @@ for (Commentaire commentaire : listeofcmnts) {
         texteLabel1.setLayoutY(12);
         texteLabel1.setLayoutX(commentaire_auteur.getText().length()*7+10);
         texteLabel1.setFont(Font.font("System", FontWeight.NORMAL, 10));
+
         carteofcomment.getChildren().add(texteLabel1);
+       
+        if(Session.id_utiliasteur.compareTo(commentaire.getCne())==0){
+        // create botton delete 
+        Label delete = new Label("Supprimer");
+        delete.setLayoutY(10);
+        delete.setLayoutX(520);
+        delete.setCursor(Cursor.HAND);
+        delete.setStyle("-fx-text-fill:#780B0B;");
+        delete.setOnMouseClicked(e->{
+            try {
+                Modele_cmnt.deletecmnt(commentaire.getId_commentaire());
+                App.setRoot(reserver.getScene(), "BookProfile");
+            } catch (SQLException e1) {
+               System.out.println(e1.getSQLState());
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+            
+        });
+        carteofcomment.getChildren().add(delete);
+    }
 
 
 
