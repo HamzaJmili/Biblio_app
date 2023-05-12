@@ -36,19 +36,18 @@ public class NewEtudiantsController {
   
     @FXML
     VBox Vbox ;
-
+   
     @FXML TextField find_field;
     public static String cni =null;
-    Etudiant Etudiant = null ;
     public static String s =null ;
-  
-        
         
     
     @FXML
     protected void initialize () throws SQLException{
-    
-         
+        
+     
+
+
 loadList(Modele_etudiant.getEdutiants());
 
 
@@ -56,24 +55,6 @@ loadList(Modele_etudiant.getEdutiants());
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// Button viewIcon = new Button();
-
-              
-
-
-
-                // viewIcon.setId();
             
     }
 
@@ -86,29 +67,35 @@ loadList(Modele_etudiant.getEdutiants());
         Label filiere = new Label() ;
         Label email = new Label() ;
         Label telephone = new Label() ;
-         // Button viewIcon = new Button();
+   
         cne.setText(etudiants.get(i).getCne());
         nom.setText(etudiants.get(i).getNom_user());
         prenom.setText(etudiants.get(i).getPrenom_user());
         email.setText(etudiants.get(i).getEmail_user());
         telephone.setText(etudiants.get(i).getTelephone());
         filiere.setText(etudiants.get(i).getFiliere());
-
-
+        Image image  = new Image(getClass().getResource("/com/example/icons/eye1.png").toExternalForm()); 
+        ImageView viewIcon = new ImageView(image);
+        viewIcon.setFitWidth(35);
+        viewIcon.setFitHeight(35);
+        viewIcon.setId(etudiants.get(i).getCne());
+       
+       
 
         cne.setLayoutX(30);
         cne.setLayoutY(10);
-        nom.setLayoutX(200);
+        nom.setLayoutX(150);
         nom.setLayoutY(10);
-        prenom.setLayoutX(300);
+        prenom.setLayoutX(250);
         prenom.setLayoutY(10);
-        filiere.setLayoutX(400);
+        filiere.setLayoutX(385);
         filiere.setLayoutY(10);
-        telephone.setLayoutX(450);
+        telephone.setLayoutX(485);
         telephone.setLayoutY(10);
         email.setLayoutX(670);
         email.setLayoutY(10);
-        // viewIcon.setLayoutX(i);
+        viewIcon.setLayoutX(1000);
+        viewIcon.setLayoutY(10);
         
         cne.getStylesheets().add(App.class.getResource("views/style.css").toExternalForm());
         cne.getStyleClass().add("textofcarte_admin");
@@ -134,10 +121,10 @@ loadList(Modele_etudiant.getEdutiants());
         pane.getChildren().add(filiere);
         pane.getChildren().add(email);
         pane.getChildren().add(telephone);
-        // pane.getChildren().add(viewIcon);    
+        pane.getChildren().add(viewIcon);    
 
         pane.setPrefHeight(45);
-        pane.setPrefWidth(140) ;
+        // pane.setPrefWidth(200) ;
         pane.setStyle("-fx-background-color:white;") ;
         Insets margins = new Insets(5,10,10,10);
         Vbox.setPrefHeight(Vbox.getPrefHeight()+100);
@@ -145,7 +132,37 @@ loadList(Modele_etudiant.getEdutiants());
        pane.getStyleClass().add("carte_livre_admin");
         Vbox.getChildren().add(pane);
         Vbox.setMargin(pane, margins);
+        viewIcon.setOnMouseClicked((MouseEvent event) -> {
+    
+   
+            s= viewIcon.getId();
+            System.out.println("      "+s);
+            Stage stage =new Stage();
+            Scene scene4=null ;
+            try {
+                scene4 = new Scene(App.loadFXML("EtudiantProfil"));
+        
+            } catch (IOException e) {
+                
+                e.printStackTrace();
+            }
+             
+           
+              stage.setScene(scene4);
+              stage.setResizable(false);
+             stage.initStyle(StageStyle.UNDECORATED);
+              stage.show();
+            
+            
+           
+        
+        
+        });
     }
+    
+
+
+
     
 
    } 

@@ -45,10 +45,10 @@ public class EtudiantProfilController {
     TableColumn<Map<String, Object>,String> date_debut;
     @FXML
     TableColumn<Map<String, Object>,String> date_fin;
-    final Etudiant etu=Modele_etudiant.getProfileEtudiant(EtudiantsController.s);
+    final Etudiant etu=Modele_etudiant.getProfileEtudiant(NewEtudiantsController.s);
     public void loadData2() throws SQLException {
 
-        List<Map<String, Object>> reservedBooksList = Modele_reserve.getReservedBooks(EtudiantsController.s);
+        List<Map<String, Object>> reservedBooksList = Modele_reserve.getReservedBooks(NewEtudiantsController.s);
         ObservableList<Map<String, Object>> reservedBooks = FXCollections.observableArrayList(reservedBooksList);
          i++ ;
         listeLivres.setItems(reservedBooks);
@@ -109,7 +109,7 @@ date_fin.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getVa
  @FXML 
  public void confirmerLivreRendu() throws SQLException {
     Modele_reserve.ConfirmerLivreRendu(etu.getCne()) ; 
-    System.out.println("Confirmer rendu livre : "+etu.getCne());
+    System.out.println("Confirmer rendu livre :  "+etu.getCne());
  }
 
 

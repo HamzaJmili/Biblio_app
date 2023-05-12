@@ -96,7 +96,14 @@
     -fx-stroke: #000000;
     -fx-stroke-width: 1.1px;
 }  
-
+.outline2.label .text {
+    -fx-font-weight:bold;
+    -fx-font-style:italic;
+    -fx-font-size: 17px;
+    -fx-fill: #E38B29;
+    -fx-stroke: #000000;
+    -fx-stroke-width: 1.1px;
+}  
 
 .pane_1{
     -fx-border-style: solid; 
