@@ -95,7 +95,7 @@ void gotoaide() throws IOException{
 void gotoAuteurs() throws IOException{
     
     leftbarController.button_selected='U';
-    App.setRoot(dashboard.getScene(),"listeauteur");
+    App.setRoot(dashboard.getScene(),"NewListAuteur");
 }
 @FXML
 void decon() throws IOException{

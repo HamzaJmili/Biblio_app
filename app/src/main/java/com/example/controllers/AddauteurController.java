@@ -2,6 +2,8 @@ package com.example.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
+import com.example.App;
 import com.example.Modele_auteur;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,6 +33,7 @@ public class AddauteurController {
      public void valider() throws IOException, SQLException{
         Modele_auteur.insert_into_auteur(nom.getText(), prenom.getText(),  bioo.getText());
                 ((Stage) annuler.getScene().getWindow()).close(); 
+                
                
         
     }
