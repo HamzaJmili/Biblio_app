@@ -4,16 +4,24 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="386.0" style="-fx-background-color: black;" stylesheets="@../../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ReserverController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="458.0" style="-fx-background-color: #222222;" stylesheets="@../../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ReserverController">
    <children>
-      <AnchorPane layoutY="2.0" minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="386.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="4.0" layoutY="6.0" minHeight="0.0" minWidth="0.0" prefHeight="246.0" prefWidth="449.0" style="-fx-background-color: #222222;">
          <children>
-            <DatePicker fx:id="date_fin" layoutX="131.0" layoutY="93.0" />
-            <Label layoutX="73.0" layoutY="97.0" text="date fin" />
-            <Button layoutX="312.0" layoutY="152.0" mnemonicParsing="false" onAction="#submit" text="valider" />
-            <Button fx:id="annuler" layoutX="251.0" layoutY="152.0" mnemonicParsing="false" onAction="#annuler" text="annuler" />
-            <Label fx:id="title" layoutX="156.0" layoutY="35.0" text="reserver" />
+            <DatePicker fx:id="date_fin" layoutX="170.0" layoutY="111.0" style="-fx-background-color: #E38B29;" />
+            <Button layoutX="253.0" layoutY="200.0" mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="56.0" styleClass="connecter" text="valider"  style="-fx-font-weight: bold;" />
+            <Button fx:id="annuler" layoutX="353.0" layoutY="200.0" mnemonicParsing="false" onAction="#annuler" styleClass="connecter" text="annuler"  style="-fx-font-weight: bold;"  />
+            <Label fx:id="title" layoutX="23.0" layoutY="39.0" prefHeight="35.0" prefWidth="386.0" text="Choisissez la date de rendu du livre" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+            <Label fx:id="title1" layoutX="23.0" layoutY="111.0" prefHeight="25.0" prefWidth="136.0" text="Date de rendre :" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
